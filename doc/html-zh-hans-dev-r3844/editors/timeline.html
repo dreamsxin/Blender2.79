@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>时间线编辑器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/timeline.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Blender Manual" href="../index.html"/>
+        <link rel="up" title="编辑器" href="index.html"/>
+        <link rel="next" title="曲线编辑器" href="graph_editor/index.html"/>
+        <link rel="prev" title="Background Images" href="3dview/properties/background_images.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">编辑器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#animation">动画</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">时间线编辑器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-view">Main View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header">Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="graph_editor/index.html">曲线编辑器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dope_sheet/index.html">动画摄影表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nla/index.html">NLA编辑器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#image-video">图像/视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#nodes-logic">节点/逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#settings">设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#other">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">编辑器</a> &raquo;</li>
+        
+      <li>时间线编辑器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/editors/timeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="timeline-editor">
+<span id="bpy-ops-time"></span><span id="bpy-types-spacetimeline"></span><h1>时间线编辑器<a class="headerlink" href="#timeline-editor" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Timeline</em> editor, identified by a clock icon, is not much of an editor,
+but more used to view information and control animation playback.</p>
+<div class="figure" id="id1">
+<img alt="../_images/editors_timeline_interface.png" src="../_images/editors_timeline_interface.png" />
+<p class="caption"><span class="caption-text">时间线。</span></p>
+</div>
+<p>The <em>Timeline</em> is one of an animator's most useful tools as it can give a broad overview of a scene's animation.
+The Timeline can communicate the current time frame, either in frames or in seconds,
+where are the keyframes of the active object, the start and end frames of your animation, markers, etc.</p>
+<p>时间线窗口有播放控制控件以控制动画的播放，暂停以及快速进退。</p>
+<p>时间线也有针对关键帧，关键帧组以及标记符的实用工具。</p>
+<div class="section" id="main-view">
+<h2>Main View<a class="headerlink" href="#main-view" title="Permalink to this headline">¶</a></h2>
+<p>The main <em>Timeline</em> region displays the animation frames over time.</p>
+<div class="figure" id="id2">
+<img alt="../_images/editors_timeline_main.png" src="../_images/editors_timeline_main.png" />
+<p class="caption"><span class="caption-text">Timeline Main Area.</span></p>
+</div>
+<div class="section" id="adjusting-the-view">
+<h3>调整视图<a class="headerlink" href="#adjusting-the-view" title="Permalink to this headline">¶</a></h3>
+<p>时间线能够按住[鼠标中键]左右平移。</p>
+<p>You can zoom the <em>Timeline</em> by using <code class="kbd docutils literal"><span class="pre">Ctrl-MMB</span></code>, the mouse <code class="kbd docutils literal"><span class="pre">Wheel</span></code>,
+or pressing <code class="kbd docutils literal"><span class="pre">NumpadMinus</span></code> and <code class="kbd docutils literal"><span class="pre">NumpadPlus</span></code>.</p>
+</div>
+<div class="section" id="time-cursor">
+<h3>时间指点标<a class="headerlink" href="#time-cursor" title="Permalink to this headline">¶</a></h3>
+<p>The <em>Time Cursor</em> is the green line, it is used to set and display the current time frame.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/editors_timeline_cursor.png" src="../_images/editors_timeline_cursor.png" />
+<p class="caption"><span class="caption-text">Time Cursor.</span></p>
+</div>
+<p>The <em>Time Cursor</em> can be set or moved to a new position by pressing or holding
+<code class="kbd docutils literal"><span class="pre">LMB</span></code> in the Timeline editor.</p>
+<p>当前帧或者秒数能在时间指点标右下方显示出来，在“显示”菜单能看见相应设置。</p>
+<p>时间指点标能够步进移动，试用[左箭头][右箭头]即可，或者按下[SHIFT]+[上箭头]、[SHIFT]+[下箭头]每十格一步移动。</p>
+</div>
+<div class="section" id="playback-rendering-range">
+<h3>Playback/Rendering Range<a class="headerlink" href="#playback-rendering-range" title="Permalink to this headline">¶</a></h3>
+<p>默认情况下，回放/渲染范围（这里是1到200帧）是用浅灰色表示的。按下[S]、[E]键可以设置开始和结束帧。回放区域能在按下[P]之后画一个框来设置。</p>
+</div>
+<div class="section" id="keyframes">
+<h3>关键帧<a class="headerlink" href="#keyframes" title="Permalink to this headline">¶</a></h3>
+<p>For the active and selected objects, keyframes are displayed as a yellow line.
+For <em>Armatures</em>, the object keyframes and the pose bones keyframes are drawn.</p>
+<p><em>Only Selected Channels</em> can be enabled. <span class="menuselection">Timeline ‣ View ‣ Only Selected Channels</span>.
+For <em>Armatures</em>, this will draw the object keyframes,
+and the keyframes for the active and selected pose bones.</p>
+</div>
+<div class="section" id="markers">
+<h3>标记符<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h3>
+<p>Markers are the small triangles, with their name near them.
+Markers are usually used to identify key parts of the animation.</p>
+<div class="figure" id="id4">
+<img alt="../_images/animation_markers_standard.png" src="../_images/animation_markers_standard.png" />
+<p class="caption"><span class="caption-text">Markers.</span></p>
+</div>
+<p>See the <a class="reference internal" href="../animation/markers.html"><span class="doc">Markers page</span></a> for more information.</p>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="menus">
+<h3>Menus<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="view-menu">
+<span id="timeline-view-menu"></span><h4>视图菜单<a class="headerlink" href="#view-menu" title="Permalink to this headline">¶</a></h4>
+<p>视图菜单控制着你看到的一切，以及他们的样式。</p>
+<dl class="docutils">
+<dt>Show Seconds <code class="kbd docutils literal"><span class="pre">Ctrl-T</span></code></dt>
+<dd>Whether to show the time in the X-axis and the <em>Time Cursor</em> as
+frames (based on the FPS) or as seconds.</dd>
+<dt>Lock Time to Other Windows</dt>
+<dd>ToDo.</dd>
+<dt>显示帧数指示器</dt>
+<dd>这能在当前帧的绿色线条下画出当前帧的帧数或者秒数</dd>
+<dt>Only Keyframes from Selected Channels</dt>
+<dd>对于骨骼，这就会仅保留对象关键帧和姿态模式下选择的骨头的关键帧。</dd>
+<dt>缓存</dt>
+<dd><dl class="first docutils">
+<dt>显示缓存</dt>
+<dd><p class="first">显示所有启用的缓存类型。</p>
+<p class="last">Softbody, Particles, Cloth, Smoke, Dynamic Paint, Rigid Body.</p>
+</dd>
+</dl>
+<div class="last figure" id="id5">
+<img alt="../_images/editors_timeline_cache.png" src="../_images/editors_timeline_cache.png" />
+<p class="caption"><span class="caption-text">Timeline Cache.</span></p>
+</div>
+</dd>
+<dt>View All <code class="kbd docutils literal"><span class="pre">Home</span></code></dt>
+<dd>Maximize the area based on the Animation Range.</dd>
+<dt>View Frame <code class="kbd docutils literal"><span class="pre">Numpad0</span></code></dt>
+<dd>Centers the Timeline to the Time cursor.</dd>
+<dt>Bind Camera to Markers <code class="kbd docutils literal"><span class="pre">Ctrl-B</span></code></dt>
+<dd>This is used switch cameras during animation.
+It binds the active camera to the selected markers.
+First select a camera. Then select the marker(s). Then use the function.</dd>
+</dl>
+</div>
+<div class="section" id="marker-menu">
+<h4>标记符菜单<a class="headerlink" href="#marker-menu" title="Permalink to this headline">¶</a></h4>
+<p>See the <a class="reference internal" href="../animation/markers.html"><span class="doc">Markers page</span></a> for more information.</p>
+</div>
+<div class="section" id="frame-menu">
+<h4>帧菜单<a class="headerlink" href="#frame-menu" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>自动插入关键帧模式</dt>
+<dd><p class="first">控制自动插入关键帧模式的运行。每个时刻只能用一种模式。</p>
+<dl class="last docutils">
+<dt>添加&amp;替换</dt>
+<dd>添加或者替换已有关键帧</dd>
+<dt>替换</dt>
+<dd>仅替换已有的关键帧</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="playback-menu">
+<span id="timeline-playback"></span><h4>回放菜单<a class="headerlink" href="#playback-menu" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Top-Left 3D Editor</dt>
+<dd>While playing, updates the Timeline, if Animation Editors and All 3D View Editors disabled.</dd>
+<dt>All 3D View Editors</dt>
+<dd>While playing, updates the 3D View and the Timeline.</dd>
+<dt>Animation Editors</dt>
+<dd>While playing, updates the Timeline, Dope Sheet, Graph Editor, Video Sequence Editor.</dd>
+<dt>Property Editors</dt>
+<dd>When the animation is playing, this will update the property values in the UI.</dd>
+<dt>图像编辑器</dt>
+<dd>The UV/Image editor in Mask mode.</dd>
+<dt>Sequencer Editors</dt>
+<dd>While playing, updates the Video Sequence Editor.</dd>
+<dt>Node Editors</dt>
+<dd>While playing, updates the Node properties for the Node Editor.</dd>
+<dt>Clip Editors</dt>
+<dd>While playing, updates the Movie Clip Editor.</dd>
+<dt>Follow</dt>
+<dd>Animation editors can be setup to always follow the time indicator as animation is being played back.
+Following will be done when animating and changing frame.</dd>
+<dt>帧优化</dt>
+<dd>Play back dropping frames if frame display is too slow.</dd>
+<dt>音视频同步</dt>
+<dd>Play back and sync with audio clock, dropping frames if frame display is too slow.
+See <a class="reference internal" href="#synchronize-playback">Synchronize Playback</a> for more info.</dd>
+<dt>Audio Muted</dt>
+<dd>Mute the sound from Sequence Editors.</dd>
+<dt>Audio Scrubbing</dt>
+<dd>If your animation has sound, this option plays bits of the sound wave
+while you move the time cursor with <code class="kbd docutils literal"><span class="pre">LMB</span></code> or keyboard arrows (like a moving playhead) .</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="header-controls">
+<span id="animation-editors-timeline-headercontrols"></span><h3>标题栏控制钮<a class="headerlink" href="#header-controls" title="Permalink to this headline">¶</a></h3>
+<p>标题栏控制钮</p>
+<div class="figure" id="id6">
+<img alt="../_images/editors_timeline_header.png" src="../_images/editors_timeline_header.png" />
+<p class="caption"><span class="caption-text">标题栏控制钮</span></p>
+<div class="legend">
+1. Range Control, 2. Frame Control, 3. Player Control,
+4. Synchronize Playback, 5. Keyframe Control.</div>
+</div>
+<div class="section" id="range-control">
+<h4>Range Control<a class="headerlink" href="#range-control" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Use Preview Range (clock icon)</dt>
+<dd>This is an alternative range used to preview animations.
+This works for the UI playback, this will not work for rendering an animation.
+See <a class="reference internal" href="graph_editor/introduction.html#graph-preview-range"><span class="std std-ref">Preview Range</span></a>.</dd>
+<dt>Lock Time Cursor to Playback Range (padlock icon)</dt>
+<dd>This limits the <em>Time Cursor</em> to the <em>Playback Range</em>.</dd>
+</dl>
+</div>
+<div class="section" id="frame-control">
+<h4>Frame Control<a class="headerlink" href="#frame-control" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>起始帧</dt>
+<dd>The start frame of the animation/playback range.</dd>
+<dt>结束帧</dt>
+<dd>The end frame of the animation/playback range.</dd>
+<dt>Current Frame <code class="kbd docutils literal"><span class="pre">Alt-Wheel</span></code></dt>
+<dd>The current frame of the animation/playback range.
+Also the position of the <em>Time Cursor</em>.</dd>
+</dl>
+</div>
+<div class="section" id="player-control">
+<h4>Player Control<a class="headerlink" href="#player-control" title="Permalink to this headline">¶</a></h4>
+<p>These buttons are used to set, play, rewind, the <em>Time Cursor</em>.</p>
+<div class="figure align-right" id="id7">
+<img alt="../_images/editors_timeline_player-controls.png" src="../_images/editors_timeline_player-controls.png" />
+<p class="caption"><span class="caption-text">播放器控制。</span></p>
+</div>
+<dl class="docutils">
+<dt>Jump to start (⏮) <code class="kbd docutils literal"><span class="pre">Shift-Ctrl-Down</span></code>, <code class="kbd docutils literal"><span class="pre">Shift-Left</span></code></dt>
+<dd>This sets the cursor to the start of frame range.</dd>
+<dt>Jump to previous keyframe (⏪) <code class="kbd docutils literal"><span class="pre">Down</span></code></dt>
+<dd>This sets the cursor to the previous keyframe.</dd>
+<dt>Rewind (◀) <code class="kbd docutils literal"><span class="pre">Shift-Alt-A</span></code></dt>
+<dd>This plays the animation sequence in reverse.
+When playing the play buttons switch to a pause button.</dd>
+<dt>Play (▶) <code class="kbd docutils literal"><span class="pre">Alt-A</span></code></dt>
+<dd>This plays the animation sequence.
+When playing the play buttons switch to a pause button.</dd>
+<dt>Jump to next keyframe (⏩) <code class="kbd docutils literal"><span class="pre">Up</span></code></dt>
+<dd>This sets the cursor to the next keyframe.</dd>
+<dt>Jump to end (⏭) <code class="kbd docutils literal"><span class="pre">Shift-Ctrl-Up</span></code>, <code class="kbd docutils literal"><span class="pre">Shift-Right</span></code></dt>
+<dd>This sets the cursor to the end of frame range.</dd>
+<dt>Pause (⏸) <code class="kbd docutils literal"><span class="pre">Alt-A</span></code></dt>
+<dd>This stops the animation.</dd>
+</dl>
+</div>
+<div class="section" id="synchronize-playback">
+<h4>Synchronize Playback<a class="headerlink" href="#synchronize-playback" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-right" id="id8" style="width: 109px">
+<img alt="../_images/editors_timeline_red-fps.png" src="../_images/editors_timeline_red-fps.png" />
+<p class="caption"><span class="caption-text">3D View Red FPS.</span></p>
+<div class="legend">
+60:54.75</div>
+</div>
+<p>When you play an animation, the FPS is displayed at the top left of the 3D View.
+If the scene is detailed and playback is slower than the set
+<em>Frame Rate</em> (see <a class="reference internal" href="../render/output/output.html#render-tab-dimensions"><span class="std std-ref">Dimensions Panel</span></a>,
+these options are used to synchronize the playback.</p>
+<dl class="docutils">
+<dt>无同步</dt>
+<dd>Do not sync, play every frame.</dd>
+<dt>帧优化</dt>
+<dd>Drop frames if playback is too slow.
+This enables <em>Frame Dropping</em> from the <em>Playback Menu</em>.</dd>
+<dt>音视频同步</dt>
+<dd>(Audio Video Synchronization). Sync to audio clock, dropping frames if playback is slow.
+This enables <em>AV-sync</em> and <em>Frame Dropping</em> from the <em>Playback Menu</em>.</dd>
+</dl>
+</div>
+<div class="section" id="keyframe-control">
+<span id="animation-editors-timeline-autokeyframe"></span><h4>Keyframe Control<a class="headerlink" href="#keyframe-control" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>自动关键帧</dt>
+<dd><div class="first figure align-right" id="id9">
+<img alt="../_images/editors_timeline_keyframes-auto.png" src="../_images/editors_timeline_keyframes-auto.png" />
+<p class="caption"><span class="caption-text">Timeline Auto Keyframe.</span></p>
+</div>
+<p>The &quot;Record&quot; red-dot button enables something called <em>Auto Keyframe</em>:
+It will add and/or replace existing keyframes for the active object when you transform it in the 3D View.</p>
+<p>For example, when enabled, first set the <em>Time Cursor</em> to the desired frame,
+then move an object in the 3D View, or set a new value for a property in the UI.</p>
+<p>When you set a new value for the properties,
+Blender will add keyframes on the current frame for the transform properties.
+Other use cases are <a class="reference internal" href="3dview/navigate/walk_fly.html#dview-walk-fly"><span class="std std-ref">Fly/Walk Mode</span></a> to record the walk/flight path
+and <a class="reference internal" href="3dview/properties/panels.html#dview-lock-camera-to-view"><span class="std std-ref">Lock Camera to View</span></a> to record the navigation in camera view.</p>
+<dl class="docutils">
+<dt>Auto Keying Set (red record icon)</dt>
+<dd>When enabled <em>Auto Keyframe</em> will insert new keyframes for the properties in the active <em>Keying Set</em>.</dd>
+<dt>Layered (two keys icon)</dt>
+<dd>Adds a new NLA Track and strip for every loop/pass made over the animation to allow non-destructive tweaking.</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that <em>Auto Keyframe</em> only works for transform properties (objects and bones),
+in the 3D Views (i.e. you can't use it e.g. to animate the colors of a material in the Properties editor...).</p>
+</div>
+</dd>
+<dt>Keyframe Type</dt>
+<dd><a class="reference internal" href="../animation/keyframes/introduction.html#keyframe-type"><span class="std std-ref">关键帧的类型</span></a> on insertion.</dd>
+<dt>主控关键帧组</dt>
+<dd><div class="first figure align-right" id="id10">
+<img alt="../_images/editors_timeline_keying-sets.png" src="../_images/editors_timeline_keying-sets.png" />
+<p class="caption"><span class="caption-text">时间线关键帧组</span></p>
+</div>
+<p><em>Keying Sets</em> are a set of keyframe channels in one.
+They are made so the user can record multiple properties at the same time.
+With a keying set selected, when you insert a keyframe,
+Blender will add keyframes for the properties in the active <em>Keying Set</em>.
+There are some built in keying sets, <em>LocRotScale</em>, and also custom keying sets.
+Custom keying sets can be defined in the panels
+<span class="menuselection">Properties ‣ Scene ‣ Keying Sets + Active Keying Set</span>.</p>
+<dl class="last docutils">
+<dt>Insert Keyframes (key icon)</dt>
+<dd>在当前帧插入当前关键帧组所中包含属性的关键帧。</dd>
+<dt>Delete Keyframes (striked through key icon)</dt>
+<dd>在当前帧删除当前关键帧组所中包含属性的关键帧。</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graph_editor/index.html" class="btn btn-neutral float-right" title="曲线编辑器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3dview/properties/background_images.html" class="btn btn-neutral" title="Background Images" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

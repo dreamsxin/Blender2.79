@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>网格变形修改器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/deform/mesh_deform.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="修改器" href="../index.html"/>
+        <link rel="next" title="收缩环绕修改器" href="shrinkwrap.html"/>
+        <link rel="prev" title="晶格修改器" href="lattice.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">修改器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">修改</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">生成</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#deform">形变</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="armature.html">骨架修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cast.html">铸型修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="corrective_smooth.html">平滑矫正修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="curve.html">曲线修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displace.html">置换修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hooks.html">钩挂修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_smooth.html">拉普拉斯平滑修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_deform.html">拉普拉斯变形修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lattice.html">晶格修改器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">网格变形修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">收缩环绕修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simple_deform.html">简单变形修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smooth.html">平滑修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_deform.html">表面变形修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="warp.html">弯曲环绕修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wave.html">波浪修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">模拟</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">修改器</a> &raquo;</li>
+        
+      <li>网格变形修改器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/deform/mesh_deform.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mesh-deform-modifier">
+<span id="bpy-types-meshdeformmodifier"></span><h1>网格变形修改器<a class="headerlink" href="#mesh-deform-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Mesh Deform Modifier allows an arbitrary mesh (of any closed shape)
+to act as a deformation cage around another mesh.</p>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_deform_mesh-deform_panel.png" src="../../../_images/modeling_modifiers_deform_mesh-deform_panel.png" />
+<p class="caption"><span class="caption-text">Mesh Deform Modifier.</span></p>
+</div>
+<p>The Mesh Deform Modifier is reasonably easy to use but it can be very slow to do
+the calculations needed to properly map the deform mesh cage to the deformed object.</p>
+<dl class="docutils">
+<dt>物体</dt>
+<dd>用作变形网格笼的网格物体名称</dd>
+<dt>顶点组</dt>
+<dd>An optional vertex group of the object's mesh to restrict the vertices that
+will be affected by this modifier.
+Vertices not in this group will not be deformed.</dd>
+<dt>Invert <code class="docutils literal"><span class="pre">&lt;-&gt;</span></code></dt>
+<dd><p class="first">Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p class="last">(The setting reverses the weight values of the group).</p>
+</dd>
+<dt>精度</dt>
+<dd><p class="first">The <em>Precision</em> number button controls the accuracy with which the
+deform mesh cage alters the deformed object, when the points on the cage are moved.
+Raising this value higher can greatly increase the time it takes
+the Mesh Deform Modifier to complete its binding calculations,
+but it will get more accurate cage mapping to the deformed object.</p>
+<p class="last">设置在笼被绑定后不可用。</p>
+</dd>
+<dt>动态</dt>
+<dd><p class="first">激活后，其他修改网格的特征（例如其他修改器和形变键）在绑定的时候也会考虑进来，提升变形质量。</p>
+<p class="last">The setting is deactivated by default to save memory and processing time when binding.
+Like with <em>Precision</em>, this setting is unavailable once a cage has been bound.</p>
+</dd>
+<dt>绑定</dt>
+<dd><p class="first">Links the current vertex positions of both the modified geometry and the deformer <em>Object</em> chosen together.
+An unbound Mesh Deform Modifier has no effect --
+it must be bound so that altering the shape of the deform mesh cage
+actually alters the shape of the modified object.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Depending on the settings of the Mesh Deform Modifier and complexity of the deform mesh cage and/or
+deformed object, it can take a long time for this operation to complete.
+This can result in Blender not responding to user's actions until it has completed.</p>
+<p>很可能出现 Blender 软件耗尽内存，然后崩溃掉。</p>
+<p class="last">To be safe, save your blend-file before proceeding!</p>
+</div>
+</dd>
+<dt>解除绑定</dt>
+<dd><p class="first">当一个变形物体已经关联上一个变形网格笼，稍后可以通过点击解 <em>解除绑定</em> 按钮（就是换字后的 <em>绑定</em> 按钮）来解除关联。当 <em>解除绑定</em> 点击后，<em>形变网格笼</em> 会保持当前的形状，它不会重置自己到初始的形状。</p>
+<p>如果你需要它的初始形状，你需要在改之前存一个备份。</p>
+<p class="last">The deformed object will, however, reset back to its original shape that it had
+before it was bound to the deform mesh cage.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Significant changes to the entire change mesh <em>(such as rotating the cage upside down)</em>
+can cause noticeable artifacts.</p>
+<p class="last">These can be reduced by binding with a higher <em>Precision</em>,
+however, it is a known limitation with this modifier and cannot be avoided entirely.</p>
+</div>
+</div>
+<div class="section" id="hints">
+<h2>提示<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>保证笼网格上的法线指向外面，它们用来决定笼子的里与外。</li>
+<li>除了最外面的笼子，笼子（松散的或构成其他较小的笼子）里更多的的面可以用作额外的控制。小笼也可以与大笼重叠，例如，为了获取眼部额外的控制，两个小球构成的笼可以加载它们周围。</li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>The <a class="reference internal" href="lattice.html"><span class="doc">Lattice Modifier</span></a>.</li>
+<li><a class="reference external" href="http://graphics.pixar.com/library/HarmonicCoordinatesB/">Original paper</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shrinkwrap.html" class="btn btn-neutral float-right" title="收缩环绕修改器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lattice.html" class="btn btn-neutral" title="晶格修改器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

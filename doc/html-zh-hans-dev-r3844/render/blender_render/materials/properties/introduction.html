@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>简介 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/properties/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../index.html"/>
+        <link rel="up" title="材质属性" href="index.html"/>
+        <link rel="next" title="预览" href="preview.html"/>
+        <link rel="prev" title="材质属性" href="index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">材质</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">材质面板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">指定材质</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">材质属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">纹理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender渲染引擎</a> &raquo;</li>
+        
+          <li><a href="../index.html">材质</a> &raquo;</li>
+        
+          <li><a href="index.html">材质属性</a> &raquo;</li>
+        
+      <li>简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/properties/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>简介<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>材质可以有各种各样的属性。它是所有这些属性的组合，定义了材质的显示方式，以及使用该材质物体的渲染效果。可以在材质标签页上对应面板设置这些属性。</p>
+<p>记住，材质的外观受渲染方式(面, 线框, 体积和光晕)和所用渲染引擎(Blender, Cycles, 或 游戏)影响。使用Cycles引擎渲染的图像大多数属性只能使用节点系统控制。</p>
+<p>下面列出了Blender渲染器和游戏引擎中用到的各种属性面板，并简要介绍了其的范围。具体控制与设置请参考相关页面。</p>
+<dl class="docutils">
+<dt><a class="reference internal" href="preview.html"><span class="doc">预览</span></a></dt>
+<dd>当前材质映射至基础物体上的效果预览。</dd>
+<dt><a class="reference internal" href="diffuse_shaders.html"><span class="doc">漫射着色器</span></a></dt>
+<dd>材质的基础颜色，以及色散模型菜单。</dd>
+<dt><a class="reference internal" href="specular_shaders.html"><span class="doc">高光着色器</span></a></dt>
+<dd>反射的高亮：颜色、强度以及色散模型菜单。</dd>
+<dt><a class="reference internal" href="ramps.html"><span class="doc">色彩渐变</span></a></dt>
+<dd>在散射和高光着色器中基础颜色的变化方式。</dd>
+<dt><a class="reference internal" href="shading.html"><span class="doc">着色</span></a></dt>
+<dd>材质着色模型的各种特征属性。</dd>
+<dt><a class="reference internal" href="transparency.html"><span class="doc">透明</span></a></dt>
+<dd>光线可穿透物体的选项设置。</dd>
+<dt><a class="reference internal" href="mirror.html"><span class="doc">镜射</span></a></dt>
+<dd>(仅Blender渲染器): 材料的反射属性。</dd>
+<dt><a class="reference internal" href="subsurface_scattering.html"><span class="doc">次表面散射</span></a></dt>
+<dd>(仅Blender渲染器): 模拟半透明物体，光线穿透表面、在其中散射，并在其他位置射出表面。</dd>
+<dt><a class="reference internal" href="strands.html"><span class="doc">发股</span></a></dt>
+<dd>(仅Blender渲染器): 在表面覆盖头发、毛皮等时使用。</dd>
+<dt><a class="reference internal" href="options.html"><span class="doc">选项</span></a></dt>
+<dd>对物体着色和上色的各种选项。</dd>
+<dt><a class="reference internal" href="shadows.html"><span class="doc">阴影</span></a></dt>
+<dd>控制使用该材质的物体如何投射和接手阴影。</dd>
+<dt><a class="reference internal" href="../../../../game_engine/materials.html"><span class="doc">游戏设置</span></a></dt>
+<dd>(仅Blender渲染器): 游戏引擎中物体实时渲染的控制设置。</dd>
+</dl>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="preview.html" class="btn btn-neutral float-right" title="预览" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="材质属性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

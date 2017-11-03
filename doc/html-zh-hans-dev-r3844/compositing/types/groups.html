@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>群组节点 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/types/groups.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="合成" href="../index.html"/>
+        <link rel="next" title="布局类节点" href="layout/index.html"/>
+        <link rel="prev" title="Translate Node" href="distort/translate.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">合成</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties.html">属性</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#node-types">节点类型</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="input/index.html">输入类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="output/index.html">输出类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color/index.html">Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converter/index.html">转换器类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filter/index.html">Filter Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vector/index.html">矢量类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matte/index.html">遮片类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="distort/index.html">Distort Nodes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">群组节点</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#make-group">建立组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-group">编辑组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ungroup">解散组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-insert">群组插入</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#appending-node-groups">附加到节点组</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layout/index.html">布局类节点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成</a> &raquo;</li>
+        
+      <li>群组节点</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/compositing/types/groups.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-types-compositornodegroup"></span><div class="section" id="node-groups">
+<h1>群组节点<a class="headerlink" href="#node-groups" title="Permalink to this headline">¶</a></h1>
+<p>群组节点能够通过镜像和隐藏部分节点来简化节点树。材质和合成节点都可以进行群组。</p>
+<p>理论上讲，群组节点允许用户讲一批节点指定为一个 节点 <em>容器</em>，操作方式就像一个节点那样。群组节点的概念和编程中的函数有点类似。用户可以对群组节点反复使用，在文件内部我们称之为群组节点。为了区分，我们将外部附加到blender文件中的批量节点称之为“节点树”。</p>
+<p>举例来说，用户创建了一个材质，需要用到不同的漫反射颜色：红色塑料，绿色塑料。用户可以创建不同的单色材质拷贝，并连接各自的材质球，使之各自描述相应颜色特征的材质网络。如果需要编辑材质，可能用户需要在每种材质上都要重复进行相同参数的操作。一个比较好的方法是创建群组节点，仅仅把可变的输入部分单独列出来（比如漫反射颜色）。</p>
+<p>嵌套节点也是支持的，比如，一个节点组可以在另一个节点组中被插入或创建。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>递归</p>
+<p class="last">递归节点组是不建议在所有当前节点系统采用的，以防止死循环的情况发生。一个节点组不能包含它本身（或者另一个节点组不能包含此节点组）。</p>
+</div>
+<div class="section" id="make-group">
+<h2>建立组<a class="headerlink" href="#make-group" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:  所有模式</div>
+<div class="line">菜单: <span class="menuselection">群组 ‣ 建立组</span></div>
+<div class="line">热键: <code class="kbd docutils literal"><span class="pre">Ctrl-G</span></code></div>
+</div>
+</div>
+<p>创建一个群组节点，在节点编辑器中，选择用户想包括的节点，然后按下  <code class="kbd docutils literal"><span class="pre">Ctrl-G</span></code>， <span class="menuselection">添加 ‣群组 ‣ 建立组</span>。一个群组节点的标题栏是墨绿色的外观。所有选择的节点都被包含在群组节点内部。默认的群组节点名称是 “NodeGroup&quot;， &quot;NodeGroup.001&quot; 等。在群组节点的命名框中科院点击并修改为自己想要的群组名称。合理的对群组节点命名使该节点的功能可以清楚明晰，当blender文件彼此之间附加群组节点时，材质节点组或合成节点组是没有明显区分的。所以推荐使用一些自定义命名规则可以简单的对两种群组节点进行区分。</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>不仅在群组中适用（节点编辑器的所有模式）</p>
+<p>牢记一些原则，群组必须可以易于重复使用，并相对成为独立的组分。材质群组节点不应包括：</p>
+<dl class="last docutils">
+<dt>输入节点</dt>
+<dd>如果用户将一个源节点包括在群组节点中，结果是源节点回出现  <em>两次</em>：一次是在群组内部，一次是在群组外部连接到新的节点网络中。</dd>
+<dt>输出节点</dt>
+<dd>如果群组中包含输出节点，将不会有可以利用的输出连接端口供下游节点使用。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="edit-group">
+<h2>编辑组<a class="headerlink" href="#edit-group" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:  所有模式</div>
+<div class="line">菜单:     <span class="menuselection">节点 ‣ 编辑组</span></div>
+<div class="line">标题:   <span class="menuselection">转到父节点树</span></div>
+<div class="line">热键:   <code class="kbd docutils literal"><span class="pre">Tab</span></code>, <code class="kbd docutils literal"><span class="pre">Ctrl-Tab</span></code></div>
+</div>
+</div>
+<p>当一个群组节点被选择， <code class="kbd docutils literal"><span class="pre">Tab</span></code> 将延展此群组节点，并且其中包含的单独节点也将被显示。用户可以任意移动，单独操作独立节点的控制部分，重新延展节点等等。就像它们是正常编辑视图的其中一部分。虽然用户不能将内部的独立节点延展到群组节点外面；用户可以使用群组节点外部边缘的连接端口。在群组节点内添加或者移除节点，用户需要解除组。 <code class="kbd docutils literal"><span class="pre">Tab</span></code> 键可以进入或者是退出群组节点， <code class="kbd docutils literal"><span class="pre">Ctrl-Tab</span></code> 只能用于退出群组节点。</p>
+<div class="section" id="interface">
+<h3>界面<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="interactively">
+<h4>交互式<a class="headerlink" href="#interactively" title="Permalink to this headline">¶</a></h4>
+<p>当节点组被创建，新的 <em>组输入</em> 和 <em>组输出</em> 节点自动生成，代表数据流在群组内的进出。当创建好群组节点，输入连接端口默认的未连接状态变为可以附加到新连接端口 <em>组输入</em> 。相似的，到下游节点的输出连接端口也由未选择状态变为可以附加到新 <em>组输出</em> 节点。</p>
+<p>在群组节点中开发额外的参数，需要通过群组节点，一个额外的连接端口必须添加到 <em>组输入</em> 节点。这将使在右面带有的 <em>组输入</em> 节点和其他节点进行连接时非常易于操作，<em>组输出</em> 的情形也类似，当用户需要将数据传递到群组节点之外是必要的。</p>
+</div>
+<div class="section" id="panel">
+<h4>面板<a class="headerlink" href="#panel" title="Permalink to this headline">¶</a></h4>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:  所有模式</div>
+<div class="line">面板:    <span class="menuselection">属性面板 ‣ 界面</span></div>
+</div>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/editors_node-editor_nodes_groups_interface-panel.png" src="../../_images/editors_node-editor_nodes_groups_interface-panel.png" />
+<p class="caption"><span class="caption-text">编辑组的界面面板。</span></p>
+</div>
+<p>连接端口可以被添加，重新排序或移除，描述性名称可以被添加到定义的输入数据值的细节一栏。</p>
+<p>如果群组节点有多个输入和输出连接端口，用户可以通过选择右侧面板上的箭头进行连接端口在列表中显示的位置进行排序。列表下部的加号可以添加同种类型的未连接的端口或者是未选择的值端口。当群组节点有大量的连接端口时，列表底部的小圆形加号标记可以帮助用户对端口进行过滤以快速找到所需部分。</p>
+</div>
+</div>
+</div>
+<div class="section" id="ungroup">
+<h2>解散组<a class="headerlink" href="#ungroup" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:  所有模式</div>
+<div class="line">菜单: <span class="menuselection">群组 ‣ 解散组</span></div>
+<div class="line">热键:   <code class="kbd docutils literal"><span class="pre">Alt-G</span></code></div>
+</div>
+</div>
+<p><code class="kbd docutils literal"><span class="pre">Alt-G</span></code> 可以移除群组并将单独的节点放置回节点工作区域。内部的连接不会丢失，现在用户可以继续扩展内部节点到工作区中的其他节点上。</p>
+</div>
+<div class="section" id="group-insert">
+<h2>群组插入<a class="headerlink" href="#group-insert" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:  所有模式</div>
+<div class="line">菜单:     <span class="menuselection">节点 ‣ 插入到组</span></div>
+</div>
+</div>
+<p>选择一系列节点，以最终要移动到的目标群组节点收尾，然后按下  <span class="menuselection">节点 ‣ 插入到组</span> 将会将所选择的节点移动到刚才最后选择的群组节点当中去。被移动的节点继续保持原来彼此的连接状态，并拥有自己的组输入和组输出节点。原来已存在的组输入和组输出节点更新为新的连接端口。群组节点必须包含可以被编辑的单独的 <em>组输入</em> 和 <em>组输出</em> 节点。</p>
+</div>
+<div class="section" id="appending-node-groups">
+<h2>附加到节点组<a class="headerlink" href="#appending-node-groups" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:  所有模式</div>
+<div class="line">菜单: <span class="menuselection">信息编辑器 ‣ 文件 ‣ 关联/追加</span></div>
+</div>
+</div>
+<p>一旦用户附加一个节点树到blender文件中，用户可以在节点编辑器中按下  <code class="kbd docutils literal"><span class="pre">Shift-A</span></code>， <span class="menuselection">添加 ‣ 群组</span>，然后选择相应的附加群组。群组节点的“控制”面板将已打组的节点进行单独控制。用户可以使群组节点像其它简单节点一样来使用。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="layout/index.html" class="btn btn-neutral float-right" title="布局类节点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="distort/translate.html" class="btn btn-neutral" title="Translate Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

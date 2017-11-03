@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>区块 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/window_system/regions.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="用户界面" href="../index.html"/>
+        <link rel="next" title="标签 &amp; 面板" href="tabs_panels.html"/>
+        <link rel="prev" title="区域" href="areas.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">启动画面</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#window-system">窗口系统</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="screens.html">屏幕布局</a></li>
+<li class="toctree-l3"><a class="reference internal" href="areas.html">区域</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">区块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-region">主区块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header">标题栏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tool-shelf">工具栏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#properties-region">属性区块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arranging">布局</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tabs_panels.html">标签 &amp; 面板</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">界面控件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tools">工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">用户界面</a> &raquo;</li>
+        
+      <li>区块</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/window_system/regions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="regions">
+<span id="bpy-types-region"></span><h1>区块<a class="headerlink" href="#regions" title="Permalink to this headline">¶</a></h1>
+<p>每个编辑器都被细分为几个小区块。</p>
+<div class="section" id="main-region">
+<h2>主区块<a class="headerlink" href="#main-region" title="Permalink to this headline">¶</a></h2>
+<p>有一个区块是始终可见的，这也就是所谓的主区块，它是编辑器最重要的部分。</p>
+<p>每个编辑器都有特定的用途，所以每个编辑器的主区块和附加区域的功能都是不一样的。更多信息见 <a class="reference internal" href="../../editors/index.html"><span class="doc">编辑器</span></a> 章节中各编辑器对应文档。</p>
+</div>
+<div class="section" id="header">
+<span id="bpy-types-header"></span><span id="ui-region-header"></span><h2>标题栏<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<p>标题栏是位于区域顶部或底部以浅灰色为背景的水平长条。所有编辑器的标题栏都作为菜单和常用工具的容器。 <a class="reference internal" href="../controls/buttons/menus.html#ui-header-menu"><span class="std std-ref">菜单</span></a> 和按钮随编辑器类型以及选中对象及其模式而变化。</p>
+<div class="figure" id="id1">
+<img alt="../../_images/modeling_meshes_introduction_3d-view-header-object-mode.png" src="../../_images/modeling_meshes_introduction_3d-view-header-object-mode.png" />
+<p class="caption"><span class="caption-text">3D视图编辑标题栏。</span></p>
+</div>
+<p>移动鼠标到某个区域，该区域标题栏会变化为较浅的灰色。这意味着该区域被 <em>聚焦</em> ，按下的所有快捷键都作用于该编辑器的内容。使用 <code class="kbd docutils literal"><span class="pre">Alt-F9</span></code> 可以隐藏标题栏。</p>
+</div>
+<div class="section" id="tool-shelf">
+<h2>工具栏<a class="headerlink" href="#tool-shelf" title="Permalink to this headline">¶</a></h2>
+<p><em>工具栏</em> 默认位于左侧，包含工具设定。 <code class="kbd docutils literal"><span class="pre">T</span></code> 切换显示/隐藏工具栏区块。</p>
+<div class="section" id="operator-panel">
+<h3>操作器面板<a class="headerlink" href="#operator-panel" title="Permalink to this headline">¶</a></h3>
+<p>操作器面板是工具栏的一部分，仅包含一个面板。在3D视图中，它显示执行的 <a class="reference internal" href="../undo_redo.html#ui-redo-last"><span class="std std-ref">上一步操作</span></a> ，在文件浏览器中显示导入/导出选项。</p>
+</div>
+</div>
+<div class="section" id="properties-region">
+<h2>属性区块<a class="headerlink" href="#properties-region" title="Permalink to this headline">¶</a></h2>
+<p><em>属性区块</em> 默认位于右侧，包含编辑器中对象与编辑器自身的设置 <a class="reference internal" href="tabs_panels.html#ui-panels"><span class="std std-ref">面板</span></a> 。 <code class="kbd docutils literal"><span class="pre">N</span></code> 用于显示/隐藏属性区块。</p>
+</div>
+<div class="section" id="arranging">
+<h2>布局<a class="headerlink" href="#arranging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scrolling">
+<h3>滚动<a class="headerlink" href="#scrolling" title="Permalink to this headline">¶</a></h3>
+<p>区块可以拖动 <code class="kbd docutils literal"><span class="pre">MMB</span></code> 垂直/水平滚动，如果该区块没有缩放级别，鼠标停留在上方即可使用 <code class="kbd docutils literal"><span class="pre">Wheel</span></code> 滚动。</p>
+</div>
+<div class="section" id="changing-the-size-and-hiding">
+<h3>改变尺寸与隐藏<a class="headerlink" href="#changing-the-size-and-hiding" title="Permalink to this headline">¶</a></h3>
+<p>与 <a class="reference internal" href="areas.html"><span class="doc">区域</span></a> 一样，可以使用拖拽边界调整区块大小。</p>
+<p>调小区块尺寸直至消失即可隐藏区块。隐藏后的区块显示为一个小加号(见下图)。在小加号上单击 <code class="kbd docutils literal"><span class="pre">LMB</span></code> ，重新显示区块。</p>
+<p>工具栏和属性区块可以使用指定的快捷键显示/隐藏。</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">隐藏与显示标题栏。</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/interface_window-system_regions_headers-hide.png" src="../../_images/interface_window-system_regions_headers-hide.png" />
+</div>
+</td>
+<td><div class="first last figure">
+<img alt="../../_images/interface_window-system_regions_headers-show.png" src="../../_images/interface_window-system_regions_headers-show.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="position">
+<h3>位置<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<p>鼠标指针位于区块上方时，使用 <code class="kbd docutils literal"><span class="pre">F5</span></code> 可以翻转区块位置至另一侧。</p>
+<p>在标题栏 <code class="kbd docutils literal"><span class="pre">RMB</span></code> 单击，从弹出菜单选择对应选项，可以翻转标题栏。如果标题栏位于顶部，该选项显示为 <em>在底部显示</em> ，而标题栏位于底部时，该选项显示为 <em>在顶部显示</em> 。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tabs_panels.html" class="btn btn-neutral float-right" title="标签 &amp; 面板" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="areas.html" class="btn btn-neutral" title="区域" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

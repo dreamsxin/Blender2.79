@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>屏幕布局 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/window_system/screens.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="用户界面" href="../index.html"/>
+        <link rel="next" title="区域" href="areas.html"/>
+        <link rel="prev" title="介绍" href="introduction.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">启动画面</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#window-system">窗口系统</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">介绍</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">屏幕布局</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controls">控件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-and-override">保存与覆盖</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-layouts">附加布局</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="areas.html">区域</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regions.html">区块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tabs_panels.html">标签 &amp; 面板</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">界面控件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tools">工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">用户界面</a> &raquo;</li>
+        
+      <li>屏幕布局</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/window_system/screens.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="screens">
+<span id="bpy-ops-screen"></span><span id="bpy-types-screen"></span><h1>屏幕布局<a class="headerlink" href="#screens" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/interface_window-system_screens_data-block.png" src="../../_images/interface_window-system_screens_data-block.png" />
+<p class="caption"><span class="caption-text">屏幕布局下拉菜单</span></p>
+</div>
+<p><em>屏幕布局</em> 是指预定义窗口布局。Blender的区块很灵活，用户可以针对不同的任务，如建模、动画、和脚本，自定义工作环境。常用在同一文件中不同工作环境的快速切换。关于如何移动边框、分割与合并区块见 <a class="reference internal" href="areas.html"><span class="doc">区块控件</span></a> 。</p>
+<p>屏幕布局下拉菜单位于 <em>信息编辑器</em> 的标题栏，用户可以用来选择布局。</p>
+<div class="section" id="controls">
+<h2>控件<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>屏幕布局</dt>
+<dd>可用屏幕布局列表。见 <a class="reference internal" href="#default-screens">默认屏幕布局</a> 。</dd>
+<dt>添加 <code class="docutils literal"><span class="pre">+</span></code></dt>
+<dd>单击 <em>添加</em> 按钮，会基于当前布局新建一个新的布局。</dd>
+<dt>删除 <code class="docutils literal"><span class="pre">X</span></code></dt>
+<dd>用户可以使用 <em>删除</em> 按钮删除选中的屏幕布局。</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">默认每个屏幕布局都会 <em>记忆</em> 最后使用的 <a class="reference internal" href="../../data_system/scenes/introduction.html"><span class="doc">场景</span></a>  。选中屏幕布局将切换布局，并跳转到该场景。</p>
+</div>
+<div class="section" id="shortcuts">
+<h3>快捷键<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h3>
+<p>使用 <code class="kbd docutils literal"><span class="pre">Ctrl-Right</span></code> 与 <code class="kbd docutils literal"><span class="pre">Ctrl-Left</span></code> 循环切换屏幕布局。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在macOS用户可能需要在电脑的首选项中关闭 &quot;Mission Control&quot; 的快捷键，该选项位于 <span class="menuselection">System Preferences ‣ Keyboard ‣ Shortcuts</span> 。</p>
+</div>
+</div>
+<div class="section" id="default-screens">
+<h3>默认屏幕布局<a class="headerlink" href="#default-screens" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">3D View Full:</th><td class="field-body">全屏的3D视图，用于预览场景</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Animation:</th><td class="field-body">制作角色以及移动物体、改变形状和颜色等等。</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Compositing:</th><td class="field-body">合成场景的不同部分(如背景, 角色, 特效)以及滤镜 (如颜色校正) 。</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">Blender新文件的默认布局.。用于新建模型。</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Game Logic:</th><td class="field-body">Blender游戏的规划和编程。</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Motion Tracking:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">用于与视频编辑器一起做运动追踪。</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Scripting:</th><td class="field-body">记录工作内容和/或写自定义脚本自动化Blender。</td>
+</tr>
+<tr class="field-even field"><th class="field-name">UV Editing:</th><td class="field-body">将网格物体展开为2D，以控制表面贴图映射。</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Video Editing:</th><td class="field-body">剪切和编辑动画序列。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="save-and-override">
+<h2>保存与覆盖<a class="headerlink" href="#save-and-override" title="Permalink to this headline">¶</a></h2>
+<p>blend文件会保存屏幕布局。打开文件时，在文件浏览器启用 <em>加载用户界面</em> ，文件打开后，Blender会使用文件的屏幕布局覆盖当前布局。见 <a class="reference internal" href="../../data_system/files/open.html#file-load-ui"><span class="std std-ref">加载用户界面</span></a> 。</p>
+<p>自定义屏幕布局可以保存为 <a class="reference internal" href="../../data_system/files/startup_file.html"><span class="doc">启动文件</span></a> 的一部分。</p>
+</div>
+<div class="section" id="additional-layouts">
+<h2>附加布局<a class="headerlink" href="#additional-layouts" title="Permalink to this headline">¶</a></h2>
+<p>Blender使用经验丰富的用户，可以考虑添加其它的屏幕布局，以适应自己的工作流程，提高工作效率效率。下面是一些例子：</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">建模:</th><td class="field-body">3D视图(顶, 前, 边和透视图)，属性编辑器用于编辑。</td>
+</tr>
+<tr class="field-even field"><th class="field-name">灯光:</th><td class="field-body">3D视图用于移动灯光，UV/图像编辑器用于显示渲染结果， 属性编辑器用于渲染和灯光属性以及其他控制。</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">材质:</th><td class="field-body">属性编辑器用于设置材质, 3D 视图用于选择物体，大纲视图，脚本库(如果需要的话)，节点编辑器(如果用到了 <a class="reference internal" href="../../render/blender_render/materials/nodes/index.html"><span class="doc">基于节点的材质</span></a>)。</td>
+</tr>
+<tr class="field-even field"><th class="field-name">绘制:</th><td class="field-body">UV/图像编辑器用于纹理图像绘制，3D视图用于在UV面选择模式直接在物体表面绘制物理，底部3个迷你3D视图用于显示参考背景图片，属性编辑器。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="areas.html" class="btn btn-neutral float-right" title="区域" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

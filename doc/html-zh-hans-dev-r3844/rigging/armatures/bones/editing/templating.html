@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Armature Templating 骨架模板 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/editing/templating.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../index.html"/>
+        <link rel="up" title="编辑" href="index.html"/>
+        <link rel="next" title="属性" href="../properties/index.html"/>
+        <link rel="prev" title="Skeleton Sketching 骨架速绘" href="sketching.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">绑定</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">约束</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">骨架</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">骨骼</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">选择</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">编辑</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">蒙皮</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">姿态</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Lattice 晶格</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">绑定</a> &raquo;</li>
+        
+          <li><a href="../../index.html">骨架</a> &raquo;</li>
+        
+          <li><a href="../index.html">骨骼</a> &raquo;</li>
+        
+          <li><a href="index.html">编辑</a> &raquo;</li>
+        
+      <li>Armature Templating 骨架模板</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/editing/templating.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="armature-templating">
+<h1>Armature Templating 骨架模板<a class="headerlink" href="#armature-templating" title="Permalink to this headline">¶</a></h1>
+<p>模板化的想法是使用现有的骨架作为基础 （&quot;模板&quot;） 来创建一个新的骨架。它不同于简单的复制，你可以直接定义新的骨架在某些方面不同于其参考的绑定。</p>
+<p>在Blender,唯一的模板工具是骨架速绘那个(Etch-a-ton, 前一页所述),其模板 <a class="reference internal" href="sketching.html"><span class="doc">the previous page</span></a>  ） <em>模板</em>  转换方法 — — 所以你应该在这之前阅读它的页面！</p>
+<div class="section" id="using-bone-sketching">
+<h2>Using Bone Sketching 使用骨骼速绘<a class="headerlink" href="#using-bone-sketching" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     编辑模式</div>
+<div class="line">面板:    Bone Sketching (3D View editor)</div>
+<div class="line">菜单:     <span class="menuselection">Armature ‣ Bone Sketching</span></div>
+<div class="line">热键:   <code class="kbd docutils literal"><span class="pre">P</span></code></div>
+</div>
+</div>
+<p><em>骨架素描（Bone Sketching ）</em> 工具 <em>模板</em> 转换方法将现有的骨头副本映射到每个选定的笔画。新骨骼将从模板中的相应骨头继承它们的某些属性 （影响，数段等），但除了他们从速绘将会获得的长度、 滚动和旋转;所以这些属性会不同于模板。</p>
+<p>这是容易理解的一些例子。</p>
+<p>在下面的图像中，&quot;armature.002&quot; 设置为模板，笔画用这个模板的  &quot;chain_a &quot; 映射的。在模板中没有选择任何骨头。注意在模板的  &quot;chain_a &quot; 没有任何的笔划映射 . 结果如右图所示：Blender 复制  &quot;chain_a &quot; 骨骼和笔划匹配。</p>
+<p>Blender 也创造一份&quot;chain_b&quot;副本，但这个链条是不会进行任何方式的改变；因为这个命令只映射笔画选定的链。</p>
+<p>在下面的示例中，没有选择模板。（换句话说，所有的动作都在骨架内部。)</p>
+<p>选择的两根 &quot;chain_b&quot; 骨骼，和属性面板设置用笔画映射。因此，这两个选定的骨骼被复制，并且新创建的链的副本与笔画匹配。（请注意，新创建的骨骼被命名为原来的链名。)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-1.png" />
+<p class="caption"><span class="caption-text">转换设置。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_stroke-conversion-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_stroke-conversion-1.png" />
+<p class="caption"><span class="caption-text">转换前。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_stroke-conversion-2.png" src="../../../../_images/rigging_armatures_bones_editing_templating_stroke-conversion-2.png" />
+<p class="caption"><span class="caption-text">转换后。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>如果你选择了两链（&quot;Chain_a&quot; 和 &quot;Chain_b&quot;），你仍会有相同的结果，在上面的例子中，因为命令映射到笔画仅仅在一个选定的链。</p>
+<p>在下面的示例中，只有一个链被选中，但有三个笔画映射。在这种情况下，相同的链被复制三次（每一次一笔画），然后映射到单独的笔画。注意二个骨骼链如何适合到三段笔画的。</p>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">新创建的骨头是在原始骨头的名字之后按顺序编号的。</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_stroke-multi-conversion-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_stroke-multi-conversion-1.png" />
+<p class="caption"><span class="caption-text">转换前。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_stroke-multi-conversion-2.png" src="../../../../_images/rigging_armatures_bones_editing_templating_stroke-multi-conversion-2.png" />
+<p class="caption"><span class="caption-text">转换后。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>好吧，现在让我们看一些重要的基础规则：</p>
+<ul class="simple">
+<li>此转换方法可以用作参考骨骼或者选定的骨骼在 <em>当前</em> 编辑的骨架，或 <em>所有</em> 骨骼来自从另一骨架。一般情况下，在&quot;参考&quot;骨架创建新的&quot;模板&quot;骨骼是一个更好的主意，以便准确地选择哪些骨头要用作模板 — — 如果你想新的骨骼在一个不同的骨架，你可以然后使用 <em>Separate（分离）</em>   <code class="kbd docutils literal"><span class="pre">Ctrl-Alt-P</span></code> 命令，或可以选择 <em>Join（加入）</em>  ( <code class="kbd docutils literal"><span class="pre">Ctrl-J</span></code> 在对象模式) 命令......</li>
+<li>这个工具只考虑 <em>一个*的骨骼链，所以最好只选择在当前的骨架的一个骨骼链（或使用一个单一的骨架物体链为模板）。另外，包含第一个创建的骨骼的模板链将被映射到选定的笔画，而另一个链将只被“复制” *一样</em> ，没有任何修改。</li>
+<li>这个工具在所有选定的笔画上映射相同的骨骼链，所以你不能使用多个笔画映射一个多链模板，你得到一组新的骨骼为每个选定的笔画！</li>
+<li>如果你的笔画只由直线段组成，他们必须有 <em>至少</em> 多段作为在模板链骨骼（否则，新建的链根本未映射到笔画，和仍然是其模板精确复制）。如果有更多不必要的段，转换算法将为骨骼选择最佳的“关节”以适应参考链，，对于自由段使用相同的影响设置 （<em>Angle</em>, <em>Length</em> 和 <em>Definition</em>  设置，见下文）。</li>
+<li>如果您尝试 <em>转换（Convert）</em> 没有模板的骨骼 （例如空的骨架选择作为模板或选择在当前编辑骨架没有选择骨骼），您将收到错误的信息 “No Template and no deforming bones selected”, 然后什么都不会发生。</li>
+</ul>
+<table border="1" class="docutils" id="skeleton-sketching-retarget">
+<caption><span class="caption-text">启用 <em>Skeleton Sketching（骨架速绘）</em> 面板的 <em>Retarget（重新定向目标）</em> 转换模式。</span><a class="headerlink" href="#skeleton-sketching-retarget" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-1.png" />
+<p class="caption"><span class="caption-text">使用当前编辑的骨骼作为模板。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-2.png" src="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-2.png" />
+<p class="caption"><span class="caption-text">使用另外的骨架作为模板。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>现在，让我们看看这种转换方法的设置:</p>
+<dl class="docutils">
+<dt>No, View, Joint 按钮</dt>
+<dd><p class="first">这些三个切换按钮 （互斥） 控制新创建的骨头的滚动角度如何受到影响:</p>
+<dl class="last docutils">
+<dt>No 无</dt>
+<dd>不会改变骨头滚动 （即新骨头滚动适应他们参考的模板）。</dd>
+<dt>View  视图</dt>
+<dd>滚动每个骨骼，使其X，Y或Z轴的一个局部轴对齐（尽可能多）与当前视图的Z轴。</dd>
+<dt>Joint 关节</dt>
+<dd>新的骨骼滚动适合他们原来的旋转（和 <em>无No</em> 选项一样），但用它的父关节弯曲。</dd>
+</dl>
+</dd>
+</dl>
+<table border="1" class="docutils" id="id9">
+<caption><span class="caption-text">模板: 骨骼滚动例子。</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id10">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_bone-roll-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_bone-roll-1.png" />
+<p class="caption"><span class="caption-text">使用 <em>无（No）</em> 滚动选项。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_bone-roll-2.png" src="../../../../_images/rigging_armatures_bones_editing_templating_bone-roll-2.png" />
+<p class="caption"><span class="caption-text">使用 * View（视图）* 滚动选项。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id12">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_bone-roll-3.png" src="../../../../_images/rigging_armatures_bones_editing_templating_bone-roll-3.png" />
+<p class="caption"><span class="caption-text">使用 * Joint（关节）* 滚动选项。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&quot;Bone.003&quot; 到 &quot;Bone.005&quot; 链是映射到 &quot;Bone&quot;到 &quot;Bone.002&quot;  选择的笔画版本, 而 &quot;Bone.001&quot; 改变了滚动角度。</p>
+<dl class="docutils">
+<dt>Template 模板</dt>
+<dd>在这里的数据 ID你可以选择作为模板使用的骨架。如果你选择了 <em>None（无）</em>，从当前编辑的骨架选择的骨头将被用来作为参考，否则其他骨架的所有骨骼将被使用。</dd>
+<dt><em>Angle</em>, <em>Length</em>, <em>Definition</em> 是数值字段。</dt>
+<dd><p class="first">这些设置控制模板如何映射到所选的笔画。每个都可以有一个在10和0之间的值，默认为1.0.。</p>
+<dl class="last docutils">
+<dt>Angle 角度</dt>
+<dd>控制 （即骨与骨之间的角度） 关节角度的影响。此值越高，新链就越是会在转换过程会尽量保留这些关节角度。</dd>
+<dt>Length 长度</dt>
+<dd>控制骨骼的长度影响 。此值越高，转换过程会尽量保留这些新骨骼的长度。</dd>
+<dt>Definition 定义</dt>
+<dd>控制笔迹的形状影响。此值越高，转换过程新链将尝试按照笔迹路径。</dd>
+</dl>
+</dd>
+</dl>
+<div class="figure" id="id13">
+<img alt="../../../../_images/rigging_armatures_bones_editing_templating_influence-weights.png" src="../../../../_images/rigging_armatures_bones_editing_templating_influence-weights.png" />
+<p class="caption"><span class="caption-text">各种影响权重值的模板转换的例子，一个类似于模板链的形状，和一个非常不同的笔迹。</span></p>
+</div>
+<dl class="docutils">
+<dt>边（Side）和数字（Number）的文本字段， <em>自动</em> 按钮</dt>
+<dd>这些控制如何命名新骨骼。默认情况下，他们只是采取从原始模板一样的名字 — — 除了最后的号码，根据需要增加相同的名称。然而，如果模板骨骼有&quot;&amp; s&quot;在他们的名字的某个地方，这个&quot;占位&quot;，将由 <em>Side（边）</em> 文本字段的内容取代在&quot;模板&quot;骨骼的名称。同样，&quot;&amp; n&quot;占位符将被替换由 <em>Number（数字）</em> 字段内容。如果您启用小的 <em>自动</em> 按钮， <em>Number（数字）</em> 字段内容是自动生成的数字，你每次按 <em>转换</em> 都将增加和&quot;&amp; s&quot;占位符替换骨骼一边 (相对于局部 X 轴:&quot;r&quot;为负的 X 值，&quot;l&quot;为正)。</dd>
+</dl>
+<table border="1" class="docutils" id="id14">
+<caption><span class="caption-text">命名和占位符，使用一个简单的腿模板。</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-3.png"><img alt="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-3.png" src="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-3.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">转换设置。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id16">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_templating_name-placeholders-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_templating_name-placeholders-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_name-placeholders-1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">转换前（注意 &amp;n 和&amp;s 占位符在模板骨骼的名字）。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_templating_name-placeholders-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_templating_name-placeholders-2.png" src="../../../../_images/rigging_armatures_bones_editing_templating_name-placeholders-2.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">转换后：占位符已经被骨架速绘（Bone Sketching） 面板的S和N 字段内容替换。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id18">
+<caption><span class="caption-text">自动命名和占位符，使用一个简单的腿模板。</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id19">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-4.png"><img alt="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-4.png" src="../../../../_images/rigging_armatures_bones_editing_templating_sketching-panel-4.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">转换设置。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id20">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_templating_auto-naming-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_templating_auto-naming-1.png" src="../../../../_images/rigging_armatures_bones_editing_templating_auto-naming-1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">转换前（注意在骨架速绘面板，S 和N区域是空的，小的“auto” 按钮被启用）。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id21">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_templating_auto-naming-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_templating_auto-naming-2.png" src="../../../../_images/rigging_armatures_bones_editing_templating_auto-naming-2.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">转换后。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Static text line  静态的文本行</dt>
+<dd><p class="first"><em>Peel Objects</em> 按钮上方的文本行为您提供了两个信息:</p>
+<ul class="last simple">
+<li><em>N</em> 关节部分给你关节数目（即骨头的关节，连接关节作为一个关节），无论是从编辑的骨架选定的骨骼，或在整个其他模板骨架。</li>
+<li>第二部分是只有当另一个骨架被选择为模板，它给你链的 <em>首端骨骼名称</em>，将被映射到笔画。或者，当你在用直线段绘制一个笔迹时，骨骼的名称对应当前的线段（“Done” 当有足够多的线段为模板链所有的骨骼的时候)。</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../properties/index.html" class="btn btn-neutral float-right" title="属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sketching.html" class="btn btn-neutral" title="Skeleton Sketching 骨架速绘" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

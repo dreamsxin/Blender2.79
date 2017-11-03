@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>加固修改器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/solidify.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="修改器" href="../index.html"/>
+        <link rel="next" title="细分表面修改器" href="subsurf.html"/>
+        <link rel="prev" title="植皮修改器" href="skin.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">修改器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">修改</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">生成</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">阵列修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bevel.html">倒角修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">布尔修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">建造修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decimate.html">精简修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">拆边修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">遮罩修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mirror.html">镜像修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multiresolution.html">多分辨率修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">重新网面化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">螺旋修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skin.html">植皮修改器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">加固修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsurf.html">细分表面修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">三角化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">线框修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">形变</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">模拟</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">修改器</a> &raquo;</li>
+        
+      <li>加固修改器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/solidify.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="solidify-modifier">
+<span id="bpy-types-solidifymodifier"></span><h1>加固修改器<a class="headerlink" href="#solidify-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Solidify Modifier takes the surface of any mesh and adds depth to it.</p>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_generate_solidify_panel.png" src="../../../_images/modeling_modifiers_generate_solidify_panel.png" />
+<p class="caption"><span class="caption-text">Solidify Modifier.</span></p>
+</div>
+<dl class="docutils">
+<dt>厚度</dt>
+<dd>待加固的深度。</dd>
+<dt>偏移量</dt>
+<dd>A value between (-1 to 1) to locate the solidified output inside or outside the original mesh.
+Set to 0.0, the solidified output will be centered on the original mesh.</dd>
+<dt>夹钳</dt>
+<dd><p class="first">A value between (0 to 2) to clamp offsets to avoid self intersection.</p>
+<div class="last figure" id="id2">
+<img alt="../../../_images/modeling_modifiers_generate_solidify_clamp.png" src="../../../_images/modeling_modifiers_generate_solidify_clamp.png" />
+<p class="caption"><span class="caption-text">Clamp Offset.</span></p>
+</div>
+</dd>
+<dt>顶点组</dt>
+<dd><p class="first">Only vertices in this group are solidified. Their weights are multiplied by the thickness,
+so vertices with lower weights will be less thick.</p>
+<dl class="last docutils">
+<dt>反转</dt>
+<dd>反转顶点组，让 <strong>不</strong> 属于顶点组的顶点加固。</dd>
+<dt>因子</dt>
+<dd><p class="first">顶点权重</p>
+<ul class="last simple">
+<li>On 0.0 , vertices with zero weight will have no thickness at all.</li>
+<li>On 0.5 , vertices with zero weight will be half as thick as those with full weight.</li>
+<li>On 1.0 , the weights are ignored and the <em>thickness</em> value is used for every vertex.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>折痕</dt>
+<dd><p class="first">These options are intended for usage with the <a class="reference internal" href="subsurf.html"><span class="doc">Subdivision Modifier</span></a>.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_solidify_rims.png"><img alt="../../../_images/modeling_modifiers_generate_solidify_rims.png" src="../../../_images/modeling_modifiers_generate_solidify_rims.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">边沿和棱。在这个例子里，物体被指定第二个之前用来给边沿上红色的材质</span></p>
+</div>
+<dl class="last docutils">
+<dt>内部</dt>
+<dd>为内部边设置折痕。</dd>
+<dt>外部</dt>
+<dd>为外部边设置折痕。</dd>
+<dt>边沿（辋）</dt>
+<dd>为边沿边设置折痕。</dd>
+</dl>
+</dd>
+<dt>翻转法线。</dt>
+<dd>翻转所有几何形体的法线（包括内部和外部表面）。</dd>
+<dt>均匀厚度</dt>
+<dd>通过调节锐角来维持厚度，这样做有时可以提升质量，但也增加了计算时间。</dd>
+<dt>高质量法线</dt>
+<dd>通过计算法线来获取更均匀的厚度。这样做有时可以提升质量，但也增加了计算时间。</dd>
+<dt>填充边沿</dt>
+<dd>填充内部和外部边之间的间隙。</dd>
+<dt>仅边沿</dt>
+<dd>Will not have an extruded surface parallel to the original but instead will only have the perpendicular rim.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>填充边沿</em> 和 <em>仅边沿</em> 仅在  <a class="reference internal" href="../../../glossary/index.html#term-non-manifold"><span class="xref std std-term">非流形</span></a> 物体上有区别，因为 <em>边沿</em> 是从原几何形体的边界产生的。</p>
+</div>
+<dl class="docutils">
+<dt>材质索引偏移量</dt>
+<dd><p class="first">对新的几何体选择不同的材质使用；这作为加固面原材质的偏移量而使用。</p>
+<ul class="simple">
+<li>A value of 0 means it will use the same material.</li>
+<li>A value of 1 means it will use the material immediately below the original material.</li>
+<li>A value of -2 means the material two positions above the original material will be used.</li>
+</ul>
+<p>它们夹钳到最上和最下材质的材质槽里。</p>
+<dl class="last docutils">
+<dt>边沿（辋）</dt>
+<dd>同样的，你也可以给另一个材质到边沿的面上。</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>修改器的厚度是用局部顶点坐标计算的。如果物体用了非均匀缩放，厚度在物体不同的边上会有所变化。</p>
+<p class="last">To fix this, either apply <code class="kbd docutils literal"><span class="pre">Ctrl-A</span></code> or clear <code class="kbd docutils literal"><span class="pre">Alt-S</span></code> scale.</p>
+</div>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="even-thickness">
+<h3>均匀厚度<a class="headerlink" href="#even-thickness" title="Permalink to this headline">¶</a></h3>
+<p>Solidify thickness is an approximation.
+While &quot;Even Thickness&quot; and &quot;High Quality Normals&quot; should yield good results,
+the final wall thickness is not guaranteed and may vary depending on the mesh topology.</p>
+<p>In order to maintain precise wall thickness in every case, we would need to add/remove faces on the offset shell,
+something this modifier does not do since this would add a lot of complexity and slow down the modifier.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="subsurf.html" class="btn btn-neutral float-right" title="细分表面修改器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="skin.html" class="btn btn-neutral" title="植皮修改器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

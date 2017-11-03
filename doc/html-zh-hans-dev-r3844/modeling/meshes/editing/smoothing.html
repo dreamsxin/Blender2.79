@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>平滑 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/smoothing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="编辑" href="index.html"/>
+        <link rel="next" title="变形" href="transform/index.html"/>
+        <link rel="prev" title="方向" href="normals.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">网格</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">基本体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting/index.html">选择</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">编辑</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="basics/index.html">基础</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_options.html">网格选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vertices.html">顶点工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edges.html">边工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faces.html">面工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="normals.html">方向</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">平滑</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transform/index.html">变形</a></li>
+<li class="toctree-l4"><a class="reference internal" href="duplicating/index.html">复制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subdividing/index.html">细分</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cleanup.html">清理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="misc.html">Miscellaneous Editing Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_transfer.html">数据传递</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../properties/index.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_display.html">Mesh Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_analysis.html">Mesh Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">网格</a> &raquo;</li>
+        
+          <li><a href="index.html">编辑</a> &raquo;</li>
+        
+      <li>平滑</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/meshes/editing/smoothing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="smoothing">
+<h1>平滑<a class="headerlink" href="#smoothing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mesh-shading">
+<span id="bpy-ops-object-shade-flat"></span><h2>Mesh Shading<a class="headerlink" href="#mesh-shading" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Example mesh rendered flat, smoothed using edge split, and using Subdivision Surface.
+Note how edges are rendered differently.
+<a class="reference external" href="https://wiki.blender.org/index.php/:File:25-manual-meshsmooth-example.blend">Sample blend-file</a>.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-01-flat.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-01-flat.png" src="../../../_images/modeling_meshes_editing_smoothing_example-01-flat.png" style="width: 200px;" /></a>
+</div>
+</td>
+<td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-04-edge-split.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-04-edge-split.png" src="../../../_images/modeling_meshes_editing_smoothing_example-04-edge-split.png" style="width: 200px;" /></a>
+</div>
+</td>
+<td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-09-edge-loops.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-09-edge-loops.png" src="../../../_images/modeling_meshes_editing_smoothing_example-09-edge-loops.png" style="width: 200px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As seen in the previous sections, polygons are central to Blender.
+Most objects are represented by polygons and truly curved objects
+are often approximated by polygon meshes. When rendering images,
+you may notice that these polygons appear as a series of small, flat faces.</p>
+<p>Sometimes this is a desirable effect, but usually we want our objects to look nice and smooth.
+This section shows you how to visually smooth an object, and how to apply the <em>Auto Smooth</em>
+filter to quickly and easily combine smooth and faceted polygons in the same object.</p>
+<p>The last section on this page shows possibilities for smoothing a mesh's geometry,
+not only its appearance.</p>
+</div>
+<div class="section" id="smooth-shading">
+<span id="bpy-ops-object-shade-smooth"></span><h2>Smooth Shading<a class="headerlink" href="#smooth-shading" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Object Mode</div>
+<div class="line">Panel:     <span class="menuselection">Tool Shelf ‣ Tools ‣ Edit ‣ Shading:</span></div>
+</div>
+</div>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">Panel:     <span class="menuselection">Tool Shelf ‣ Shading/ UVs ‣ Shading</span></div>
+<div class="line">Menu:     <span class="menuselection">Mesh ‣ Faces ‣ Shade Smooth / Shade Flat</span></div>
+</div>
+</div>
+<div class="figure align-right" id="id3">
+<img alt="../../../_images/modeling_meshes_editing_smoothing_shading-smooth-flat.png" src="../../../_images/modeling_meshes_editing_smoothing_shading-smooth-flat.png" />
+<p class="caption"><span class="caption-text">Shading buttons in Tool Shelf.</span></p>
+</div>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-02-smooth.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-02-smooth.png" src="../../../_images/modeling_meshes_editing_smoothing_example-02-smooth.png" style="width: 220px;" /></a>
+<p class="caption"><span class="caption-text">Same mesh smooth shaded.</span></p>
+</div>
+<p>The easiest way is to set an entire object as smooth or faceted by selecting a mesh object,
+and in <em>Object Mode</em>, click <em>Smooth</em> in the <em>Tool Shelf</em>.
+This button does not stay pressed;
+it forces the assignment of the &quot;smoothing&quot; attribute to each face in the mesh,
+including when you add or delete geometry.</p>
+<p>Notice that the outline of the object is still strongly faceted.
+Activating the smoothing features does not actually modify the object's geometry;
+it changes the way the shading is calculated across the surfaces (normals will be interpolated),
+giving the illusion of a smooth surface.</p>
+<p>Click the <em>Flat</em> button in the
+<em>Tool Shelf</em> 's <em>Shading panel</em> to revert the shading back (normals will be constant)
+to that shown in the first image above.</p>
+<div class="section" id="smoothing-parts-of-a-mesh">
+<h3>Smoothing Parts of a Mesh<a class="headerlink" href="#smoothing-parts-of-a-mesh" title="Permalink to this headline">¶</a></h3>
+<p>Alternatively, you can choose which edges to smooth by entering <em>Edit Mode</em>,
+then selecting some faces and clicking the <em>Smooth</em> button.
+The selected edges are marked in yellow.</p>
+<p>When the mesh is in <em>Edit Mode</em>,
+only the selected edges will receive the &quot;smoothing&quot; attribute. You can set edges as flat
+(removing the &quot;smoothing&quot; attribute)
+in the same way by selecting edges and clicking the <em>Flat</em> button.</p>
+</div>
+</div>
+<div class="section" id="auto-smooth">
+<span id="id1"></span><h2>Auto Smooth<a class="headerlink" href="#auto-smooth" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Panel:    <span class="menuselection">Properties editor ‣ Object Data</span></div>
+</div>
+</div>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text">Example mesh with <em>Auto Smooth</em> enabled.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-03-auto-smooth.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-03-auto-smooth.png" src="../../../_images/modeling_meshes_editing_smoothing_example-03-auto-smooth.png" style="width: 180px;" /></a>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../_images/modeling_meshes_properties_object-data_normals-panel.png" src="../../../_images/modeling_meshes_properties_object-data_normals-panel.png" />
+<p class="caption"><span class="caption-text">Normals panel with <em>Auto Smooth</em> enabled.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>It can be difficult to create certain combinations of smooth and solid faces using the above
+techniques alone. Though there are workarounds
+(such as splitting off sets of faces by selecting them and pressing <code class="kbd docutils literal"><span class="pre">Y</span></code>),
+there is an easier way to combine smooth and solid faces, by using <em>Auto Smooth</em>.
+Auto smoothing can be enabled in the mesh tab in the Properties Editor in the <a class="reference internal" href="../properties/object_data.html#mesh-data-normals"><span class="std std-ref">Normals</span></a> panel.</p>
+</div>
+<div class="section" id="edge-split-modifier">
+<h2>Edge Split Modifier<a class="headerlink" href="#edge-split-modifier" title="Permalink to this headline">¶</a></h2>
+<p>With the <a class="reference internal" href="../../modifiers/generate/edge_split.html"><span class="doc">Edge Split Modifier</span></a>  a result
+similar to <em>Auto Smooth</em> can be achieved with the ability to choose which edges should be split,
+based on angle. Those Angles are marked as sharp.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-04-edge-split.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-04-edge-split.png" src="../../../_images/modeling_meshes_editing_smoothing_example-04-edge-split.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Edge Split Modifier enabled, based on angle.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-06-mark-sharp.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-06-mark-sharp.png" src="../../../_images/modeling_meshes_editing_smoothing_example-06-mark-sharp.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Edges marked as sharp.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-05-mark-sharp.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-05-mark-sharp.png" src="../../../_images/modeling_meshes_editing_smoothing_example-05-mark-sharp.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Resulting render with sharp edge weighting.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="smoothing-the-mesh-geometry">
+<h2>Smoothing the Mesh Geometry<a class="headerlink" href="#smoothing-the-mesh-geometry" title="Permalink to this headline">¶</a></h2>
+<p>The above techniques do not alter the mesh itself, only the way it is displayed and rendered.
+Instead of just making the mesh look like a smooth surface,
+you can also physically smooth the geometry of the mesh with these tools:</p>
+<div class="section" id="mesh-editing-tools">
+<h3>Mesh Editing Tools<a class="headerlink" href="#mesh-editing-tools" title="Permalink to this headline">¶</a></h3>
+<p>You can apply one of the following in <em>Edit Mode</em>:</p>
+<dl class="docutils">
+<dt><a class="reference internal" href="transform/smooth.html"><span class="doc">Smooth</span></a></dt>
+<dd>This relaxes selected components, resulting in a smoother mesh.</dd>
+<dt><a class="reference internal" href="transform/smooth.html"><span class="doc">Laplacian Smooth</span></a></dt>
+<dd>Smooths geometry by offers controls for better preserving larger details.</dd>
+<dt><a class="reference internal" href="subdividing/subdivide.html"><span class="doc">Subdivide Smooth</span></a></dt>
+<dd>Adjusting the <em>smooth</em> parameter after using the <em>subdivide</em>
+tool results in a more organic shape. This is similar to using the Subdivision Surface Modifier.</dd>
+<dt><a class="reference internal" href="introduction.html"><span class="doc">Bevel</span></a></dt>
+<dd>This Bevels selected edged, causing sharp edges to be flattened.</dd>
+</dl>
+</div>
+<div class="section" id="modifiers">
+<h3>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h3>
+<p>Alternatively,
+you can smooth the mesh non-destructively with one or several of the following modifiers:</p>
+<dl class="docutils">
+<dt><a class="reference internal" href="../../modifiers/deform/smooth.html"><span class="doc">Smooth Modifier</span></a></dt>
+<dd>Works like the <em>Smooth</em> tool in <em>Edit Mode</em>;
+can be applied to specific parts of the mesh using vertex groups.</dd>
+<dt><a class="reference internal" href="../../modifiers/deform/laplacian_smooth.html"><span class="doc">Laplactian Smooth Modifier</span></a></dt>
+<dd>Works like the <em>Laplacian Smooth</em> tool in <em>Edit Mode</em>;
+can be applied to specific parts of the mesh using vertex groups.</dd>
+<dt><a class="reference internal" href="../../modifiers/generate/bevel.html"><span class="doc">Bevel Modifier</span></a></dt>
+<dd>Works like the <em>Bevel</em> tool in <em>Edit Mode</em>;
+Bevel can be set to work on an angle threshold, or on edge weight values.</dd>
+<dt><a class="reference internal" href="../../modifiers/generate/subsurf.html"><span class="doc">Subdivision Surface Modifier</span></a></dt>
+<dd>Catmull-Clark subdivision produces smooth results. Sharp edges can be defined with
+<a class="reference internal" href="../../modifiers/generate/subsurf.html#modifiers-generate-subsurf-creases"><span class="std std-ref">subdivision creases</span></a>
+or by setting certain edges to &quot;sharp&quot; and adding an
+<a class="reference internal" href="../../modifiers/generate/edge_split.html"><span class="doc">Edge Split Modifier</span></a>
+(set to <em>From Marked As Sharp</em>) before the Subdivision Surface Modifier.</dd>
+</dl>
+<table border="1" class="docutils" id="id10">
+<caption><span class="caption-text">Example mesh with <em>Auto Smooth</em> enabled.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-07-subsurf.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-07-subsurf.png" src="../../../_images/modeling_meshes_editing_smoothing_example-07-subsurf.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Subdivision Surface.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-08-edge-crease.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-08-edge-crease.png" src="../../../_images/modeling_meshes_editing_smoothing_example-08-edge-crease.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Using creased edges, and resulting subdivision artifacts.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-09-edge-loops.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-09-edge-loops.png" src="../../../_images/modeling_meshes_editing_smoothing_example-09-edge-loops.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Extra edge loops added.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_editing_smoothing_example-10-edge-loops.png"><img alt="../../../_images/modeling_meshes_editing_smoothing_example-10-edge-loops.png" src="../../../_images/modeling_meshes_editing_smoothing_example-10-edge-loops.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">3D View showing creased edges (pink) and added edges loops (yellow).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transform/index.html" class="btn btn-neutral float-right" title="变形" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="normals.html" class="btn btn-neutral" title="方向" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>编辑 &amp; 选择 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/texts/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="文本物体" href="index.html"/>
+        <link rel="next" title="属性" href="properties.html"/>
+        <link rel="prev" title="简介--NGENNGT 翻译" href="introduction.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">融球</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">文本物体</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">简介--NGENNGT 翻译</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">编辑 &amp; 选择</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-editing">基础编辑</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cursor-selection">Cursor &amp; Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inserting-text">Inserting Text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#converting-text-objects">Converting Text Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assigning-materials">指定材质</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">空物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="index.html">文本物体</a> &raquo;</li>
+        
+      <li>编辑 &amp; 选择</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/texts/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing-selecting">
+<h1>编辑 &amp; 选择<a class="headerlink" href="#editing-selecting" title="Permalink to this headline">¶</a></h1>
+<p>Editing text is quite different from other object types in Blender, and happens mainly in two areas.
+First, the 3D View, of course, where you type your text, and have a few shortcuts, e.g. for applying
+styles (see <a class="reference internal" href="properties.html#modeling-text-character"><span class="std std-ref">Character</span></a>) -- note however, that most Blender hotkeys you know
+in <em>Edit Mode</em> do not exist for texts. The second place is the Properties Editor, especially the <em>Font</em> tab.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_editing_cursor.png"><img alt="../../_images/modeling_texts_editing_cursor.png" src="../../_images/modeling_texts_editing_cursor.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Text in Edit Mode.</span></p>
+</div>
+<p>The menu of the 3D View header offers few options,
+and there is no <em>Specials</em> menu... You have no transform nor mirror tools, and so on.
+However, you can apply to texts the same modifiers as for curves.</p>
+<div class="section" id="basic-editing">
+<h2>基础编辑<a class="headerlink" href="#basic-editing" title="Permalink to this headline">¶</a></h2>
+<p>Editing <em>Text</em> is similar to using a standard text editor but is not as
+full-featured and has some differences:</p>
+<dl class="docutils">
+<dt>Exit <em>Edit Mode</em></dt>
+<dd><code class="kbd docutils literal"><span class="pre">Tab</span></code> does not insert a tab character in the text,
+but rather enters and exits <em>Edit Mode</em>, as with other object types.</dd>
+<dt>Copy</dt>
+<dd>To copy text to the buffer, use <code class="kbd docutils literal"><span class="pre">Ctrl-C</span></code> or the <em>Copy</em> button in the tool shelf.</dd>
+<dt>Cut and Copy</dt>
+<dd>To cut and copy text to the buffer, use <code class="kbd docutils literal"><span class="pre">Ctrl-X</span></code> or the <em>Cut</em> button in the tool shelf.</dd>
+<dt>Paste</dt>
+<dd>To paste text from the buffer, use <code class="kbd docutils literal"><span class="pre">Ctrl-V</span></code> or the <em>Paste</em> button in the tool shelf.</dd>
+<dt>Delete all text</dt>
+<dd>To completely erase or delete all text, use <code class="kbd docutils literal"><span class="pre">Ctrl-Backspace</span></code>.</dd>
+</dl>
+<p>The text buffer is in sync with the desktop clipboard.
+But if it is used within Blender the text formatting will be copied as well.
+For other ways of inserting a text, see <a class="reference internal" href="#inserting-text">Inserting Text</a> below.</p>
+<div class="section" id="special-characters">
+<h3>Special Characters<a class="headerlink" href="#special-characters" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     编辑模式</div>
+<div class="line">Menu:     <span class="menuselection">Text ‣ Special Characters</span></div>
+</div>
+</div>
+<p>If you need special characters (such as accented chars, which are not on your keyboard)
+you can produce many of them using a combination of two other characters. To do so,
+type the main char, press <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>,
+and then press the desired &quot;modifier&quot; to produce the special character.
+Some examples are given below:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ã</td>
+<td><code class="kbd docutils literal"><span class="pre">A</span></code>, <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">~</span></code></td>
+</tr>
+<tr class="row-even"><td>á</td>
+<td><code class="kbd docutils literal"><span class="pre">A</span></code>, <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">'</span></code></td>
+</tr>
+<tr class="row-odd"><td>à</td>
+<td><code class="kbd docutils literal"><span class="pre">A</span></code>, <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">\</span></code></td>
+</tr>
+<tr class="row-even"><td>å</td>
+<td><code class="kbd docutils literal"><span class="pre">A</span></code>, <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">O</span></code></td>
+</tr>
+<tr class="row-odd"><td>ë</td>
+<td><code class="kbd docutils literal"><span class="pre">E</span></code>, <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>ø</td>
+<td><code class="kbd docutils literal"><span class="pre">O</span></code>, <code class="kbd docutils literal"><span class="pre">Alt-Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">/</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="cursor-selection">
+<h2>Cursor &amp; Selection<a class="headerlink" href="#cursor-selection" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_editing_cursor.png"><img alt="../../_images/modeling_texts_editing_cursor.png" src="../../_images/modeling_texts_editing_cursor.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Text in Edit Mode.</span></p>
+</div>
+<p>In <em>Edit Mode</em>, your text has a white cursor, and as in any text editor,
+it determines where new chars will be inserted.</p>
+<dl class="docutils">
+<dt>Next/Previous Character</dt>
+<dd>You can move the cursor with the arrow keys <code class="kbd docutils literal"><span class="pre">Left</span></code> or <code class="kbd docutils literal"><span class="pre">Right</span></code>.</dd>
+<dt>Next/Previous Word</dt>
+<dd>To move the cursor on a word's boundary, use <code class="kbd docutils literal"><span class="pre">Ctrl-Left</span></code> or <code class="kbd docutils literal"><span class="pre">Ctrl-Right</span></code>.</dd>
+<dt>Line Begin/End</dt>
+<dd><code class="kbd docutils literal"><span class="pre">Home</span></code> and <code class="kbd docutils literal"><span class="pre">End</span></code> move the cursor to the beginning and end of a line respectively.</dd>
+<dt>Next/Previous Line</dt>
+<dd>To jump between lines, use <code class="kbd docutils literal"><span class="pre">Up</span></code> or <code class="kbd docutils literal"><span class="pre">Down</span></code>.</dd>
+<dt>Next/Previous Page</dt>
+<dd>To jump back/forward ten lines at a time, use <code class="kbd docutils literal"><span class="pre">PageUp</span></code> or <code class="kbd docutils literal"><span class="pre">PageDown</span></code>.</dd>
+</dl>
+<p>Hold <code class="kbd docutils literal"><span class="pre">Shift</span></code> while using the arrow keys to select a part of the text.
+You can use it to specify different materials, the normal/bold/italic style,
+and not much more...</p>
+</div>
+<div class="section" id="inserting-text">
+<h2>Inserting Text<a class="headerlink" href="#inserting-text" title="Permalink to this headline">¶</a></h2>
+<p>You can insert text in two ways: from the internal text buffer
+(as described above), or from a text file.</p>
+<p>To load text from a text file, use the <span class="menuselection">Text ‣ Paste File</span> tool.
+This will bring up a <a class="reference internal" href="../../editors/file_browser/index.html"><span class="doc">File Browser</span></a> for navigating to a valid UTF-8 file.
+As usual, be careful that the file does not have too many characters,
+as interactive response will slow down.</p>
+</div>
+<div class="section" id="converting-text-objects">
+<h2>Converting Text Objects<a class="headerlink" href="#converting-text-objects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="converting-to-text-object">
+<h3>Converting to Text Object<a class="headerlink" href="#converting-to-text-object" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../../_images/modeling_texts_editing_convert-to.jpg" src="../../_images/modeling_texts_editing_convert-to.jpg" />
+</div>
+<p>Using an existing text-block, you can convert it to an object from the text editor's header,
+select <span class="menuselection">Edit ‣ Text to 3D Object</span>,
+<em>One Object</em> or <em>One Object per Line</em> depending on your needs.</p>
+<p>It is also possible to paste from the clipboard or a file from the <em>Edit</em> menu, while editing 3D Text.</p>
+</div>
+<div class="section" id="converting-to-3d-mesh">
+<h3>Converting to 3D Mesh<a class="headerlink" href="#converting-to-3d-mesh" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to convert a Text Object to a 3D Mesh object.
+This can be useful so that you may edit the vertices in <em>Edit Mode</em>,
+but you will lose the ability to edit the text itself.
+To do this, go to <em>Object Mode</em> and select your Text Object.
+Press <code class="kbd docutils literal"><span class="pre">Alt-C</span></code> and select <em>Mesh From Curve/Meta/Surf/Text</em>.
+Now you can return to <em>Edit Mode</em> and manually edit the vertices.
+They are usually a bit messy, so it may be useful to use a <em>Limited Dissolve</em> deletion or <em>Remesh</em> Object
+<a class="reference internal" href="../modifiers/index.html"><span class="doc">Modifier</span></a> at a low threshold to clean up your mesh.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/modeling_texts_editing_convert-from.png" src="../../_images/modeling_texts_editing_convert-from.png" />
+<p class="caption"><span class="caption-text">left normal text, right the made text object.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="assigning-materials">
+<h2>指定材质<a class="headerlink" href="#assigning-materials" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     编辑模式</div>
+<div class="line">Panel:   <span class="menuselection">Properties editor ‣ Materials</span></div>
+</div>
+</div>
+<p>要使不同的字符获得不同的材质，每个字符都必须有一个不同的 <em>材质编号</em> 。</p>
+<p>你可以通过输入的方式制定材质编号，或先选择文本块，再点击材质面板上的 <em>指定</em> 按钮。</p>
+<div class="figure" id="id4">
+<span id="fig-texts-edit-rgb"></span><img alt="../../_images/modeling_texts_editing_material-index-example.png" src="../../_images/modeling_texts_editing_material-index-example.png" />
+<p class="caption"><span class="caption-text">红 绿 蓝。</span></p>
+</div>
+<p>For example, to create Fig. <a class="reference internal" href="#fig-texts-edit-rgb"><span class="std std-ref">红 绿 蓝。</span></a>
+you would need to create three separate materials and three separate material indices. Each
+word would be assigned a <em>Material index</em> by selecting the characters for each word
+and clicking the <em>Assign</em> button. Fig. <a class="reference internal" href="#fig-texts-edit-rgb"><span class="std std-ref">红 绿 蓝。</span></a>
+is still one single <em>Text</em> object.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="简介--NGENNGT 翻译" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

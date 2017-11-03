@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>碰撞 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/physics/collision.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Blender Manual" href="../index.html"/>
+        <link rel="up" title="物理" href="index.html"/>
+        <link rel="next" title="Cloth Simulations" href="cloth/index.html"/>
+        <link rel="prev" title="烟流" href="force_fields/types/smoke_flow.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">动画</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">物理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gravity.html">重力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="baking.html">烘焙物理模拟</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#physic-types">物理类型</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="force_fields/index.html">力场</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">碰撞</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options">选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">例子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hints">提示</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloth/index.html">Cloth Simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic_paint/index.html">Dynamic Paint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="soft_body/index.html">Soft Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fluid/index.html">流体模拟</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smoke/index.html">Smoke Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigid_body/index.html">刚体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particles/index.html">Particles System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">物理</a> &raquo;</li>
+        
+      <li>碰撞</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/physics/collision.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collisions">
+<span id="bpy-types-collisionsettings"></span><span id="bpy-types-collisionmodifier"></span><h1>碰撞<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:    物体模式</div>
+<div class="line">面板:    <span class="menuselection">物理 ‣ 碰撞</span></div>
+</div>
+</div>
+<p><a class="reference internal" href="particles/index.html"><span class="doc">粒子</span></a>, <a class="reference internal" href="soft_body/index.html"><span class="doc">软体</span></a> 和 <a class="reference internal" href="cloth/index.html"><span class="doc">布料</span></a> 可以与网格物体碰撞. <a class="reference internal" href="particles/emitter/physics/boids.html"><span class="doc">群体</span></a> 尝试避免 <em>碰撞</em> 物体。</p>
+<ul class="simple">
+<li>对象需要共享至少一个公共层才能生效。</li>
+<li>您可以将粒子的影响限制为一组物体（在 <a class="reference internal" href="particles/emitter/physics/index.html"><span class="doc">力场权重面板</span></a>).</li>
+<li>软体物体的变形是困难的，它们经常穿透碰撞物体。</li>
+<li>头发颗粒忽略偏转物体（但您可以将它们作为考虑到挠度的软体）进行动画化。</li>
+</ul>
+<p>如果您更改对象的偏转设置，则必须通过 <em>自由缓存</em> 重新计算粒子，软体或布系统，但这并不是自动完成的。您可以使用 <code class="kbd docutils literal"><span class="pre">Ctrl-B</span></code> <span class="menuselection">‣ 自由缓存选择</span> 来清除所有选定对象的缓存。</p>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../_images/physics_collision_panel.png" src="../_images/physics_collision_panel.png" />
+<p class="caption"><span class="caption-text">碰撞面板。</span></p>
+</div>
+<div class="section" id="particle">
+<h3>粒子<a class="headerlink" href="#particle" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>渗透率</dt>
+<dd>粒子通过网格的分数。</dd>
+<dt>粘度</dt>
+<dd>多少颗粒粘在物体上。</dd>
+<dt>消除粒子</dt>
+<dd>影响后删除粒子。</dd>
+<dt>阻尼系数</dt>
+<dd>碰撞期间的阻尼（与颗粒的速度无关）。</dd>
+<dt>阻尼随机</dt>
+<dd>随机变化的阻尼。</dd>
+<dt>摩擦系数</dt>
+<dd>沿着表面运动时的摩擦。</dd>
+<dt>摩擦随机</dt>
+<dd>摩擦随机变化。</dd>
+</dl>
+<div class="figure" id="id2">
+<span id="fig-collision-soft-plane"></span><img alt="../_images/physics_soft-body_collision_vertex-plane1.gif" src="../_images/physics_soft-body_collision_vertex-plane1.gif" />
+<p class="caption"><span class="caption-text">软体顶点与飞机相撞。</span></p>
+</div>
+</div>
+<div class="section" id="soft-body-and-cloth">
+<h3>软体和布料<a class="headerlink" href="#soft-body-and-cloth" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>外表面</dt>
+<dd>外部碰撞区域的大小。</dd>
+<dt>内</dt>
+<dd>内部碰撞区域的大小（填充距离）。</dd>
+</dl>
+<p>外部和内部由脸部法线定义，在图中被描绘为蓝色箭头. <a class="reference internal" href="#fig-collision-soft-plane"><span class="std std-ref">软体顶点与飞机相撞。</span></a>.</p>
+</div>
+<div class="section" id="soft-body-damping">
+<h3>软体阻尼<a class="headerlink" href="#soft-body-damping" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>阻尼系数</dt>
+<dd>碰撞时发生阻尼。</dd>
+</dl>
+<p><em>软体</em> 碰撞难以完美。如果其中一个物体移动得太快，则软体将穿透网状物。另见关于 <a class="reference internal" href="soft_body/index.html"><span class="doc">软件</span></a> 的部分。</p>
+</div>
+<div class="section" id="force-field">
+<h3>力场<a class="headerlink" href="#force-field" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>吸收</dt>
+<dd>偏转器也可以偏转效应器。您可以使用吸收值指定一些碰撞/偏转器对象，该物体偏转效应器力的特定部分。100％的吸收导致没有力量通过碰撞/偏转器物体。如果您有三个碰撞对象，例如10％，43％和3％，则吸收最终达到50％ <span class="math">\(100 × (1 - 0.1) × (1 - 0.43) × (1 - 0.03)\)</span>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>例子<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../_images/physics_collision_defected-particles.jpg" src="../_images/physics_collision_defected-particles.jpg" />
+<p class="caption"><span class="caption-text">偏转粒子。</span></p>
+</div>
+<p>这是一个 <em>Meta</em> 对象，被双向传输到向下发射并由网格立方体偏转的粒子系统：</p>
+</div>
+<div class="section" id="hints">
+<h2>提示<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>确保网格表面的法线面向颗粒/点以进行正确的偏转。</li>
+<li>毛发粒子直接反应强制场，所以如果你使用一个短距离的力场，你不一定需要碰撞。</li>
+<li>如果您在 <em>粒子编辑模式</em> 中进行编辑，则头发颗粒可以避免其发射网格。所以你至少可以模仿头发碰撞。</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloth/index.html" class="btn btn-neutral float-right" title="Cloth Simulations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="force_fields/types/smoke_flow.html" class="btn btn-neutral" title="烟流" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

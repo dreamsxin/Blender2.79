@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tools &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/sculpt_paint/painting/texture_paint/tools.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="纹理绘制" href="index.html"/>
+        <link rel="next" title="Slots &amp; Mask" href="slots_mask.html"/>
+        <link rel="prev" title="简介--不厌不倦翻译" href="introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">绘制与雕刻</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../brush.html">笔刷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texture_tex_mask.html">Texture &amp; Texture Mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stroke_curve.html">笔触和曲线</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#modes">模式</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Painting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#paint-modes">Paint Modes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sculpting/index.html">雕刻</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">绘制与雕刻</a> &raquo;</li>
+        
+          <li><a href="../index.html">Painting</a> &raquo;</li>
+        
+          <li><a href="index.html">纹理绘制</a> &raquo;</li>
+        
+      <li>Tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/sculpt_paint/painting/texture_paint/tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>Open the Tool Shelf in the 3D View or UV/Image Editor .</p>
+<div class="section" id="brush">
+<h2>Brush<a class="headerlink" href="#brush" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/sculpt-paint_painting_texture-paint_tools_paint-panel.jpg"><img alt="../../../_images/sculpt-paint_painting_texture-paint_tools_paint-panel.jpg" src="../../../_images/sculpt-paint_painting_texture-paint_tools_paint-panel.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Brush Settings.</span></p>
+</div>
+<p>With this panel, you can create many brushes, each with unique settings (such as color and width).</p>
+<div class="section" id="brush-types">
+<h3>Brush Types<a class="headerlink" href="#brush-types" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="texture-draw">
+<h4>Texture Draw<a class="headerlink" href="#texture-draw" title="Permalink to this headline">¶</a></h4>
+<p>The normal brush; paints a swath of color.</p>
+</div>
+<div class="section" id="fill">
+<h4>Fill<a class="headerlink" href="#fill" title="Permalink to this headline">¶</a></h4>
+<p>It can be used to fill the image with the brush color.</p>
+<dl class="docutils">
+<dt>Fill Threshold</dt>
+<dd>ToDo. (2D only)</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Overrides</p>
+<p class="last">For projective texturing it will bypass some options for projective painting to paint the model.
+This means that occluded, backfacing and normal culled faces will always get filled,
+regardless of whether the options are activated in the projection paint panel.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Masking</p>
+<p class="last">Use the face selection mask to isolate faces.</p>
+</div>
+</div>
+<div class="section" id="mask">
+<h4>Mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h4>
+<p>The mask feature maps an image to the mesh and uses the image intensity to
+mask out certain parts of the mesh out during painting.
+The mask options can be found mask panel
+in the <a class="reference internal" href="slots_mask.html"><span class="doc">slots tab</span></a>.</p>
+</div>
+<div class="section" id="soften">
+<h4>Soften<a class="headerlink" href="#soften" title="Permalink to this headline">¶</a></h4>
+<p>Blends edges between two colors.</p>
+<dl class="docutils">
+<dt>Direction</dt>
+<dd><dl class="first last docutils">
+<dt>Soften</dt>
+<dd>Blur filter. ToDo.</dd>
+<dt>Sharpen</dt>
+<dd><p class="first">The sharpen tool enhances the contrast of the image as you paint over it.</p>
+<dl class="last docutils">
+<dt>Sharp Threshold</dt>
+<dd>The Threshold will only apply sharpening to only those pixels that
+differ more than the threshold value from their surrounding pixels.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Blur Mode</dt>
+<dd><p class="first">The blur kernel type controls how neighboring pixels are weighted when calculating the blur effect.</p>
+<dl class="last docutils">
+<dt>Gaussian</dt>
+<dd>Gaussian will sample the pixels near the center of the brush most.</dd>
+<dt>Box</dt>
+<dd>Box samples all surrounding pixels equally.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="smear">
+<h4>Smear<a class="headerlink" href="#smear" title="Permalink to this headline">¶</a></h4>
+<p>When you click, takes the colors under the cursor, and blends them in the direction you move the mouse.
+Similar to the &quot;smudge&quot; tool of <em>Gimp</em>.</p>
+</div>
+<div class="section" id="clone">
+<h4>Clone<a class="headerlink" href="#clone" title="Permalink to this headline">¶</a></h4>
+<p>Copies the colors from the image specified to the active image.
+The clone cursor can be set with <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code>.
+In 2D painting the clone can be moved dragging it with <code class="kbd docutils literal"><span class="pre">RMB</span></code>.</p>
+<dl class="docutils">
+<dt>Clone from paint slot</dt>
+<dd><p class="first">The background image is shown when this brush is selected;
+use the <em>Strength</em> slider to control how prominent the background image is.</p>
+<dl class="last docutils">
+<dt>Source Clone Slot</dt>
+<dd>When using the clone brush, this allows you to select an image as a clone source.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common">
+<h3>Common<a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h3>
+<p>Most brushes have common settings.</p>
+<dl class="docutils">
+<dt>Color</dt>
+<dd><p class="first">The color of the brush. See <a class="reference internal" href="../../../interface/controls/templates/color_picker.html#ui-color-picker"><span class="std std-ref">拾色器</span></a>.</p>
+<p>Press <code class="kbd docutils literal"><span class="pre">S</span></code> on any part of the image to sample that color and
+set it as the brush color.</p>
+<dl class="last docutils">
+<dt>Flip (cycle icon) <code class="kbd docutils literal"><span class="pre">X</span></code></dt>
+<dd>Swaps the foreground and background color.</dd>
+</dl>
+</dd>
+<dt>Radius</dt>
+<dd>The radius of the brush in pixels.</dd>
+<dt>Strength</dt>
+<dd><p class="first">How powerful the brush is when applied.</p>
+<dl class="last docutils">
+<dt>Space Attenuation (padlock icon)</dt>
+<dd>Attenuate the brush strength according to spacing.</dd>
+</dl>
+</dd>
+<dt>Pressure Sensitivity (hand and bulged in blue line icon)</dt>
+<dd>The toggle to the right of the following three settings will enable or disable
+tablet pressure sensitivity to control how strong the effect is.</dd>
+<dt>Blend</dt>
+<dd><p class="first">Set the way the paint is applied over the underlying color. See <a class="reference internal" href="../../../glossary/index.html#term-color-blend-modes"><span class="xref std std-term">Color Blend Modes</span></a>.</p>
+<ul class="simple">
+<li>Add Alpha: makes the image more opaque where painted.</li>
+<li>Erase Alpha: makes the image transparent where painted,
+allowing background colors and lower-level textures to show through.
+As you 'paint', the false checkerboard background will be revealed.
+Using a table pen's eraser end will toggle on this mode.</li>
+<li>Luminosity</li>
+<li>Exclusion</li>
+<li>Vivid light</li>
+<li>Pin light</li>
+</ul>
+<div class="last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In order to see the effects of the Erase and Add Alpha mix modes in the UV/Image Editor,
+you must enable the alpha channel display by clicking the Display Alpha or the Alpha-Only button.
+Transparent (no alpha) areas will then show a checkered background.</p>
+</div>
+</dd>
+<dt>Accumulate</dt>
+<dd>This will allow a stroke to accumulate on itself, just like an airbrush would do.</dd>
+<dt>Alpha</dt>
+<dd>Opacity of the clone image display.</dd>
+<dt>Use Gradient</dt>
+<dd><p class="first">A gradient can be used as color source. ToDo. See <a class="reference internal" href="../../../interface/controls/templates/color_ramp.html#ui-color-ramp-widget"><span class="std std-ref">颜色渐变部件</span></a>.
+To apply the gradient with the <em>Fill</em> brush click <code class="kbd docutils literal"><span class="pre">LMB</span></code> and drag to define
+depending on the <em>Gradient Fill Mode</em> the gradient line, or radius, if radial gradient is used.</p>
+<dl class="last docutils">
+<dt>Mode</dt>
+<dd><dl class="first last docutils">
+<dt>Pressure</dt>
+<dd>Will choose a gradient color from the color band according to the stylus pressure.</dd>
+<dt>Clamp</dt>
+<dd>Will alter the color automatically by the distance covered by the brush and as specified.
+by <em>Gradient spacing</em>. With Clamp it uses the last color of the color band after the specified.</dd>
+<dt>Repeat</dt>
+<dd>Similar to <em>Clamp</em>. After the last color it resets the color to the first color in the color band and
+repeating the pattern.</dd>
+</dl>
+</dd>
+<dt>Gradient Fill Mode</dt>
+<dd>Linear, Radial</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="tilling">
+<h2>Tilling<a class="headerlink" href="#tilling" title="Permalink to this headline">¶</a></h2>
+<p>Wraps the stroke to the other side of the image as your brush moves off the opposite side of the canvas.
+Very handy for making seamless textures.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>X</dt>
+<dd>left/right</dd>
+<dt>Y</dt>
+<dd>top/bottom</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="slots_mask.html" class="btn btn-neutral float-right" title="Slots &amp; Mask" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="简介--不厌不倦翻译" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

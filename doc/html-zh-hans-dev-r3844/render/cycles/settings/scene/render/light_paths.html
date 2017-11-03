@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>光程 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/cycles/settings/scene/render/light_paths.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../../index.html"/>
+        <link rel="up" title="Render Settings" href="index.html"/>
+        <link rel="next" title="运动模糊 &amp; 影片" href="motion_blur.html"/>
+        <link rel="prev" title="积分器" href="integrator.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender渲染引擎</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">材质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nodes/index.html">节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">摄像机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../features.html">渲染功能特性</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Cycles Settings</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Scene Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../objects/index.html">Object Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">GPU渲染</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../baking.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Cycles渲染引擎</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cycles Settings</a> &raquo;</li>
+        
+          <li><a href="../index.html">Scene Settings</a> &raquo;</li>
+        
+          <li><a href="index.html">Render Settings</a> &raquo;</li>
+        
+      <li>光程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/cycles/settings/scene/render/light_paths.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="light-paths">
+<h1>光程<a class="headerlink" href="#light-paths" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ray-types">
+<h2>光线类型<a class="headerlink" href="#ray-types" title="Permalink to this headline">¶</a></h2>
+<p>光线类型可以分为以下四类：</p>
+<ul class="simple">
+<li>Camera: the ray comes straight from the camera.</li>
+<li>Reflection: the ray is generated by a reflection off a surface.</li>
+<li>Transmission: the ray is generated by a transmission through a surface.</li>
+<li>Shadow: the ray is used for (transparent) shadows.</li>
+</ul>
+<p>反射与透射光线可以进一步包含以下属性：</p>
+<ul class="simple">
+<li>Diffuse: the ray is generated by a diffuse reflection or transmission (translucency).</li>
+<li>Glossy: the ray is generated by a glossy specular reflection or transmission.</li>
+<li>Singular: the ray is generated by a perfectly sharp reflection or transmission.</li>
+</ul>
+<p>光程结点可以用于查找执行计算的着色光线的类型。</p>
+<div class="figure">
+<img alt="../../../../../_images/render_cycles_settings_scene_render_light-paths_rays.png" src="../../../../../_images/render_cycles_settings_scene_render_light-paths_rays.png" />
+</div>
+</div>
+<div class="section" id="bounce-control">
+<h2>反弹控制<a class="headerlink" href="#bounce-control" title="Permalink to this headline">¶</a></h2>
+<p>光线反弹的最大次数可以手动控制。尽管这一数值理论上没有限制，然而在实际中，一个较小的数值即可满足需要，或者屏蔽某些光线交互来加快收敛控制。此外，漫反射次数、光泽反射次数以及透射反弹次数也可以分别进行控制。</p>
+<p>当指定了一个低于最大值的最小数值时，光程将会遵循盖然性而终止。这种情况下，当光程按照预想中那样降低对图像的光照作用时，长于最小数值的光程会随机停止。这仍然会让渲染收敛到相同的最终图像结果，在产生较多噪点时会让渲染速度会更快。</p>
+<p>焦散是噪点的来源之一，它是先于光泽反弹的漫反射反弹效应（假定我们从摄像机出发）。有可用的选项用来彻底禁用它们。</p>
+</div>
+<div class="section" id="transparency">
+<span id="render-cycles-light-paths-transparency"></span><h2>透明度<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+<p>透明 <abbr title="双向散射分布函数">BSDF</abbr>  着色器应予以特别对待。当光线穿过它时，光线直接通过，就像那里没有任何几何体一样。在通过一个透明BSDF时，光线类型不会发生改变。</p>
+<p>Alpha pass output is also different for the transparent
+<abbr title="Bidirectional scattering distribution function">BSDF</abbr>. Other transmission
+<abbr title="Bidirectional scattering distribution function">BSDF</abbr>s are considered opaque,
+because they change the light direction. As such they cannot be used for
+alpha-over compositing, while this is possible with the transparent
+<abbr title="Bidirectional scattering distribution function">BSDF</abbr>.</p>
+<p>透明反弹次数上限是通过其它的反弹来单独控制的。也可以使用概率性透明反弹终止机制，这会有助于渲染多个透明度层。</p>
+<p>注意，当从语义上讲到光线毫无阻挡地穿过几何体时，渲染性能其实会受到影响，因为每次的透明度步进都需要执行着色器来对光线进行追踪。</p>
+</div>
+<div class="section" id="ray-visibility">
+<span id="bpy-types-cyclesvisibilitysettings"></span><h2>光线可见度<a class="headerlink" href="#ray-visibility" title="Permalink to this headline">¶</a></h2>
+<p>物体可以设置成对特定的光线类型不可见，光线类型如下：</p>
+<ul class="simple">
+<li>摄像机</li>
+<li>漫反射</li>
+<li>光泽反射</li>
+<li>透射</li>
+<li>阴影</li>
+</ul>
+<p>Properties Editor <span class="menuselection">Object ‣ Cycles Settings ‣ Ray visibility</span>.</p>
+<p>比如，这可以用来制作一个对摄像机类型光线不可见的发光网格。如果父物体对于某些光线类型是不可见的话，那么对于复制器而言，可见性也将会得到继承，对于它们而言，子物体也会是不可见的。</p>
+<p>在性能方面，使用这些选项会更加高效，通过对着色器节点进行设置，可以达到相同的效果。对于这种光线可见的那些物体将会被光线在途中忽略，从而减少了光线的投射与着色器的执行。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="motion_blur.html" class="btn btn-neutral float-right" title="运动模糊 &amp; 影片" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="integrator.html" class="btn btn-neutral" title="积分器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

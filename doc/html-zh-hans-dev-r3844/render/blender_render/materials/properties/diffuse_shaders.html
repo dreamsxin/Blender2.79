@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>漫射着色器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/properties/diffuse_shaders.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../index.html"/>
+        <link rel="up" title="材质属性" href="index.html"/>
+        <link rel="next" title="高光着色器" href="specular_shaders.html"/>
+        <link rel="prev" title="预览" href="preview.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">材质</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">材质面板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">指定材质</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">材质属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">纹理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender渲染引擎</a> &raquo;</li>
+        
+          <li><a href="../index.html">材质</a> &raquo;</li>
+        
+          <li><a href="index.html">材质属性</a> &raquo;</li>
+        
+      <li>漫射着色器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/properties/diffuse_shaders.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="diffuse-shaders">
+<span id="bpy-types-material-diffuse"></span><h1>漫射着色器<a class="headerlink" href="#diffuse-shaders" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">面板:    <span class="menuselection">着色/材质 ‣ 漫射</span></div>
+</div>
+</div>
+<p>简单地说，漫射着色器决定了光线照射到材质表面后呈现的大致颜色。大多数的渲染器设计为模拟现实，从光照最强点到阴影区域从亮到暗，平滑衰减，不过Blender还提供了各种特殊效果的其他着色器。</p>
+<div class="section" id="common-options">
+<h2>通用选项<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>所有的漫射着色器都包含以下选项：</p>
+<dl class="docutils">
+<dt>颜色</dt>
+<dd>选择材质的基础 <em>漫射颜色</em> 。</dd>
+<dt>强度</dt>
+<dd>着色器的亮度，或者更准确的说，真正漫反射至相机的入射光能量。</dd>
+<dt>渐变</dt>
+<dd>用于为 <em>材质</em> 设置颜色范围，并定义颜色在表面的变化方式。具体参考 <a class="reference internal" href="ramps.html"><span class="doc">颜色渐变</span></a> 。</dd>
+</dl>
+</div>
+<div class="section" id="technical-details">
+<h2>技术细节<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<p>照射到物体表面，然后发生漫反射的光线会分散开来，也就是说，会均匀的向所有方向反射。这意味着不管 <em>观察角度</em> 如何，相机从该表面看到的光线都是等量的。该特性决定了散射光 <em>与观察点无关</em> 。当然，照射到该表面的光线数量还是取决于入射光角度的。如果照射到该表面的光线大多都发生漫反射，该表面将呈现粗糙外观(散射现象中的反射光线)。</p>
+<div class="figure" id="id4">
+<img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_phenomenon.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_phenomenon.jpg" />
+<p class="caption"><span class="caption-text">散射现象中的反射光线。</span></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>着色器名称</p>
+<p class="last">传统上，一些着色器以第一个引入该模型的人物名称命名。</p>
+</div>
+</div>
+<div class="section" id="lambert">
+<h2>兰伯特<a class="headerlink" href="#lambert" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">面板:    <span class="menuselection">着色/材质 ‣ 着色器</span></div>
+</div>
+</div>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">兰伯特着色器。</span></p>
+</div>
+<p>Blender的默认漫射着色器，通用的全面主力着色器，用于表现低等级的镜面反射。</p>
+<dl class="docutils">
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Johann_Heinrich_Lambert">约翰 海因里希 朗伯</a> (1728-1777)</dt>
+<dd>是一位瑞士的数学家、物理学家和天文学家，发表了很多关于光线反射的著作，其中最著名的就是 <a class="reference external" href="https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law">比尔-朗伯定律</a> ，阐述了光线吸收的定律。</dd>
+</dl>
+<p>该着色器仅包含默认选项，决定用于反射的光线比例。默认为0.8，以使其他物体显得更亮。</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert-settings.png"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert-settings.png" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert-settings.png" style="width: 220px;" /></a>
+<p class="caption"><span class="caption-text">兰伯特漫射着色器设置。</span></p>
+</div>
+</div>
+<div class="section" id="oren-nayar">
+<h2>奥伦-纳亚尔<a class="headerlink" href="#oren-nayar" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">面板:    <span class="menuselection">着色/材质 ‣ 着色器</span></div>
+</div>
+</div>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_oren-nayar.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_oren-nayar.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_oren-nayar.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">奥伦-纳亚尔着色器。</span></p>
+</div>
+<p>奥伦-那亚尔对漫反射现象采用了某种程度上说更加 '物理' 物理的方法，因为它考虑了表面的微观粗糙度。 <a class="reference external" href="http://dblp.uni-trier.de/pers/hd/o/Oren:Michael.html">迈克尔 奥伦</a> 和 <a class="reference external" href="https://en.wikipedia.org/wiki/Shree_K._Nayar">Shree K. Nayar</a> 他们的 <a class="reference external" href="https://en.wikipedia.org/wiki/Oren%E2%80%93Nayar_reflectance_model">反射模型</a> 用于1990年代早期建立，是朗伯定律的泛化，广泛应用于计算机图形学。</p>
+<div class="section" id="options">
+<h3>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>糙度</dt>
+<dd>表面粗糙度，亦即漫反射程度。</dd>
+</dl>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_oren-nayar-settings.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_oren-nayar-settings.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_oren-nayar-settings.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">奥伦-纳亚尔着色器设置。</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="toon">
+<h2>卡通效果<a class="headerlink" href="#toon" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">面板:    <span class="menuselection">着色/材质 ‣ 着色器</span></div>
+</div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon.jpg" />
+<p class="caption"><span class="caption-text">不同规格的卡通着色器。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon-vary.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon-vary.jpg" />
+<p class="caption"><span class="caption-text">卡通着色器的变化。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>卡通着色器是一个十分 '非物理' 的着色器，并非刻意山寨现实，而是产生卡通风格的渲染效果，有清晰的明暗边界和均一的明/暗区域。</p>
+<div class="section" id="id1">
+<h3>选项<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>尺寸</dt>
+<dd>明亮区域尺寸。</dd>
+<dt>平滑</dt>
+<dd>明暗过渡边界平滑度。</dd>
+</dl>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon-settings.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon-settings.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_toon-settings.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">卡通漫射着色器设置。</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="minnaert">
+<h2>明纳尔特<a class="headerlink" href="#minnaert" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">面板:    <span class="menuselection">着色/材质 ‣ 着色器</span></div>
+</div>
+</div>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_lambert.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">明纳尔特着色器。</span></p>
+</div>
+<p>明纳尔特的原理是调暗标准兰伯特着色器的各部分，所以如果 <em>暗度</em> 为1，可以获得兰伯特的效果。调高暗度值，物体中心区域(朝向观察者)会变暗。调低暗度值，物体边缘会变亮，产生类似绒毛的效果。 <a class="reference external" href="https://en.wikipedia.org/wiki/Marcel_Minnaert">马塞尔 明纳尔特</a> (1893-1970) 是一位比利时的天文学家，对光线和图像的效果感兴趣，在1954年发表了 &quot;开放空气中光线和色彩的性质&quot; 一文。</p>
+<div class="section" id="id2">
+<h3>选项<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>暗度</dt>
+<dd>'明亮' 区域的暗度(较高)，或者远离光源的边缘的暗度(较低)。</dd>
+</dl>
+<div class="figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_minnaert-settings.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_minnaert-settings.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_minnaert-settings.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">明纳尔特漫射着色器设置。</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="fresnel">
+<h2>菲涅尔<a class="headerlink" href="#fresnel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">面板:    <span class="menuselection">着色/材质 ‣ 着色器</span></div>
+</div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id14">
+<img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel-vary.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel-vary.jpg" />
+<p class="caption"><span class="caption-text">不同设置下的菲涅尔着色器，库克-托伦斯着色器强度为0.5，硬度: 50。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel.jpg" />
+<p class="caption"><span class="caption-text">菲涅尔着色器，不同规格。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>菲涅尔着色器中漫反射光线的量取决于入射角度，亦即光源的方向。朝向光源的区域看上去更暗，与入射光线垂直的区域变得更亮。  <a class="reference external" href="https://en.wikipedia.org/wiki/Augustin-Jean_Fresnel">奥古斯汀-让 菲涅尔</a> (1788-1827) 是一位法国物理学家，对波动光学理论的建立做出了巨大贡献。</p>
+<div class="section" id="id3">
+<h3>选项<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>菲涅尔</dt>
+<dd>菲涅尔反射强度，最大值5.0。</dd>
+<dt>系数</dt>
+<dd>菲涅尔混合系数，最大值5.0。</dd>
+</dl>
+<div class="figure" id="id16">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel-settings.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel-settings.jpg" src="../../../../_images/render_blender-render_materials_properties_diffuse-shaders_fresnel-settings.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">菲涅尔漫射着色器设置。</span></p>
+</div>
+<dl class="docutils">
+<dt>自发光</dt>
+<dd>光线发射量</dd>
+<dt>环境色</dt>
+<dd>材质接收到的环境色总量</dd>
+<dt>半透明</dt>
+<dd>背面的漫射着色量</dd>
+<dt>无明暗</dt>
+<dd>使材质不受光线或阴影的影响</dd>
+<dt>切向着色</dt>
+<dd><p class="first">使用材质的切向矢量进行着色，而非法向矢量 -- 用于各向异性着色效果(如软毛发和拉丝金属)</p>
+<div class="last admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">发股渲染的设置在底部的菜单和粒子系统菜单里。</p>
+</div>
+</dd>
+<dt>三次插值</dt>
+<dd>为漫射值使用三次插值，使明暗区域过渡更加平滑。</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="specular_shaders.html" class="btn btn-neutral float-right" title="高光着色器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="preview.html" class="btn btn-neutral" title="预览" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

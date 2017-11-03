@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>指定材质 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/assigning_a_material.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="材质" href="index.html"/>
+        <link rel="next" title="材质属性" href="properties/index.html"/>
+        <link rel="prev" title="材质面板" href="material_panel.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">材质</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="material_panel.html">材质面板</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">指定材质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">材质属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">纹理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender渲染引擎</a> &raquo;</li>
+        
+          <li><a href="index.html">材质</a> &raquo;</li>
+        
+      <li>指定材质</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/materials/assigning_a_material.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="assigning-a-material">
+<h1>指定材质<a class="headerlink" href="#assigning-a-material" title="Permalink to this headline">¶</a></h1>
+<p>可以在属性编辑器标题栏单击材质图标 <a class="reference internal" href="../../../_images/icons_material.png"><img alt="material-icon" src="../../../_images/icons_material.png" style="width: 1.1em;" /></a> ，查看当前打开的blend文件中的可用材质。本节将介绍在Blender中如何为活动物体指定或删除材质，具体如下：</p>
+<ul class="simple">
+<li>创建一个新的材质，</li>
+<li>重用已经存在的材质，或</li>
+<li>删除材质。</li>
+</ul>
+<p>同时也将介绍一些使用材质用法提示。</p>
+<div class="section" id="creating-a-new-material">
+<span id="bpy-ops-material-new"></span><h2>新建材质<a class="headerlink" href="#creating-a-new-material" title="Permalink to this headline">¶</a></h2>
+<p>新建一个物体后，并没有材质与之关联，可以通过以下步骤为物体添加材质：</p>
+<ul class="simple">
+<li>选择物体。</li>
+<li>在属性编辑器，单击物体按钮。</li>
+<li>在属性编辑器标题栏单击材质按钮 (1).</li>
+</ul>
+<p>这时可以看到着色面板，包含以下元素：</p>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_creating.jpg" src="../../../_images/render_blender-render_materials_assigning-a-material_creating.jpg" />
+<p class="caption"><span class="caption-text">添加新材质。</span></p>
+</div>
+<ul class="simple">
+<li>Context: The currently-selected scene and object.</li>
+<li>物体材质槽 (3): 该面板显示该物体数据包含的材质 &quot;槽&quot; 。</li>
+<li>活动材质(2): 初始值为空， 需要 &quot;新建&quot; 。</li>
+</ul>
+<p>在活动的材质盒单击 &quot;+&quot; 按钮，添加新材质。该操作将产生一系列结果：</p>
+<div class="figure" id="id2">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_panel-object-mode.png" src="../../../_images/render_blender-render_materials_assigning-a-material_panel-object-mode.png" />
+<p class="caption"><span class="caption-text">新建材质后的材质面板。</span></p>
+</div>
+<ol class="arabic simple">
+<li>在活动材质盒打开新建的材质。</li>
+<li>面板上出现新的按钮。</li>
+<li>将新建的材质添加到可用材质列表。</li>
+<li>将新建的材质添加到活动物体的材质槽列表(或者物体数据 -- 见下文)。</li>
+<li>开启材质 <a class="reference internal" href="properties/preview.html"><span class="doc">预览</span></a> 。</li>
+<li>提供许多面板供用户为新材质设置 <a class="reference internal" href="properties/introduction.html"><span class="doc">属性</span></a> 。</li>
+</ol>
+<div class="section" id="new-material-panel-buttons">
+<h3>新材质的面板按钮<a class="headerlink" href="#new-material-panel-buttons" title="Permalink to this headline">¶</a></h3>
+<p>新建活动材质后出现的按钮如下：</p>
+<dl class="docutils">
+<dt>活动材质</dt>
+<dd>列表视图。</dd>
+<dt>材质</dt>
+<dd>选中材质槽的材质 <a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-block"><span class="std std-ref">数据块菜单</span></a> 。</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>命名材质</p>
+<p class="last">赋予材质一个明确的名字是个好办法，可以保持材质的可追踪性，特别是当材质与多个物体关联时。尽量使用描述性的材质名称，而不是其功能(如：&quot;黄色油漆&quot;，而不是&quot;厨房桌子颜色&quot;)。</p>
+</div>
+<dl class="docutils">
+<dt>节点</dt>
+<dd>使用节点。</dd>
+<dt>数据</dt>
+<dd>指定材质关联至物体还是物体数据。</dd>
+<dt>材质类型</dt>
+<dd>该菜单有四个选项，决定如何渲染该物体。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="reusing-existing-materials">
+<h2>重用已存在材质<a class="headerlink" href="#reusing-existing-materials" title="Permalink to this headline">¶</a></h2>
+<p>Blender原生支持重用 <em>一切</em> ，包括物体之间共用材质设置。用户可以直接重用已存在材质，而无需新建材质副本。材质数据块菜单提供了以下几种方法：</p>
+<p><em>单个物体</em> -- 选择物体， 单击材质名称左侧的球形图标， 弹出的菜单会显示当前文件中所有可用材质，单击即可选择。</p>
+<div class="figure" id="id3">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_select-exist-button.png" src="../../../_images/render_blender-render_materials_assigning-a-material_select-exist-button.png" />
+<p class="caption"><span class="caption-text">选择已存在材质.</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_searchlist.png" src="../../../_images/render_blender-render_materials_assigning-a-material_searchlist.png" />
+<p class="caption"><span class="caption-text">可用材质列表。</span></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>搜索材质</p>
+<p class="last">使用材质列表底部的搜索框用于搜索列表中的材质名称。例如，输入 &quot;wood&quot; 会过滤所有材质，仅显示名称包含 &quot;wood&quot; 的材质。</p>
+</div>
+<p><em>多物体</em> -- 3D视图中，使用 <code class="kbd docutils literal"><span class="pre">Ctrl-L</span></code> ，用户可以快速关联选中物体与 <a class="reference internal" href="../../../editors/3dview/object/selecting/introduction.html#object-active"><span class="std std-ref">活动物体</span></a> 的材质(以及其他数据)。这在用户需要为大量物体设置相同材质时非常有用。只需选中所有物体，再选中包含该材质的物体，使用 <code class="kbd docutils literal"><span class="pre">Ctrl-L</span></code> 即可关联 &quot;父物体&quot; 。 (见数据关联一节关于关联数据的提示。)</p>
+</div>
+<div class="section" id="deleting-a-material">
+<h2>删除材质<a class="headerlink" href="#deleting-a-material" title="Permalink to this headline">¶</a></h2>
+<p>在材质列表选中材质，并单击右侧的 X 按钮，即可删除材质。</p>
+<p>删除后的材质看似马上消失了，不过删除操作的结果取决于该材质在其他位置是如何使用的。</p>
+<p>如果还有其他物体也在使用与该物体关联的材质，那么从该物体删除材质</p>
+<p>如果可用材质列表的 &quot;伪用户&quot; 按钮 (F) 已被点亮，那么即使该材质没有用户，也会在保存文件时保留。</p>
+<p>当且仅当材质为0 &quot;真&quot; 用户，并且没有 “伪” 用户时，该材质才会被永久删除。注意在保存文件之前，该材质仍会继续存在于材质列表，但是重新加载该文件后会消失。</p>
+</div>
+<div class="section" id="multiple-materials">
+<span id="bi-multiple-materials"></span><h2>多材质<a class="headerlink" href="#multiple-materials" title="Permalink to this headline">¶</a></h2>
+<p>一般，物体表面的多种颜色和图案是通过给材质添加纹理实现的。不过，有些应用中，用户可以通过给每个面指定不同材质来获得色彩丰富的物体。</p>
+<div class="figure" id="id5">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_creating.jpg" src="../../../_images/render_blender-render_materials_assigning-a-material_creating.jpg" />
+<p class="caption"><span class="caption-text">添加新材质。</span></p>
+</div>
+<p>用户可以使用材质标题栏面板中的材质槽选项(3)，为同一物体的不同面应用不同材质。</p>
+<div class="figure" id="id6">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_panel-edit-mode.png" src="../../../_images/render_blender-render_materials_assigning-a-material_panel-edit-mode.png" />
+<p class="caption"><span class="caption-text">编辑模式下的材质菜单。</span></p>
+</div>
+<p>为表面已覆盖基础材质的物体的一些面应用其他材质的工作流程如下：</p>
+<ol class="arabic simple">
+<li>In Object Mode, apply the base material to the whole object
+(as shown in <a class="reference internal" href="#"><span class="doc">Assigning a material</span></a>).</li>
+<li>新建/选中第二种材质(整个物体会修改为使用该材质)。</li>
+<li>在活动材质盒(2)，重新选择基础材质。</li>
+<li>进入编辑模式，切换面选择模式(在活动材质盒上方会出现指定/选择/取消选择按钮)。</li>
+<li>选择将赋予第二种材质的面。</li>
+<li>在物体材质槽(3)，单击 <code class="kbd docutils literal"><span class="pre">Plus</span></code> 新建材质槽，新建材质槽被激活，在可用材质列表选择新建的第二种材质。</li>
+<li>单击指定按钮，选中的面修改为第二种材质。</li>
+</ol>
+<p>还可以通过添加数据块，使用已有材质的副本作为新材质:</p>
+<p>选择物体，获得材质， <code class="kbd docutils literal"><span class="pre">RMB</span></code> 并复制数据到剪贴板。重命名材质后，单击 &quot;链接: 数据&quot; ，关联现有材质。按照需求为表面指定材质。注意：如果修改原始物体的材质，新物体的颜色也会随之变化。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties/index.html" class="btn btn-neutral float-right" title="材质属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="material_panel.html" class="btn btn-neutral" title="材质面板" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

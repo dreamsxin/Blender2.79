@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>倒角修改器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/bevel.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="修改器" href="../index.html"/>
+        <link rel="next" title="布尔修改器" href="booleans.html"/>
+        <link rel="prev" title="阵列修改器" href="array.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">修改器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">修改</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">生成</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">阵列修改器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">倒角修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">布尔修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">建造修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decimate.html">精简修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">拆边修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">遮罩修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mirror.html">镜像修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multiresolution.html">多分辨率修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">重新网面化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">螺旋修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skin.html">植皮修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solidify.html">加固修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsurf.html">细分表面修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">三角化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">线框修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">形变</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">模拟</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">修改器</a> &raquo;</li>
+        
+      <li>倒角修改器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/bevel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bevel-modifier">
+<span id="bpy-types-bevelmodifier"></span><h1>倒角修改器<a class="headerlink" href="#bevel-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Bevel Modifier adds the ability to bevel the edges of the mesh it is applied
+to, allowing control of how and where the bevel is applied to the mesh.</p>
+<p>The Bevel Modifier is a non-destructive alternative to the
+<a class="reference internal" href="../../meshes/editing/subdividing/bevel.html"><span class="doc">Bevel Operation</span></a> in edit mode.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_bevel_square-not.png"><img alt="../../../_images/modeling_modifiers_generate_bevel_square-not.png" src="../../../_images/modeling_modifiers_generate_bevel_square-not.png" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Not beveled.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_bevel_square.png"><img alt="../../../_images/modeling_modifiers_generate_bevel_square.png" src="../../../_images/modeling_modifiers_generate_bevel_square.png" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Beveled.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The images above show the side views of a plain (not beveled) cube and a beveled one.</p>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../../../_images/modeling_modifiers_generate_bevel_none-if.png" src="../../../_images/modeling_modifiers_generate_bevel_none-if.png" />
+<p class="caption"><span class="caption-text">Bevel Modifier panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>宽度</dt>
+<dd><p class="first">倒角影响的尺寸，见下面的 <em>宽度方法</em>。</p>
+<div class="last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_bevel_cubes.png"><img alt="../../../_images/modeling_modifiers_generate_bevel_cubes.png" src="../../../_images/modeling_modifiers_generate_bevel_cubes.png" style="width: 610px;" /></a>
+<p class="caption"><span class="caption-text">三个倒角宽度分别为 0.1、0.3 和 0.5 的立方体。</span></p>
+</div>
+</dd>
+<dt>段</dt>
+<dd>沿着倒角的面所添加边环的数量</dd>
+<dt>外形</dt>
+<dd>The shape of the bevel, from concave to convex. It has no effect if <em>Segments</em> is less than 2.</dd>
+<dt>材料</dt>
+<dd>The index of the material slot to use for the bevel.
+When set to -1, the material of the nearest original face will be used.</dd>
+<dt>仅顶点</dt>
+<dd><p class="first">When enabled, only the areas near vertices are beveled; the edges are left not beveled.</p>
+<div class="last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_bevel_cubes-vertices-only.png"><img alt="../../../_images/modeling_modifiers_generate_bevel_cubes-vertices-only.png" src="../../../_images/modeling_modifiers_generate_bevel_cubes-vertices-only.png" style="width: 610px;" /></a>
+<p class="caption"><span class="caption-text">Three cubes with 0.1, 0.3 and 0.5 bevel Widths, with Only Vertices option enabled.</span></p>
+</div>
+</dd>
+<dt>夹钳重叠</dt>
+<dd>启用该选项时，每个倒角棱的宽度会限制到满足棱不会相交。相距甚远的棱仍然会全宽度倒角，仅影响靠的太近的棱。</dd>
+<dt>Loop Slide</dt>
+<dd>If there are unbeveled edges along with beveled edges into a vertex,
+the bevel tries to slide along those edges when possible.
+Turning the option off can lead to more even bevel widths.</dd>
+<dt>限制方法</dt>
+<dd><p class="first">用来控制倒角应用到网面哪里。</p>
+<dl class="last docutils">
+<dt>无</dt>
+<dd>无限制，所有的棱将会倒角。</dd>
+<dt>角度</dt>
+<dd>邻接面构成的二面角小于定义的阈值的棱将会倒角。用来允许你仅对物体构成尖端的棱倒角，而不影响光滑的表面。</dd>
+<dt>权重</dt>
+<dd>Use each edge's bevel weight to determine the width of the bevel.
+When the bevel weight is 0.0, no bevel is applied.
+See <a class="reference internal" href="../../meshes/editing/edges.html"><span class="doc">here</span></a> about adjusting bevel weights.</dd>
+<dt>顶点组</dt>
+<dd>Use weights from a vertex group to determine the width of the bevel.
+When the vertex weight is 0.0, no bevel is applied.
+An edge is only beveled if both of its vertices are in the vertex group.
+See <a class="reference internal" href="../../meshes/properties/vertex_groups/vertex_groups.html"><span class="doc">here</span></a> about adjusting vertex group weights.</dd>
+</dl>
+</dd>
+<dt>宽度方法</dt>
+<dd><p class="first">Declares how <em>Width</em> will be interpreted to determine the amount of bevel.</p>
+<div class="figure align-right" id="id6">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_bevel_width-methods.png"><img alt="../../../_images/modeling_modifiers_generate_bevel_width-methods.png" src="../../../_images/modeling_modifiers_generate_bevel_width-methods.png" style="width: 240px;" /></a>
+<p class="caption"><span class="caption-text">Width methods.</span></p>
+</div>
+<dl class="last docutils">
+<dt>偏移量</dt>
+<dd>Value is interpreted as the distance from the original edge to the edge of the beveled face.</dd>
+<dt>宽度</dt>
+<dd>Value is interpreted as the distance between the two new edges formed by the bevel.</dd>
+<dt>深度</dt>
+<dd>Value is the perpendicular distance from the new bevel face to original edge.</dd>
+<dt>百分比</dt>
+<dd>Similar to <em>Offset</em> but the value is interpreted as a percentage of the adjacent edge length.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="booleans.html" class="btn btn-neutral float-right" title="布尔修改器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="array.html" class="btn btn-neutral" title="阵列修改器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

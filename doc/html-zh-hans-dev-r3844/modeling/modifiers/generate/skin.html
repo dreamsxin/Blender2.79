@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>植皮修改器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/skin.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="修改器" href="../index.html"/>
+        <link rel="next" title="加固修改器" href="solidify.html"/>
+        <link rel="prev" title="螺旋修改器" href="screw.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">修改器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">修改</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">生成</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">阵列修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bevel.html">倒角修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">布尔修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">建造修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decimate.html">精简修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">拆边修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">遮罩修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mirror.html">镜像修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multiresolution.html">多分辨率修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">重新网面化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">螺旋修改器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">植皮修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solidify.html">加固修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsurf.html">细分表面修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">三角化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">线框修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">形变</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">模拟</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">修改器</a> &raquo;</li>
+        
+      <li>植皮修改器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/skin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="skin-modifier">
+<span id="bpy-types-skinmodifier"></span><h1>植皮修改器<a class="headerlink" href="#skin-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Skin Modifier uses vertices and edges to create a skinned surface,
+using a per-vertex radius to better define the shape.
+The output is mostly quads, although some triangles will appear around intersections.</p>
+<p>用任意拓扑来雕刻和/或光滑形体来生成基网面是一种快速的方法。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Faces in the original geometry are ignored by the Skin Modifier.</p>
+</div>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_skin_panel.jpg"><img alt="../../../_images/modeling_modifiers_generate_skin_panel.jpg" src="../../../_images/modeling_modifiers_generate_skin_panel.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Skin Modifier.</span></p>
+</div>
+<div class="section" id="create-armature">
+<h3>创建骨架<a class="headerlink" href="#create-armature" title="Permalink to this headline">¶</a></h3>
+<p>Create an armature on top of the object. Each edge becomes a bone.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">如果根顶点有多于一个的邻接边，它会创建额外的一根骨头作为根。</p>
+</div>
+<p>该功能实现了下面几条：</p>
+<ol class="arabic simple">
+<li>适配输入的网面的骨头构成新的骨架物体而被添加进来。活动的选择将切换到新的骨架上。</li>
+<li>Weight groups are added to the input mesh. The Skin Modifier propagates these weights to the output as well.</li>
+<li>An Armature Modifier is added directly below the Skin Modifier.
+Note that the Armature Modifier is being applied after the
+Skin Modifier because it should only deform the output,
+whereas if it were above the Skin Modifier it might change the resulting topology.</li>
+</ol>
+</div>
+<div class="section" id="smoothing">
+<h3>Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>分支光滑</dt>
+<dd>分支顶点是一个有三个或三个以上连接边的顶点。这些区域倾向于产生更复杂的拓扑，其中一些可能相交。 <em>分支光滑</em> 设置使这些点周围的表面松弛，但会有收缩表面的副效果。</dd>
+<dt>平滑着色</dt>
+<dd>采用光滑着色而不是平坦着色来输出面。输入几何形体的光滑、平坦着色不被保留。</dd>
+</dl>
+</div>
+<div class="section" id="selected-vertices">
+<h3>选择的顶点<a class="headerlink" href="#selected-vertices" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>标记、清除松弛</dt>
+<dd>默认情况下，为了保持输出紧凑，分支顶点 (具有三个或更多的连接边的顶点) 将沿相邻的边生成额外的边环。可通过点击 <em>标记松弛</em> 使分支松弛，这将使输出在所有相邻的顶点之间伸展开来。可对选定的顶点再次点击 <em>清除松弛</em> 而禁用。</dd>
+<dt>标记根节点</dt>
+<dd><p class="first">将一个顶点标记为根，将导致该顶点用来为连接的枝干计算旋转。根顶点也影响骨架的输出，它们会用作根骨头的原点。</p>
+<p>根在3D视图里是以红色虚线圆圈显示的，绕着该顶点。</p>
+<p class="last">每个连接的顶点集应该只有一个根节点。 <em>标记根节点</em> 加强了每个集和有一个根节点的条件，所以手动取消标记根节点就没有必要了。</p>
+</dd>
+<dt>均衡半径</dt>
+<dd>使选择顶点的表皮半径在每个轴上都相等。</dd>
+</dl>
+</div>
+<div class="section" id="symmetry-axes">
+<h3>对称轴<a class="headerlink" href="#symmetry-axes" title="Permalink to this headline">¶</a></h3>
+<p>对称轴复选框用来保持输出的拓扑在它们各自的轴上对称。换句话讲，使用它可以避免在某个轴上合并三角面，除非三角面构成一个对称的四边形。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These symmetry axes checkboxes do not add geometry flipped across an axis.
+For that, the Mirror Modifier should be used, typically placed above the Skin Modifier.</p>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>用法<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Add the Skin Modifier to a mesh. Disable <em>Limit selection to visible</em> in the 3D View so that you can see
+the vertices inside the new geometry. Ensure the modifier is enabled for display in Edit Mode (on by default).</p>
+<p>The Skin Modifier uses ordinary vertices and edges as input.
+All of the regular Edit Mode tools (such as extrude, subdivide, grab, scale, and rotate) can be used when building
+a skinned mesh.</p>
+<div class="section" id="skin-resize">
+<h3>Skin Resize<a class="headerlink" href="#skin-resize" title="Permalink to this headline">¶</a></h3>
+<p>The radii of input vertices can be individually scaled in Edit Mode
+to alter the thickness of the skin by pressing <code class="kbd docutils literal"><span class="pre">Ctrl-A</span></code>.
+Non-uniform scaling of the X and Y axes is accessible by locking it with <code class="kbd docutils literal"><span class="pre">X</span></code> or <code class="kbd docutils literal"><span class="pre">Y</span></code>.
+The radius can also be adjusted in the <em>Transform</em> panel of the <em>Properties</em> region.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>例子<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<span id="fig-modifier-skin-creature"></span><img alt="../../../_images/modeling_modifiers_generate_skin_example.png" src="../../../_images/modeling_modifiers_generate_skin_example.png" />
+<p class="caption"><span class="caption-text">Simple creature, made with only the Skin Modifier.</span></p>
+</div>
+<ol class="arabic simple">
+<li>In the <em>modifiers</em> menu, add a Skin Modifier.</li>
+<li>按下 <code class="kbd docutils literal"><span class="pre">Tab</span></code> 进入编辑模式，然后挤出。</li>
+<li>Try to sketch results similar to Fig. <a class="reference internal" href="#fig-modifier-skin-creature"><span class="std std-ref">Simple creature, made with only the Skin Modifier.</span></a>,
+through extruding the vertices of the object.</li>
+<li>用 <code class="kbd docutils literal"><span class="pre">Ctrl-A</span></code> 来改变这个怪物不同区域的尺寸。</li>
+<li>在像脖子一样的区域用上 <em>标记松弛</em> ，可以使这些面更紧凑地在一起。</li>
+<li>To get smoother results, activate <em>Smooth Shading</em> and add a
+<a class="reference internal" href="subsurf.html"><span class="doc">Subdivision Surface</span></a></li>
+</ol>
+</div>
+<div class="section" id="external-links">
+<h2>External Links<a class="headerlink" href="#external-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.blendernation.com/2011/03/11/skin-modifier-development/">Skin Modifier Development at Blender Nation</a> --
+An early demonstration of the Skin Modifier by Nicholas Bishop (March 2011).</li>
+<li>Ji, Zhongping; Liu, Ligang; Wang, Yigang (2010).
+<a class="reference external" href="http://www.math.zju.edu.cn/ligangliu/CAGD/Projects/BMesh/">B-Mesh: A Fast Modeling System for Base Meshes of 3D Articulated Shapes</a>,
+Computer Graphics Forum 29(7), pp. 2169-2178. -- The work this modifier is based on
+(<a class="reference external" href="http://www.math.zju.edu.cn/ligangliu/cagd/projects/bmesh/paper/bmesh.pdf">direct link to PDF</a>).</li>
+<li><a class="reference external" href="http://blenderartists.org/forum/showthread.php?209551-B-mesh-modeling-tools-papers-better-than-zsfere">Related thread on Blender artists</a>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="solidify.html" class="btn btn-neutral float-right" title="加固修改器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="screw.html" class="btn btn-neutral" title="螺旋修改器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

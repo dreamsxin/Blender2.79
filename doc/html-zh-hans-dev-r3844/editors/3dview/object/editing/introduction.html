@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>简介 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/object/editing/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../index.html"/>
+        <link rel="up" title="编辑" href="index.html"/>
+        <link rel="next" title="变换" href="transform/index.html"/>
+        <link rel="prev" title="编辑" href="index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">3D视图</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../startup_scene.html">启动场景</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modes.html">物体模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../navigate/index.html">视图浏览</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../3d_cursor.html">3D游标</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">物体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#image-video">图像/视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nodes-logic">节点/逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#settings">设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#other">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">编辑器</a> &raquo;</li>
+        
+          <li><a href="../../index.html">3D视图</a> &raquo;</li>
+        
+          <li><a href="../index.html">物体</a> &raquo;</li>
+        
+          <li><a href="index.html">编辑</a> &raquo;</li>
+        
+      <li>简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/editors/3dview/object/editing/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>简介<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>在这一节将介绍物体在物体模式的操作工具。所有菜单编辑工具可以在物体和/或在工具栏上找到。</p>
+<div class="section" id="delete">
+<span id="bpy-ops-object-delete"></span><h2>删除<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     物体模式</div>
+<div class="line">面板:    <span class="menuselection">工具栏 ‣ 工具‣ 编辑‣ 删除</span></div>
+<div class="line">菜单:     <span class="menuselection">物体‣ 删除</span></div>
+<div class="line">快捷键:   <code class="kbd docutils literal"><span class="pre">X</span></code></div>
+</div>
+</div>
+<p>从场景中删除选中的对象。</p>
+<dl class="docutils">
+<dt>全局删除 <code class="kbd docutils literal"><span class="pre">Shift-X</span></code></dt>
+<dd>此复选框在操作面板将导致物体被删除的场景,他们是有联系的。</dd>
+</dl>
+</div>
+<div class="section" id="show-hide">
+<span id="bpy-ops-object-hide-view"></span><span id="object-show-hide"></span><h2>显示/隐藏<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     全部模式</div>
+<div class="line">菜单:     <span class="menuselection">物体‣ 显示/隐藏</span></div>
+</div>
+</div>
+<dl class="docutils">
+<dt>显示 隐藏 <code class="kbd docutils literal"><span class="pre">Alt-H</span></code></dt>
+<dd>显示所有隐藏的物体。</dd>
+<dt>隐藏选中项 <code class="kbd docutils literal"><span class="pre">H</span></code></dt>
+<dd>隐藏所有选定的对象。</dd>
+<dt>隐藏未选项 <code class="kbd docutils literal"><span class="pre">Shift-H</span></code></dt>
+<dd>隐藏场景中所有未选择的对象。将选中 <em>设置限制视图</em>  / <em>隐藏所选操作员</em> 面板中的 <em>未选择</em> 复选框。</dd>
+</dl>
+</div>
+<div class="section" id="convert-to">
+<span id="bpy-ops-object-convert"></span><span id="object-convert-to"></span><h2>转换为<a class="headerlink" href="#convert-to" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="curve-from-mesh-text">
+<h3>网格/文本线-&gt;曲线<a class="headerlink" href="#curve-from-mesh-text" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     物体模式</div>
+<div class="line">菜单:     <span class="menuselection">物体‣ 转换为 ‣ 网格/文本线-&gt;曲线</span></div>
+<div class="line">快捷键:   <code class="kbd docutils literal"><span class="pre">Alt-C</span></code></div>
+</div>
+</div>
+<p>网格物体和文本物体可以转换为曲线物体。在网格物体中，仅考虑属于无面的边。所得到的曲线将是Poly曲线类型，但可以转换为具有平滑段，如 <a class="reference internal" href="../../../../modeling/curves/editing/introduction.html#curve-convert-type"><span class="std std-ref">Set Spline Type</span></a> 中所述。</p>
+</div>
+<div class="section" id="mesh-from-curve-metaball-surface-text">
+<h3>曲线/融球/曲面/文字转网格<a class="headerlink" href="#mesh-from-curve-metaball-surface-text" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     物体模式</div>
+<div class="line">菜单:     <span class="menuselection">物体‣ 转换为 ‣ 曲线/融球/曲面/文字转网格</span></div>
+<div class="line">快捷键:   <code class="kbd docutils literal"><span class="pre">Alt-C</span></code></div>
+</div>
+</div>
+<p>将选定的曲线，元数据，表面和文本对象转换为网格物体。这些物体的实际定义的分辨率将被考虑在转换中。请注意，它还可以保留由封闭和挤出曲线创建的面和体积。</p>
+</div>
+<div class="section" id="options">
+<h3>选择<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>保留原物体</dt>
+<dd>在转换之前复制原物体。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="join">
+<span id="object-join"></span><span id="bpy-ops-object-join"></span><h2>合并<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     物体模式</div>
+<div class="line">面板:    <span class="menuselection">工具栏 ‣ 工具‣ 编辑‣ 合并</span></div>
+<div class="line">菜单:     <span class="menuselection">物体‣ 合并</span></div>
+<div class="line">快捷键:   <code class="kbd docutils literal"><span class="pre">Ctrl-J</span></code></div>
+</div>
+</div>
+<p>加入将所有选定物体合并到上一个选定的Active物体中。所有物体数据都链接到活动物体（必须选择）。所有物体必须具有相同的类型：网格，曲线，表面或支架。如果连接了几条曲线，则每条曲线将保持其子类型（NURBS或Bezier）。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>物体数据有许多属性可以在加入时处理。</p>
+<p>材料，顶点组，UV和顶点图层将被合并。</p>
+<p class="last">修改器，约束，组和父关系在加入时将被忽略，不会应用于活动对象。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transform/index.html" class="btn btn-neutral float-right" title="变换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="编辑" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

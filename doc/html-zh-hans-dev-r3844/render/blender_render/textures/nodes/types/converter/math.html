@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>运算节点 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/textures/nodes/types/converter/math.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../../../index.html"/>
+        <link rel="up" title="Converter Nodes" href="index.html"/>
+        <link rel="next" title="RGB to BW Node" href="rgb_to_bw.html"/>
+        <link rel="prev" title="Distance Node" href="distance.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../materials/index.html">材质</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">纹理</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../texture_panel.html">纹理面板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../assigning_a_texture.html">Assigning a Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">Texture Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../types/index.html">Texture Types</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../lighting/index.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../bake.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Blender渲染引擎</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">纹理</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Texture Nodes</a> &raquo;</li>
+        
+          <li><a href="index.html">Converter Nodes</a> &raquo;</li>
+        
+      <li>运算节点</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/render/blender_render/textures/nodes/types/converter/math.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-types-texturenodemath"></span><div class="section" id="math-node">
+<h1>运算节点<a class="headerlink" href="#math-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../../../../_images/compositing_types_converter_math_node.png" src="../../../../../../_images/compositing_types_converter_math_node.png" />
+<p class="caption"><span class="caption-text">运算节点。</span></p>
+</div>
+<p>The <em>Math Node</em> performs math operations.</p>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Value</dt>
+<dd>First numerical value. The trigonometric functions accept values in radians.</dd>
+<dt>Value</dt>
+<dd>Second numerical value.
+This value is <strong>not</strong> used in functions that accept only one parameter
+like the trigonometric functions, Round and Absolute.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Operation</dt>
+<dd>Add, Subtract, Multiply, Divide, Sine, Cosine, Tangent, Arcsine, Arccosine, Arctangent,
+Power, Logarithm, Minimum, Maximum, Round, Less Than, Greater Than, Modulo, Absolute.</dd>
+<dt>Clamp</dt>
+<dd>Limits the output to the range (0 to 1). See <a class="reference internal" href="../../../../../../glossary/index.html#term-clamp"><span class="xref std std-term">clamp</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Value</dt>
+<dd>Numerical value output.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manual-z-mask">
+<h3>Manual Z-Mask<a class="headerlink" href="#manual-z-mask" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../../../_images/compositing_types_converter_math_manual-z-mask.png" src="../../../../../../_images/compositing_types_converter_math_manual-z-mask.png" />
+<p class="caption"><span class="caption-text">Example.</span></p>
+</div>
+<p>This example has one scene input by the top <em>Render Layer</em> node,
+which has a cube that is about 10 BU from the camera.
+The bottom Render Layer node inputs a scene (FlyCam)
+with a plane that covers the left half of the view and is 7 BU from the camera.
+Both are fed through their respective Map Value nodes to divide the Z buffer by 20
+(multiply by 0.05, as shown in the Size field)
+and clamped to be a min/ max of 0.0/ 1.0 respectively.</p>
+<p>For the minimum function,
+the node selects those Z values where the corresponding pixel is closer to the camera;
+so it chooses the Z values for the plane and part of the cube.
+The background has an infinite Z value, so it is clamped to 1.0 (shown as white).
+In the maximum example, the Z values of the cube are greater than the plane,
+so they are chosen for the left side, but the plane (FlyCam) Render layers Z are infinite
+(mapped to 1.0) for the right side, so they are chosen.</p>
+</div>
+<div class="section" id="using-sine-function-to-pulsate">
+<h3>Using Sine Function to Pulsate<a class="headerlink" href="#using-sine-function-to-pulsate" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../../../../../../_images/compositing_types_converter_math_sine.jpg" src="../../../../../../_images/compositing_types_converter_math_sine.jpg" />
+</div>
+<p>This example has a <em>Time</em> node putting out a linear sequence from 0 to 1 over the course of 101
+frames. The green vertical line in the curve widget shows that frame 25 is being put out,
+or a value of 0.25. That value is multiplied by 2 × pi and converted to 1.0 by the Sine function,
+since we all know that <span class="math">\(sin(2 × pi/ 4) = sin(pi/ 2) = +1.0\)</span>
+Since the sine function can put out values between (-1.0 to 1.0),
+the <em>Map Value</em> node scales that to 0.0 to 1.0 by taking the input (-1 to 1), adding 1
+(making 0 to 2), and multiplying the result by one-half (thus scaling the output between 0 to 1).
+The default <em>Color Ramp</em> converts those values to a grayscale.
+Thus, medium gray corresponds to a 0.0 output by the sine, black to -1.0,
+and white to 1.0. As you can see, <span class="math">\(sin(pi/ 2) = 1.0\)</span>. Like having your own visual color calculator!
+Animating this node setup provides a smooth cyclic sequence through the range of grays.</p>
+<p>Use this function to vary, for example,
+the alpha channel of an image to produce a fading in/out effect.
+Alter the Z channel to move a scene in/out of focus.
+Alter a color channel value to make a color &quot;pulse&quot;.</p>
+</div>
+<div class="section" id="brightening-scaling-a-channel">
+<h3>Brightening/Scaling a Channel<a class="headerlink" href="#brightening-scaling-a-channel" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../../../../../../_images/compositing_types_converter_math_multiply.jpg" src="../../../../../../_images/compositing_types_converter_math_multiply.jpg" />
+</div>
+<p>This example has a <em>Math: Multiply</em> node increasing the luminance channel (Y)
+of the image to make it brighter. Note that you should use a <em>Map Value node</em>
+with min() and max() enabled to clamp the output to valid values.
+With this approach, you could use a logarithmic function to make a high-dynamic range image.
+For this particular example,
+there is also a <em>Brighten/Contrast node</em> that might give simpler control over brightness.</p>
+</div>
+<div class="section" id="quantize-restrict-color-selection">
+<h3>Quantize/Restrict Color Selection<a class="headerlink" href="#quantize-restrict-color-selection" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we want to restrict the color output to only 256 possible values.
+Possible use of this is to see what the image will look like on an 8-bit cell phone display.
+To do this, we want to restrict the R, G and B values
+of any pixel to be one of a certain value, such that when they are combined,
+will not result in more than 256 possible values. The number of possible values of an output
+is the number of channel values multiplied by each other, or Q = R × G × B.</p>
+<p>Since there are three channels and 256 values,
+we have some flexibility how to quantize each channel,
+since there are a lot of combinations of R × G × B that would equal 256. For example,
+if {R, G, B} = {4, 4, 16}, then <span class="math">\(4 × 4 × 16 = 256\)</span>. Also, {6, 6, 7} would give 252 possible values.
+The difference in appearance between {4, 4, 16} and {6, 6, 7} is that the first set
+(4, 4, 16} would have fewer shades of red and green, but lots of shades of blue.
+The set {6, 6, 7} would have a more even distribution of colors.
+To get better image quality with fewer color values,
+give possible values to the predominant colors in the image.</p>
+</div>
+</div>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://wiki.blender.org/index.php/File:Manual-Compositing-Node-Math_ColorBand">Two Approaches to Quantizing to six values</a>.</p>
+<p>To accomplish this quantization of an image to 256 possible values, let us use the set {6, 6, 7}.
+To split up a continuous range of values between 0 and 1 (the full Red spectrum)
+into six values, we need to construct an algorithm or function that takes any input value but
+only puts out six possible values, as illustrated by the image to the right.
+We want to include zero as true black, with five other colors in between.
+The approach shown produces {0, 0.2, 0.4, 0.6, 0.8, 1}. Dividing 1.0 by 5 equals 0.2,
+which tells how far apart each quantified value is from the other.</p>
+<p>So, to get good even shading,
+we want to take values that are 0.16 or less and map them to 0.0;
+values between 0.16 and 0.33 get fixed to 0.2;
+color band values between 0.33 and 0.5 get quantized to 0.4,
+and so on up to values between 0.83 and 1.0 get mapped to 1.0.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Function f(x)</p>
+<p class="last">An algebraic function is made up of primitive mathematical operations
+(add, subtract, multiply, sine, cosine, etc.) that operate on an input value to provide the desired output value.</p>
+</div>
+<p><a class="reference external" href="https://wiki.blender.org/index.php/File:Manual-Compositing-Node-Math_spreadsheet">Spreadsheet showing a function</a>.</p>
+<p>The theory behind this function is scaled truncation.
+Suppose we want a math function that takes in a range of values between 0 and 1,
+such as 0.552, but only outputs a value of 0.0, 0.2, 0.4, etc. We can imagine then that we need
+to get that range 0 to 1 powered up to something 0 to 6 so that we can chop off and make it a
+whole number. So, with six divisions,
+how can we do that? The answer is we multiply the range by 6.
+The output of that first math Multiply Node is a range of values between 0 and 6.
+To get even divisions, because we are using the rounding function (see documentation above),
+we want any number plus or minus around a whole number will get rounded to that number. So,
+we subtract a half, which shifts everything over. The round()
+function then makes that range 0 to 5. We then divide by 5 to get back a range of numbers
+between 0 and 1 which can then be combined back with the other color channels. Thus,
+you get the function <span class="math">\(f(x, n) = round(x × n - 0.5)/ (n - 1)\)</span>
+where &quot;n&quot; is the number of possible output values, and &quot;x&quot; is the input pixel color and <span class="math">\(f(x, n)\)</span>
+is the output value. There is only one slight problem, and that is for the value exactly equal to 1,
+the formula result is 1.2, which is an invalid value.
+This is because the round function is actually a roundup function,
+and exactly 5.5 is rounded up to 6. So, by subtracting 0.501, we compensate and thus 5.
+499 is rounded to 5. At the other end of the spectrum, pure black, or 0, when 0.501 subtracted,
+rounds up to 0 since the Round() function does not return a negative number.</p>
+<p>Sometimes using a spreadsheet can help you figure out how to put these nodes together to get
+the result that you want. Stepping you through the formula for <span class="math">\(n = 6\)</span> and <span class="math">\(x = 0.70\)</span>,
+locate the line on the spreadsheet that has the 8-bit value 179 and R value 0.7.
+Multiplying by 6 gives 4.2. Subtracting 1/2 gives 3.7, which rounds up to
+4.4 divided by 5 = 0.8. Thus, f(0.7, 6) = 0.8 or an 8-bit value of 204.
+You can see that this same 8-bit value is output for a range of input values.</p>
+<div class="section" id="reality">
+<h3>Reality<a class="headerlink" href="#reality" title="Permalink to this headline">¶</a></h3>
+<p>To implement this function in Blender, consider the node setup above. First,
+feed the image to the Separate RGB node. For the Red channel,
+we string the math nodes into a function that takes each red color, multiplies (scales)
+it up by the desired number of divisions (6), offsets it by 0.5,
+rounds the value to the nearest whole number, and then divides the image pixel color by 5. So,
+the transformation is {0 to 1} becomes {0 to 6}, subtracting centers the medians to {-0.5 to 5.5}
+and the rounding to the nearest whole number produces {0, 1, 2, 3, 4, 5}
+since the function rounds down,
+and then dividing by five results in six values {0.0, 0.2, 0.4, 0.6, 0.8, 1.0}.</p>
+<p>The result is that the output value can only be one of a certain set of values,
+stair-stepped, because of the rounding function of the math node.
+Copying this one channel to operate on Green and Blue gives the node setup below.
+To get the 6:6:7, we set the three Multiply Nodes to {6, 6, 7} and the divide nodes to {5, 5, 6}.</p>
+<div class="figure">
+<img alt="../../../../../../_images/compositing_types_converter_math_quantize-red.jpg" src="../../../../../../_images/compositing_types_converter_math_quantize-red.jpg" />
+</div>
+<p>If you make this into a node group, you can easily reuse this setup from project to project.
+When you do, consider using a math node to drive the different values that you would have to
+otherwise set manually, just to error-proof your work.</p>
+</div>
+<div class="section" id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<p>Normally, an output render consists of 32- or 24-bit color depth,
+and each pixel can be one of the millions of possible colors.
+This node setup example takes each of the Red,
+Green and Blue channels and normalizes them to one of a few values.
+When all three channels are combined back together,
+each color can only be one of 256 possible values.</p>
+<p>While this example uses the Separate/Combine RGB to create distinct colors,
+other Separate/Combine nodes can be used as well. If using the YUV values,
+remember that U and V vary between (-0.5 to +0.5),
+so you will have to first add on a half to bring the range between 0 and 1,
+and then after dividing, subtract a half to bring in back into standard range.</p>
+<p>The <code class="docutils literal"><span class="pre">JPG</span></code> or <code class="docutils literal"><span class="pre">PNG</span></code> image format will store each of the colors according to their image standard
+for color depth (e.g. <code class="docutils literal"><span class="pre">JPG</span></code> is 24-bit), but the image will be very small since reducing
+color depth and quantizing colors are essentially what the <code class="docutils literal"><span class="pre">JPEG</span></code> compression algorithm
+accomplishes.</p>
+<p>You do not have to reduce the color depth of each channel evenly. For example,
+if blue was the dominant color in an image, to preserve image quality,
+you could reduce Red to 2 values, Green to 4, and let the blue take on <span class="math">\(256/(2 × 4)\)</span> or 32 values.
+If using the HSV, you could reduce the Saturation and Value to 2 values (0 or 1.0)
+by Multiply by 2 and Divide by 2, and restrict the Hue to 64 possible values.</p>
+<p>You can use this node setup to quantize any channel; alpha, speed (vector), z-values, and so forth.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rgb_to_bw.html" class="btn btn-neutral float-right" title="RGB to BW Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="distance.html" class="btn btn-neutral" title="Distance Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>精简修改器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/decimate.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="修改器" href="../index.html"/>
+        <link rel="next" title="拆边修改器" href="edge_split.html"/>
+        <link rel="prev" title="建造修改器" href="build.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">修改器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">修改</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">生成</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">阵列修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bevel.html">倒角修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">布尔修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">建造修改器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">精简修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">拆边修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">遮罩修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mirror.html">镜像修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multiresolution.html">多分辨率修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">重新网面化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">螺旋修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skin.html">植皮修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solidify.html">加固修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsurf.html">细分表面修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">三角化修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">线框修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">形变</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">模拟</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">修改器</a> &raquo;</li>
+        
+      <li>精简修改器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/decimate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="decimate-modifier">
+<h1>精简修改器<a class="headerlink" href="#decimate-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Decimate Modifier allows you to reduce the vertex/face count of a mesh with minimal shape changes.</p>
+<p>This is not usually used on meshes which have been created by modeling carefully and economically
+(where all vertices and faces are necessary to correctly define the shape).
+But if the mesh is the result of complex modeling,
+sculpting and/or applied Subdivision Surface/Multiresolution Modifiers,
+the Decimate Modifier can be used to reduce the polygon count for a performance increase,
+or simply remove unnecessary vertices and edges.</p>
+<p>The Decimate Modifier is a quick and easy way of reducing the polygon count of a
+mesh non-destructively. This modifier demonstrates the advantages of a mesh modifier system
+because it shows how an operation which is normally permanent and destroys original mesh data,
+can be done interactively and safely using a modifier.</p>
+<p>Unlike the majority of existing modifiers, the Decimate Modifier does not allow
+you to visualize your changes in Edit Mode.</p>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_generate_decimate_panel.jpg" src="../../../_images/modeling_modifiers_generate_decimate_panel.jpg" />
+<p class="caption"><span class="caption-text">精简修改器。</span></p>
+</div>
+<div class="section" id="decimate-type">
+<h3>精简类型<a class="headerlink" href="#decimate-type" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="collapse">
+<h4>塌陷<a class="headerlink" href="#collapse" title="Permalink to this headline">¶</a></h4>
+<p>渐进式地同时合并顶点，会考虑网面的形状。</p>
+<dl class="docutils">
+<dt>比率</dt>
+<dd><p class="first">精简后保留面数量的比例。</p>
+<ul class="simple">
+<li>On 1.0: the mesh is unchanged.</li>
+<li>On 0.5: edges have been collapsed such that half the number of faces remain (see note below).</li>
+<li>On 0.0: all faces have been removed.</li>
+</ul>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p>虽然 <em>比率</em> 与剩余面的数量直接成正比，但在计算比率时，三角形也会使用。</p>
+<p>这意味着，如果你的网面包含四边形，剩余面的数量会大于预期数量，因为如果他们的边缘不塌陷的话，四边形是保持不变的。</p>
+<p class="last">在禁用了 <em>三角化</em> 选项，上面的话才算正确。</p>
+</div>
+</dd>
+<dt>Vertex Group</dt>
+<dd>A vertex group that controls what parts of the mesh are reduced.</dd>
+<dt>Factor</dt>
+<dd>ToDo.</dd>
+<dt>Triangulate</dt>
+<dd>ToDo.</dd>
+<dt>Symmetry</dt>
+<dd>Maintains symmetry on a single axis.</dd>
+</dl>
+</div>
+<div class="section" id="un-subdivide">
+<h4>取消细分<a class="headerlink" href="#un-subdivide" title="Permalink to this headline">¶</a></h4>
+<p>Can be thought of as the reverse of subdivide.
+Attempts to remove edges that were the result of a subdivide operation.
+For meshes with a mainly grid based topology (without giving uneven geometry).
+If additional editing has been done after the subdivide operation, the results may be unexpected.</p>
+<dl class="docutils">
+<dt>迭代次数</dt>
+<dd>执行取消细分操作的次数。两次迭代算是同一个细分操作，所以你通常会用偶数。</dd>
+</dl>
+</div>
+<div class="section" id="planar">
+<h4>平面的<a class="headerlink" href="#planar" title="Permalink to this headline">¶</a></h4>
+<p>Reduces detail on forms comprised of mainly flat surfaces.</p>
+<dl class="docutils">
+<dt>角度限制</dt>
+<dd>让构成角度低于该设置值的几何线消失。</dd>
+<dt>所有边界</dt>
+<dd>启用后，所有沿着边界面的顶点会消失掉。这样可以在用高的 <em>角度限制</em> 值时可以得到更好的结果。</dd>
+<dt>定界</dt>
+<dd><p class="first">阻止某些地方的几何线消失。</p>
+<dl class="last docutils">
+<dt>法线</dt>
+<dd>不要让边界区域面的法线翻转了的边消失掉。</dd>
+<dt>材质</dt>
+<dd>对于分配了不同材质的边界不作消失处理。</dd>
+<dt>边沿</dt>
+<dd>对标记为边沿的棱不作消失处理。</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="further-options">
+<h3>Further Options<a class="headerlink" href="#further-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>面数</dt>
+<dd>This label shows the number of remaining faces as a result of applying the Decimate Modifier.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="edge_split.html" class="btn btn-neutral float-right" title="拆边修改器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="build.html" class="btn btn-neutral" title="建造修改器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

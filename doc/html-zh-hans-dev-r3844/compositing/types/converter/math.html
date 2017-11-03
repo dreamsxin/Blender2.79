@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>运算节点 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/types/converter/math.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="转换器类节点" href="index.html"/>
+        <link rel="next" title="RGB -&gt; BW节点" href="rgb_to_bw.html"/>
+        <link rel="prev" title="ID遮罩节点" href="id_mask.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">合成</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">属性</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">节点类型</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">输入类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">输出类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">转换器类节点</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="alpha_convert.html">Alpha Convert Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_ramp.html">颜色渐变节点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="combine_separate.html">合并/分离节点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="id_mask.html">ID遮罩节点</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">运算节点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgb_to_bw.html">RGB -&gt; BW节点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="set_alpha.html">设置Alpha节点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="switch_view.html">Switch View节点</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/index.html">Filter Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">矢量类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">遮片类节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">群组节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">布局类节点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">合成</a> &raquo;</li>
+        
+          <li><a href="index.html">转换器类节点</a> &raquo;</li>
+        
+      <li>运算节点</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/converter/math.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-types-compositornodemath"></span><div class="section" id="math-node">
+<h1>运算节点<a class="headerlink" href="#math-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_converter_math_node.png" src="../../../_images/compositing_types_converter_math_node.png" />
+<p class="caption"><span class="caption-text">运算节点。</span></p>
+</div>
+<p><em>运算节点</em> 的功能是执行数学运算。</p>
+<div class="section" id="inputs">
+<h2>输入<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>值</dt>
+<dd>第一个数值。可以输入三角法则定义的弧度数值。</dd>
+<dt>值</dt>
+<dd>第二个数值。这个数值不仅可输入三角函数值，还可以输入四舍五入及绝对值。</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>属性<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>操作</dt>
+<dd>添加，相减，相乘（软件界面翻译成正片叠底，这个是在图层模式才有的说法），相除，正弦，反正弦，反余弦，乘幂运算，对数运算，最小值，最大值，四舍五入，小于，大于，模数，绝对值。</dd>
+<dt>限定</dt>
+<dd>限定输出数值的范围（0到1）。参看  <a class="reference internal" href="../../../glossary/index.html#term-clamp"><span class="xref std std-term">clamp</span></a>。</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>输出<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>值</dt>
+<dd>数值输出。</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>范例<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manual-z-mask">
+<h3>自定义Z深度通道节点设置<a class="headerlink" href="#manual-z-mask" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../_images/compositing_types_converter_math_manual-z-mask.png" src="../../../_images/compositing_types_converter_math_manual-z-mask.png" />
+<p class="caption"><span class="caption-text">范例。</span></p>
+</div>
+<p>此范例场景输入数据由 <em>渲染层</em> 节点提供，距离摄影机10BU左右有个矩形物体。在另一个渲染层节点底部的输入连接端口上连有一个覆盖视图左半部距离摄影机7BU单位的平面。两个渲染层节点通过映射值节点分离Z缓冲区（Z深度）为20（乘以0.5，输入框如图所示）并且最小值/最大值的范围限分别限定在 0.0/1.0。</p>
+<p>“使用最小值”功能是依据靠近摄影机的像素将Z深度值选择出来；也可以选择矩形部分的平面Z深度值。背景有个初始的Z深度值，值限定为1.0（显示为白色）。在“使用最大值”范例中，矩形的Z深度值比图像平面要大，因此更靠近左侧，但是图像平面(FlyCam)渲染层Z值初始在右侧（对应于1.0），因此他们被选择。</p>
+</div>
+<div class="section" id="using-sine-function-to-pulsate">
+<h3>使用正弦功能得到不断循环的变化数<a class="headerlink" href="#using-sine-function-to-pulsate" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../../../_images/compositing_types_converter_math_sine.jpg" src="../../../_images/compositing_types_converter_math_sine.jpg" />
+</div>
+<p>在这个例子中，<em>时间</em> 节点，在101帧范围内生成一个从0到1的线性序列。垂直方向上的绿色曲线控件显示第25帧输出，或者说值为0.25的结果被输出。这个值被正弦节点进行 2 × pi运算转化为正弦范围内的1.0，如我们所熟知的：<cite>sin(2 × pi/ 4) = sin(pi/ 2) = +1.0</cite> 。因为结果值在（-1.0到1.0）之间，<em>映射值</em> 节点通过将输入（-1，1）限定在0.0到1.0区间内，再加上1（使其数值在0到2f范围内），将所得结果乘以二分之一（因此缩放值在0到1之间）。默认  <em>颜色渐变</em> 节点将这些数值映射到一个灰度值区间内。 引测，中度灰色和0.0值相匹配，黑色为-1.0，白色为1.0。我们可以看到， <span class="math">\(sin(pi/ 2) = 1.0\)</span>。就像是有了用户自己的可见光颜色计算器一样！这个节点装配通过灰度范围提供了一个平滑周期性的序列值。</p>
+<p>将这个功能引申,比如，图片的alpha通道形成渐入/渐出特效。改变Z深度通道的景深位置。改变颜色通道值使其有规律的进行色彩变化。</p>
+</div>
+<div class="section" id="brightening-scaling-a-channel">
+<h3>提亮/缩放通道<a class="headerlink" href="#brightening-scaling-a-channel" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../../../_images/compositing_types_converter_math_multiply.jpg" src="../../../_images/compositing_types_converter_math_multiply.jpg" />
+</div>
+<p>范例中有一个 <em>运算: 相乘</em> 节点增加图像的亮度通道（Y）使其颜色变得更亮。使用 <em>映射值</em> 节点的 “使用最小值” 和 “使用最大值”复选框来限定颜色的输出值在合理的区间范围之内。用这个方法，用户可以在高动态范围图像（HDRI）上应用对数函数。在这个特定范例中，使用一个 <em>亮度/对比度 节点</em> 对亮度进行简单控制。</p>
+</div>
+<div class="section" id="quantize-restrict-color-selection">
+<h3>量子化/重限定颜色选取<a class="headerlink" href="#quantize-restrict-color-selection" title="Permalink to this headline">¶</a></h3>
+<p>在这个例子中，我们要重新限定颜色输出值为256色。运用这种设置使显示看起来就像是图像在手机中显示的效果。想实现这个效果，我们要重新将像素的R,G,B值限定在一个范围中，不如当三个光学三原色混合时，颜色结果值不会超过256种变化。颜色输出值的变化范围是三个通道值彼此相乘，Q = R × G × B。</p>
+<p>现在有三个颜色通道256个颜色值，我们可以灵活的量化每个颜色通道的取值，因为有很多种 R × G × B的数学组合结果是256。比如，{R, G, B} = {4, 4, 16}, 然后 <span class="math">\(4 × 4 × 16 = 256\)</span>。同理， {6, 6, 7} 给出的结果是252。在{4, 4, 16}和{6, 6, 7}颜色结果的差异是，将其首先设置为(4, 4, 16}产生一个带有少量红和绿，大量蓝的颜色结果。设置为{6, 6, 7}将产生一个个颜色通道平均分布的颜色结果。为了用较少的颜色值取得比较好的图像效果，图像中的颜色取值尽量以主要颜色为主。</p>
+</div>
+</div>
+<div class="section" id="theory">
+<h2>理论<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>量化留个值的两种方法 &lt;<a class="reference external" href="https://wiki.blender.org/index.php/File:Manual-Compositing-Node-Math_ColorBand">https://wiki.blender.org/index.php/File:Manual-Compositing-Node-Math_ColorBand</a>&gt;`__。</p>
+<p>将图像量化到256色，设置三通道颜色值为{6, 6, 7}。切分出一块范围在0到1之间的连续范围（红色光谱）到六个值，我们需要构建当输入任何一个数值可以输出为六个数值的运算法则，就像如图所示的那样。将0值和黑色颜色值匹配，其他五个颜色在中间。如显示那样，这个方法产生{0, 0.2, 0.4, 0.6, 0.8, 1}。1.0被5除得到的结果是0.2，这个表明了量化值彼此之间的颜色差距离。</p>
+<p>为得到平滑的颜色过渡，我们要讲低于0.16的数值匹配到0.0；在0.16和0.33之间的数值匹配到0.2；在0.33和0.5之间的数值量化为0.4，在0.83和1.0之间的数值量化匹配到1.0。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>函数f(x)</p>
+<p class="last">此函数的数学功能由基本的数学操作（加，减，乘，正弦，余弦等等）对输入值进行运算，输出所需要的输出值。</p>
+</div>
+<p><a class="reference external" href="https://wiki.blender.org/index.php/File:Manual-Compositing-Node-Math_spreadsheet">电子表格表述此函数功能</a>。</p>
+<p>此函数背后的理论是按比例截取数值。比如我们需要一个将数值限定在0到1这个范围的数学函数，比如0.552，但是输出值为，0.2，0.4等等。我们可以想象到我们将0到1范围之间的数进行乘方，比如从0此方到6次方，以便于将结果化为整数。因此将数值进行六次分离，我们要怎样操作呢？答案是对一个数值范围乘以6.运算节点的第一个数值是在0到6的范围内。为了得到平滑均等的分离效果，使用四舍五入功能（参看前文），我们可以将任何数值进行加减将整个数值四舍五入到那个数值。因此，我们将数值减去一半，整个操作就结束了。round()函数功能使数值范围限定在0到5之间。然后将数值除以5得到在0和1之间的取值范围，然后再将结果和其他颜色通道进行合并。因此我们得到的函数是 <span class="math">\(f(x, n) = round(x × n - 0.5)/ (n - 1)\)</span>，“n”代表可能的输出值，“x”代表输入的像素颜色值，函数 <span class="math">\(f(x, n)\)</span> 是输出值。有个小问题，那就是数值等于1的时候，公式结果为1.2，这是个非法值。这是因为四舍五入函数是向上取整，5.5将取整为6。因此，当将此数值减去0.501时，将结果5.499向上取整为5.在其他光谱范围内，是纯黑色，或者数值表示为0，当0.501被减去时，向上取整为0，因为四舍五入函数Round()功能不会返回一个负数结果值。</p>
+<p>有时候通过电子表格可以帮助用户这些节点放在一起计算出想要的结果值。通过公式 <span class="math">\(n = 6\)</span> 和 <span class="math">\(x = 0.70\)</span>，定位到电子表格相应位置，得到8-bit 颜色值179和R值0.7。乘以6得到结果为4.2。减去1/2得到结果为3.7，向上取整为4。将4除以5得到结果为0.8。因此， f(0.7, 6) = 0.8 或一个8-bit数值204。可以将一个范围的颜色输入值输出为同一个 8-bit输出值。</p>
+<div class="section" id="reality">
+<h3>实际应用<a class="headerlink" href="#reality" title="Permalink to this headline">¶</a></h3>
+<p>考虑到上述节点设置在Blender的实际应用，将图像的连入分离RGB节点。比如红色通道，我们将运算节点连入获取每个红色的数值，乘以（比例缩放）其数值为六个单独部分，偏移0.5个数值，四舍五入到最近的整数值，然后将图像颜色像素除以5。将变化范围由{0 to 1} 改为 {0 to 6}，减去中间的数值，数值范围变化为{-0.5 to 5.5}四舍五入到最近的整数，结果为{0, 1, 2, 3, 4, 5}，因为函数向下取整，被5除后的六个数值分别为{0.0, 0.2, 0.4, 0.6, 0.8, 1.0}。</p>
+<p>因为运算节点的四舍五入功能的缘故，输出值是固定范围中阶梯性的结果值。拷贝这个节点装配到绿色和蓝色通道。得到 6:6:7，我们设置三个进行相乘操作的运算节点为 {6, 6, 7}，相除运算的节点设置为 {5, 5, 6}。</p>
+<div class="figure">
+<img alt="../../../_images/compositing_types_converter_math_quantize-red.jpg" src="../../../_images/compositing_types_converter_math_quantize-red.jpg" />
+</div>
+<p>如果将此节点装配放入一个群组节点之中，可以在不同的项目之间简单的重复使用这个功能。在操作中，考虑到一个运算节点要驱动不同的数值，其他的一些要手动设置，以避免出现误差。</p>
+</div>
+<div class="section" id="summary">
+<h3>总结<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<p>正常情况下，一个输出渲染值由32位或24位颜色位深，每个像素的颜色值取值在数百万色之中的某个值。这个节点装配范例将红，绿，蓝三个颜色通道的取值统一到一个很小的颜色区间内，当三个颜色通道的数值混合在一起，每种颜色只有256种颜色其中之一。</p>
+<p>当这个节点装配使用 分离/合并 RGB节点创建一种具体的颜色。其他的 分离/合并 节点依然可以继续使用。使用YUV（一种颜色编码方法）值，记住U值和V值的变化范围在（-0.5，0.5），因此用户可以首先加上1/2使其区间范围在0和1之间，然后进行除法运算，减去1/2,使其颜色在标准范围区间内。</p>
+<p><code class="docutils literal"><span class="pre">JPG</span></code> 或 <code class="docutils literal"><span class="pre">JPG</span></code> 图像格式依据颜色位深（比如： <code class="docutils literal"><span class="pre">JPG</span></code> 是 24位颜色位深）存储每个颜色值，但是生成图像体积非常小的原因是依据 <code class="docutils literal"><span class="pre">JPEG</span></code> 压缩算法减少颜色位深和量化颜色范围。</p>
+<p>用户需要均匀的较少颜色的位深，比如，在一幅蓝色为主色调的图片上，保持图像的品质，需要减少红色通道值2个单位，绿色通道值4个单位，让蓝色颜色值为 <span class="math">\(256/(2 × 4)\)</span> 或 值为32。如果使用HSV（一种颜色空间）色彩空间，用户需要通过乘以2和除以2分别减少饱和度和亮度2个单位（0或1.0），将颜色的色相值重新限定为64。</p>
+<p>用户可以使用此节点装配量化任何通道：alpha,速度（矢量），z深度值等等。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rgb_to_bw.html" class="btn btn-neutral float-right" title="RGB -&gt; BW节点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="id_mask.html" class="btn btn-neutral" title="ID遮罩节点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

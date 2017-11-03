@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>属性 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/texts/properties.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="文本物体" href="index.html"/>
+        <link rel="next" title="空物体" href="../empties.html"/>
+        <link rel="prev" title="编辑 &amp; 选择" href="editing.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">融球</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">文本物体</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">简介--NGENNGT 翻译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">编辑 &amp; 选择</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shape">Shape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#texture-space">Texture Space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geometry">Geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#font">Font</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paragraph">Paragraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text-boxes">Text Boxes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">空物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="index.html">文本物体</a> &raquo;</li>
+        
+      <li>属性</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/texts/properties.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="properties">
+<h1>属性<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="shape">
+<h2>Shape<a class="headerlink" href="#shape" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Object or Edit Mode</div>
+<div class="line">Panel:    <span class="menuselection">Properties editor ‣ Text ‣ Shape</span></div>
+</div>
+</div>
+<div class="figure" id="id1">
+<img alt="../../_images/modeling_texts_properties_shape-settings.jpg" src="../../_images/modeling_texts_properties_shape-settings.jpg" />
+<p class="caption"><span class="caption-text">The Shape panel.</span></p>
+</div>
+<p>As you can see in the Shape panel, texts have most of the same options as curves.</p>
+<div class="section" id="resolution">
+<h3>Resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Preview</dt>
+<dd>The surface resolution in the U direction to use in the viewport.</dd>
+<dt>Render</dt>
+<dd>The surface resolution in the U direction, set to zero to use the <em>Preview</em> resolution.</dd>
+</dl>
+</div>
+<div class="section" id="fill">
+<h3>Fill<a class="headerlink" href="#fill" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Fill</dt>
+<dd><p class="first">Determines the way a Curve is filled in when it is extruded and/or beveled.</p>
+<dl class="last docutils">
+<dt>Front</dt>
+<dd>Fills in the front side of the surface.</dd>
+<dt>Back</dt>
+<dd>Fills in the back side of the surface.</dd>
+</dl>
+</dd>
+<dt>Fill Deformed</dt>
+<dd>Fills the curves after applying all modification that might deform the curve (i.e. shape keys and modifiers).</dd>
+</dl>
+</div>
+<div class="section" id="display">
+<h3>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Fast Editing</dt>
+<dd>Does not fill polygons while editing text.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="texture-space">
+<h2>Texture Space<a class="headerlink" href="#texture-space" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../_images/modeling_texts_properties_texture-settings.jpg" src="../../_images/modeling_texts_properties_texture-settings.jpg" />
+<p class="caption"><span class="caption-text">Texture Settings.</span></p>
+</div>
+<dl class="docutils">
+<dt>Use UV for Mapping</dt>
+<dd>Use UV values as generated texture coordinates.</dd>
+<dt>Auto Texture Space</dt>
+<dd>Adjusts the active object's texture space automatically when transforming the object.</dd>
+</dl>
+<p>TODO.</p>
+</div>
+<div class="section" id="geometry">
+<h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Modification</dt>
+<dd><dl class="first last docutils">
+<dt>Offset</dt>
+<dd>Alters the space between letters.</dd>
+<dt>Extrude</dt>
+<dd>Will extrude the text along both the positive and negative local Z axes.</dd>
+</dl>
+</dd>
+<dt>Bevel</dt>
+<dd><dl class="first last docutils">
+<dt>Depth</dt>
+<dd>Changes the size of the bevel.</dd>
+<dt>Resolution</dt>
+<dd>Alters the smoothness of the bevel.</dd>
+</dl>
+</dd>
+<dt>Taper Object</dt>
+<dd>Used to select a curve object that can be used to cause the characters to get thinner towards one end.
+You can also alter the proportions of the Taper throughout the tapered object by moving/scaling/rotating
+the Control Points of the <em>Taper Object</em>. The <em>Taper Object</em> can only be a curve.
+Editing the Handles and Control Points of the <em>Taper Object</em> will cause the original object to change shape.</dd>
+<dt>Bevel Object</dt>
+<dd>Used to select a curve object that can be used to give custom bevel results.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="../curves/properties/geometry.html"><span class="doc">Curve geometry</span></a> for more details and examples.</p>
+</div>
+</div>
+<div class="section" id="font">
+<h2>Font<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">Panel:    Font</div>
+</div>
+</div>
+<p>The <em>Font</em> panel has several options for changing the look of characters.</p>
+<div class="section" id="loading-and-changing-fonts">
+<h3>Loading and Changing Fonts<a class="headerlink" href="#loading-and-changing-fonts" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../_images/modeling_texts_properties_load-example.png" src="../../_images/modeling_texts_properties_load-example.png" />
+<p class="caption"><span class="caption-text">Loading a Type 1 font file.</span></p>
+</div>
+<p>Blender comes with a <em>built-in</em> font by default and is displayed in
+each of the four font style data-block menus .
+The <em>built-in</em> font is always present and shows in this list as &quot;Bfont&quot;.
+The data-block menu contains a list displaying the currently loaded fonts.
+Select one for each font style.</p>
+<p>To load a different <em>Font</em>, click one of the <em>Load</em> buttons in the
+<em>Font</em> panel and navigate to a <em>valid</em> font.
+The <a class="reference internal" href="../../editors/file_browser/index.html"><span class="doc">File Browser</span></a> will give all valid fonts a capital F icon,
+as seen in <em>Loading a Type 1 font file.</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Location of fonts on Unix</p>
+<p class="last">Fonts are typically located under <code class="docutils literal"><span class="pre">/usr/lib/fonts</span></code>, or some variant like <code class="docutils literal"><span class="pre">/usr/lib/X11/fonts</span></code>,
+but not always. They may be in other locations as well,
+such as <code class="docutils literal"><span class="pre">/usr/share/local</span></code> or <code class="docutils literal"><span class="pre">/usr/local/share</span></code>, and possibly related sub-trees.</p>
+</div>
+<p>If you select a font that Blender cannot understand,
+you will get the error <code class="docutils literal"><span class="pre">Not</span> <span class="pre">a</span> <span class="pre">valid</span> <span class="pre">font</span></code>.</p>
+<p>Remember the same font will be applied to all chars with same style in a text,
+but that a separate font is required for each style. For example,
+you will need to load an <em>Italics</em> font in order to make characters or words italic. Once
+the font is loaded you can apply that font &quot;Style&quot; to the selected characters or the whole
+object. In all,
+you would need to load a minimum of four different types of fonts to represent each style
+(Normal, Italics, Bold, Bold-Italics).</p>
+<p>It is important to understand, that Blender does not care what font
+you load for &quot;normal&quot;, &quot;bold&quot;, etc., styles.
+This is how you can have up to four different fonts in use in the same text,
+but you have to choose between different styles of a same font, or different fonts.
+Blender has a number of typographic controls for changing the style and layout of text,
+found in the <em>Font</em> panel.</p>
+</div>
+<div class="section" id="size-and-shear">
+<h3>Size and Shear<a class="headerlink" href="#size-and-shear" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Size</dt>
+<dd>Controls the size of the whole text (no way to control each char size independently).
+Note however, that chars with different fonts (different styles, see below) might have different visible sizes.</dd>
+<dt>Shear</dt>
+<dd><p class="first">Controls the inclination of the whole text.
+Different to as it may seem, this is not similar to italics style.</p>
+<div class="last figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_properties_shear-example.png"><img alt="../../_images/modeling_texts_properties_shear-example.png" src="../../_images/modeling_texts_properties_shear-example.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Shear: &quot;blender&quot; has a shear value of 1, &quot;2.59&quot; a shear value of 0.</span></p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="objects-as-fonts">
+<h3>Objects as Fonts<a class="headerlink" href="#objects-as-fonts" title="Permalink to this headline">¶</a></h3>
+<p>You can also &quot;create&quot; your own &quot;font&quot; inside Blender! This is quite a complex process,
+so let us detail it:</p>
+<ol class="arabic simple">
+<li>First, you must create your chars. Each char, of any type,  is an object (mesh, curve, meta...).
+They all must have a name following the schema:
+<em>common prefix</em> followed by the <em>char name</em> (e.g. &quot;ft.a&quot;, &quot;ft.b&quot;, etc.).</li>
+<li>Then, for the <em>Text</em> object, you must enable the <em>Dupli Verts</em> button
+(<span class="menuselection">Object ‣ Animation Settings</span> panel).</li>
+<li>In the <em>Font</em> tap, fill the <em>Object Font</em> field with the <em>common prefix</em> of your &quot;font&quot; objects.</li>
+</ol>
+<p>Now, each time a char in your text matches the <em>suffix part</em> of a &quot;font&quot; object's name,
+this object is duplicated on this char. The original chars remain visible. The objects are
+duplicated so that their center is positioned at the <em>lower right corner</em> of the
+corresponding characters.</p>
+<dl class="docutils">
+<dt>Text on Curve</dt>
+<dd><p class="first">Used to select a curve for the text object to follow.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_properties_curved-lowres-example.png"><img alt="../../_images/modeling_texts_properties_curved-lowres-example.png" src="../../_images/modeling_texts_properties_curved-lowres-example.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Text on curve.</span></p>
+</div>
+<div class="last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can also use the <a class="reference internal" href="../modifiers/deform/curve.html"><span class="doc">Curve Modifier</span></a>
+which offers more control.</p>
+</div>
+</dd>
+<dt>Underline</dt>
+<dd><p class="first">Toggled with the <em>Underline</em> button before typing.
+Text can also be set to Underlined by selecting it then using the <em>Underline</em> button in the Tool Shelf.</p>
+<dl class="last docutils">
+<dt>Position</dt>
+<dd>This allows you to shift vertically the position of the underline.</dd>
+<dt>Thickness</dt>
+<dd>This controls the thickness of the underline.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="character">
+<span id="modeling-text-character"></span><h3>Character<a class="headerlink" href="#character" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_properties_bold-example.png"><img alt="../../_images/modeling_texts_properties_bold-example.png" src="../../_images/modeling_texts_properties_bold-example.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Bold text.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_properties_font-settings.png"><img alt="../../_images/modeling_texts_properties_font-settings.png" src="../../_images/modeling_texts_properties_font-settings.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Character options to, for example, type bold text.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Bold</dt>
+<dd>Toggled with the <em>Bold</em> button before typing.
+Text can also be set to Bold by selecting it then using the <em>Bold</em> button in the Tool Shelf.</dd>
+<dt>Italics</dt>
+<dd>Toggled with the <em>Italic</em> button before typing.
+Text can also be set to Italic by selecting it then using the <em>Italic</em> button in the Tool Shelf.</dd>
+<dt>Underline</dt>
+<dd>Enables underlining, as controlled by the Underline settings above.</dd>
+<dt>Small Caps</dt>
+<dd>Type small capital text.</dd>
+</dl>
+<p>Blender's <em>Bold</em> and <em>Italic</em> buttons do not work the same way as other applications,
+as they also serve as placeholders for you to load up other fonts manually,
+which get applied when you define the corresponding style; see <a class="reference internal" href="#font">Font</a>.</p>
+<p>To apply the Bold/Italics/Underline attribute to a set of characters, you either turn on
+<em>Bold</em> / <em>Italics</em> / <em>Underline</em> prior to typing characters,
+or highlight (select) first and then toggle Bold/Italics/Underline.</p>
+</div>
+<div class="section" id="setting-case">
+<h3>Setting Case<a class="headerlink" href="#setting-case" title="Permalink to this headline">¶</a></h3>
+<p>You can change the text case by selecting it then clicking the <em>To Upper</em> or
+<em>To Lower</em> in the tool shelf.</p>
+<p>Enable the <em>Small Caps</em> option to type characters as small caps.</p>
+<p>The size of the <em>Small Caps</em> can be changed with the <em>Small Caps Scale</em>
+setting. Note that the <em>Small Caps Scale</em> is applied the same to all <em>Small Caps</em> formatted characters.</p>
+</div>
+</div>
+<div class="section" id="paragraph">
+<h2>Paragraph<a class="headerlink" href="#paragraph" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Paragraph</em> Panel has settings for the alignment and spacing of text.</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_properties_paragraph-settings.png"><img alt="../../_images/modeling_texts_properties_paragraph-settings.png" src="../../_images/modeling_texts_properties_paragraph-settings.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">The Paragraph tab.</span></p>
+</div>
+<div class="section" id="horizontal-alignment">
+<h3>Horizontal Alignment<a class="headerlink" href="#horizontal-alignment" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Left</dt>
+<dd>Aligns text to left of frames when using them,
+else uses the center point of the <em>Text</em> object as the starting point of the text (which grows to the right).</dd>
+<dt>Center</dt>
+<dd>Centers text in the frames when using them,
+else uses the center point of the <em>Text</em> object as the mid-point of the text
+(which grows equally to the left and right).</dd>
+<dt>Right</dt>
+<dd>Aligns text to right of frames when using them,
+else uses the center point of the <em>Text</em> object as the ending point of the text (which grows to the left).</dd>
+<dt>Justify</dt>
+<dd>Only flushes a line when it is terminated by a word-wrap (<strong>not</strong> by <code class="kbd docutils literal"><span class="pre">Enter</span></code>),
+it uses <em>white-space</em> instead of <em>character spacing</em> (kerning) to fill lines.</dd>
+<dt>Flush</dt>
+<dd>Always flushes the line, even when it is still being entered;
+it uses character spacing (kerning) to fill lines.</dd>
+</dl>
+<p>Both <em>Justify</em> and <em>Flush</em> only work within frames.</p>
+</div>
+<div class="section" id="vertical-alignment">
+<h3>Vertical Alignment<a class="headerlink" href="#vertical-alignment" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Top Base-Line</dt>
+<dd>Aligns the text base-line to top of frames when using them,
+else uses the center point of the <em>Text</em> object as the starting point of the text (which grows to the bottom).</dd>
+<dt>Top</dt>
+<dd>Aligns top of text to the center point of the <em>Text</em> object (which grows to the bottom).
+It behaves as <em>Top Base-Line</em> when using frames. <em>Top</em> only works without frames.</dd>
+<dt>Center</dt>
+<dd>Centers text in the frames when using them,
+else uses the center point of the <em>Text</em> object as the mid-point of the text
+(which grows equally to the top and bottom).</dd>
+<dt>Bottom</dt>
+<dd>Aligns text to bottom of frames when using them,
+else uses the center point of the <em>Text</em> object as the ending point of the text (which grows to the top).</dd>
+</dl>
+</div>
+<div class="section" id="spacing">
+<h3>Spacing<a class="headerlink" href="#spacing" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Character</dt>
+<dd>A factor by which space between each character is scaled in width.</dd>
+<dt>Word</dt>
+<dd>A factor by which white-space between words is scaled in width.
+You can also control it by pressing <code class="kbd docutils literal"><span class="pre">Alt-Left</span></code> or <code class="kbd docutils literal"><span class="pre">Alt-Right</span></code>
+to decrease/increase spacing by steps of 0.1.</dd>
+<dt>Line</dt>
+<dd>A factor by which the vertical space between lines is scaled.</dd>
+</dl>
+</div>
+<div class="section" id="offset">
+<h3>Offset<a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>X offset and Y offset</dt>
+<dd>Well, these settings control the X and Y offset of the text, regarding its &quot;normal&quot; positioning. Note that with
+frames (see <a class="reference internal" href="editing.html"><span class="doc">Text Boxes</span></a>), it applies to all frames' content...</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="text-boxes">
+<span id="bpy-types-textbox"></span><h2>Text Boxes<a class="headerlink" href="#text-boxes" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Object or Edit Modes</div>
+<div class="line">Panel:    Font</div>
+</div>
+</div>
+<div class="figure" id="id9">
+<img alt="../../_images/modeling_texts_properties_frame-upperpanel-area.png" src="../../_images/modeling_texts_properties_frame-upperpanel-area.png" />
+<p class="caption"><span class="caption-text">Text frame.</span></p>
+</div>
+<p>Text &quot;Boxes&quot; allow you to distribute the text amongst rectangular areas within a single text object.
+An arbitrary number of freely positionable and re-sizable text frames are allowed per text object.</p>
+<p>Text flows continuously from the lowest-numbered frame to the highest-numbered frame with text
+inside each frame word-wrapped.
+Text flows between frames when a lower-numbered frame cannot fit any more text.
+If the last frame is reached, text overflows out of it.</p>
+<p>Text frames are very similar to the concept of <em>frames</em> from a desktop publishing
+application, like Scribus. You use frames to control the placement and flow of text.</p>
+<p>Frames are controlled in the <em>Text Boxes</em> panel.</p>
+<div class="section" id="frame-size">
+<h3>Frame Size<a class="headerlink" href="#frame-size" title="Permalink to this headline">¶</a></h3>
+<p>By default the first frame for a new text object, and any additional frames,
+has a size of <strong>zero</strong> for both <em>Width</em> and <em>Height</em>,
+which means the frame is initially not visible.</p>
+<p>Frames with a width of 0.0 are ignored completely during text flow (no wordwrap happens),
+and frames with a height of 0.0 flow forever (no flowing to the next text frame).</p>
+<p>In order for the frame to become visible, the frame's <em>Width</em> must be greater than 0.0.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Technically the height is never actually 0.0, because the font itself always contributes height.</p>
+</div>
+<div class="figure" id="id10">
+<span id="fig-texts-edit-frame"></span><img alt="../../_images/modeling_texts_properties_frame-default-example.png" src="../../_images/modeling_texts_properties_frame-default-example.png" />
+<p class="caption"><span class="caption-text">Frame width.</span></p>
+</div>
+<p>Fig. <a class="reference internal" href="#fig-texts-edit-frame"><span class="std std-ref">Frame width.</span></a> is a text object with a width of 5.0.
+And because the frame width is greater than 0.0
+it is now visible and is drawn in the active theme color as a dashed rectangle.
+The text has overflowed because the text has reached the end of the last frame, the default frame.</p>
+</div>
+<div class="section" id="adding-deleting-a-frame">
+<h3>Adding/Deleting a Frame<a class="headerlink" href="#adding-deleting-a-frame" title="Permalink to this headline">¶</a></h3>
+<p>To add a frame click the <em>Add Textbox</em> button on the <em>Text Boxes</em> panel.
+A new frame is inserted just after (in text flow order) the current one, with its attributes
+(position and size). Be sure to modify the offset for the new frame in the X
+and/or Y fields. Just an X modification will create a new column.</p>
+<p>To delete the current frame, click the <code class="kbd docutils literal"><span class="pre">Delete</span></code> button.
+Any text in higher frames will be re-flowed downward into lower frames.</p>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="text-flow">
+<h4>Text Flow<a class="headerlink" href="#text-flow" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id11">
+<span id="fig-texts-edit-wrap"></span><img alt="../../_images/modeling_texts_properties_frame-example2.png" src="../../_images/modeling_texts_properties_frame-example2.png" />
+<p class="caption"><span class="caption-text">Wrapping.</span></p>
+</div>
+<p>With two or more frames you can organize text to a finer degree. For example,
+create a text object and enter &quot;Blender is super duper&quot;.
+This text object has a frame; it just is not visible because its <em>Width</em> is 0.0.</p>
+<p>Set the width to 5.0. The frame is now visible and text is wrapping according to the new width,
+as shown in Fig. <a class="reference internal" href="#fig-texts-edit-wrap"><span class="std std-ref">Wrapping.</span></a>. Notice that the text has overflowed out of the frame.
+This is because the text has reached the end of the last frame,
+which just happens to be the default/initial frame.</p>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../_images/modeling_texts_properties_frame-example3.png"><img alt="../../_images/modeling_texts_properties_frame-example3.png" src="../../_images/modeling_texts_properties_frame-example3.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Text flowing from box 1 to box 2.</span></p>
+</div>
+<p>When we add another frame and set its width and height, the text will flow into the new frame.</p>
+</div>
+<div class="section" id="multiple-columns">
+<h4>Multiple Columns<a class="headerlink" href="#multiple-columns" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id13">
+<span id="fig-texts-edit-text5"></span><img alt="../../_images/modeling_texts_properties_frame-example4.png" src="../../_images/modeling_texts_properties_frame-example4.png" />
+<p class="caption"><span class="caption-text">Text 5.</span></p>
+</div>
+<p>To create two columns of text, just create a text object and adjust the initial frame's
+<em>Width</em> and <em>Height</em> to your requirements, then insert a new frame.
+The new frame will have the same size as the initial frame. Set the X position to
+something greater or less than the width of the initial frame; see Fig. <a class="reference internal" href="#fig-texts-edit-text5"><span class="std std-ref">Text 5.</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../empties.html" class="btn btn-neutral float-right" title="空物体" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="editing.html" class="btn btn-neutral" title="编辑 &amp; 选择" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

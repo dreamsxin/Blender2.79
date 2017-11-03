@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>渲染烘焙 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/bake.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="Blender渲染引擎" href="index.html"/>
+        <link rel="next" title="Post Processing" href="post_processing/index.html"/>
+        <link rel="prev" title="Anti-Aliasing" href="settings/antialiasing.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials/index.html">材质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="textures/index.html">纹理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lighting/index.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings/index.html">Render Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">渲染烘焙</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options">选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow">工作流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="index.html">Blender渲染引擎</a> &raquo;</li>
+        
+      <li>渲染烘焙</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/blender_render/bake.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="render-baking">
+<h1>渲染烘焙<a class="headerlink" href="#render-baking" title="Permalink to this headline">¶</a></h1>
+<p>烘焙，一般地讲，是为了加速后续的其他过程进行的预先计算。根据你所选择的选项不同，从头进行渲染可能将花费大量的时间。因此，Blender允许你为选择的物体提前 “烘焙” 渲染的一些部分。然后，当你点击渲染，整个场景的渲染将会更快，因为这些物体的颜色不需要重新计算。</p>
+<p>渲染烘焙创建一个网格物体渲染的表面的 2D 位图图片。这些图片会被使用物体的 UV 坐标重新映射到物体上。烘焙是对每个独立网格完成的，而且仅当网格已经被UV展开的情况下完成的。虽然配置和运行会花费时间，但是这将节省渲染时间。如果你要渲染一个很长的动画，花费在烘焙上的时间要大大少于花费在渲染长动画每一帧上的时间。</p>
+<p>在强光/阴影方案中使用渲染烘焙，例如 AO 或 区域灯光的柔和阴影。如果你为主物体烘焙 AO，你将无须为完全渲染启动它，节省了渲染时间。</p>
+<p>使用 <em>完全渲染</em> 或 <em>纹理</em> 来创建一个图片纹理；烘焙过程的纹理可以用作进一步纹理绘图的一个起点。使用*法线*来使一个低分辨率的网格看起来像高分辨率的网格。为了实现这个，UV展开一个高分辨，精细雕刻的网格和烘焙它的法线。保存法线图，和*映射*（纹理设置）一个相似的展开的低分辨率网格的UV。低分辨率网格看起来像高分辨率，但是拥有更少的面/多边形。</p>
+<p class="rubric">优势</p>
+<ul class="simple">
+<li>可以显著减少渲染时间。</li>
+<li>纹理绘图变得更简单。</li>
+<li>减少了多边形数量。</li>
+<li>重复渲染变得更快，成倍减少时间。</li>
+</ul>
+<p class="rubric">劣势</p>
+<ul class="simple">
+<li>物体必须是UV展开的。</li>
+<li>如果阴影被烘焙了，灯光和物体互相之间不能移动。</li>
+<li>大的文件（比如，4096 x 4096）会是内存密集的，会像渲染一样慢。</li>
+<li>人 （人工）时间必须花在展开，烘焙和保存文件并应用纹理到一个通道上。</li>
+</ul>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bake-mode">
+<h3>烘焙模式<a class="headerlink" href="#bake-mode" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="full-render">
+<h4>完全渲染<a class="headerlink" href="#full-render" title="Permalink to this headline">¶</a></h4>
+<p>烘焙所有的材质，纹理，和光照，除了高光和 次表面散射。</p>
+</div>
+<div class="section" id="ambient-occlusion">
+<h4>环境光遮蔽<a class="headerlink" href="#ambient-occlusion" title="Permalink to this headline">¶</a></h4>
+<p>烘焙世界面板中指定的环境光遮蔽。忽略场景中所有的灯光。</p>
+<div class="figure" id="id1">
+<img alt="../../_images/render_blender-render_bake_ao.jpg" src="../../_images/render_blender-render_bake_ao.jpg" />
+<p class="caption"><span class="caption-text">环境光遮蔽。</span></p>
+</div>
+<dl class="docutils">
+<dt>标准化</dt>
+<dd>标准化不使用材料设置。</dd>
+</dl>
+</div>
+<div class="section" id="shadow">
+<h4>阴影<a class="headerlink" href="#shadow" title="Permalink to this headline">¶</a></h4>
+<p>烘焙阴影和光照。</p>
+</div>
+<div class="section" id="normals">
+<h4>法线<a class="headerlink" href="#normals" title="Permalink to this headline">¶</a></h4>
+<p>烘焙切线和相机空间法线（和很多其他的）到一个RGB图像。</p>
+<div class="figure" id="id2">
+<img alt="../../_images/render_blender-render_bake_norm.jpg" src="../../_images/render_blender-render_bake_norm.jpg" />
+<p class="caption"><span class="caption-text">法线。</span></p>
+</div>
+<div class="figure align-right" id="id3">
+<img alt="../../_images/render_blender-render_bake_normspace.jpg" src="../../_images/render_blender-render_bake_normspace.jpg" />
+<p class="caption"><span class="caption-text">正规空间。</span></p>
+</div>
+<dl class="docutils">
+<dt>正规空间</dt>
+<dd><p class="first">法线可以在不同的空间被烘焙：</p>
+<dl class="last docutils">
+<dt>相机空间</dt>
+<dd>默认方法。</dd>
+<dt>世界空间</dt>
+<dd>在世界坐标系下的法线，依赖物体变换和变形。</dd>
+<dt>物体空间</dt>
+<dd>在物体坐标系下的法线，与物体的变换无关，和变形有关。</dd>
+<dt>切空间</dt>
+<dd>法线在切空间坐标，无关与物体的变换与变形。这是一个新的默认，而且在很多情况下是正确的选择，因此法向图也可以被用于动画物体。</dd>
+</dl>
+</dd>
+</dl>
+<p>对于材质，相同的空间也可以被选择，在图像纹理选项中紧挨着存在的*法向图*设置。为了正确的结果，这里的设置应该和用于烘焙的设置相匹配。</p>
+</div>
+<div class="section" id="textures">
+<h4>纹理<a class="headerlink" href="#textures" title="Permalink to this headline">¶</a></h4>
+<p>仅烘焙材质的颜色和纹理，没有渐变。</p>
+</div>
+<div class="section" id="displacement">
+<h4>位移<a class="headerlink" href="#displacement" title="Permalink to this headline">¶</a></h4>
+<p>类似烘焙法线图，位移图也可以使用*选定的到活动的*选项，从一个高分辨率的物体烘焙到一个展开的低分辨率物体。</p>
+<div class="figure" id="id4">
+<img alt="../../_images/render_blender-render_bake_disp.jpg" src="../../_images/render_blender-render_bake_disp.jpg" />
+<p class="caption"><span class="caption-text">位移。</span></p>
+</div>
+<dl class="docutils">
+<dt>标准化</dt>
+<dd>规范化到距离。</dd>
+</dl>
+<p>在Blender内，当和细分表面和位移修改器一起使用时，在烘焙前临时增加一个重细分表面修改器到低分辨率模型是必要的。这意味着如果你在细分表面顶部使用一个位移修改器，位移将会是正确的，因为它被作为一个相对于细分的几何图形的差保存，而不是原始的基网格（这能通过细分表面变得显著扭曲）。烘焙时渲染细分级别越高，位移就会越精确。这个技术在保存位移图用于外部渲染器时也是有用的。</p>
+</div>
+<div class="section" id="emission">
+<h4>发射<a class="headerlink" href="#emission" title="Permalink to this headline">¶</a></h4>
+<p>烘焙发射，或一种材料的发光颜色。</p>
+</div>
+<div class="section" id="alpha">
+<h4>Alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">¶</a></h4>
+<p>烘焙 Alpha 值，或材料的透明性。</p>
+</div>
+<div class="section" id="mirror-color-and-intensity">
+<h4>反射颜色和强度<a class="headerlink" href="#mirror-color-and-intensity" title="Permalink to this headline">¶</a></h4>
+<p>烘焙发射颜色或强度值。</p>
+</div>
+<div class="section" id="specular-color-and-intensity">
+<h4>镜面发射的颜色和强度<a class="headerlink" href="#specular-color-and-intensity" title="Permalink to this headline">¶</a></h4>
+<p>烘焙镜面发射颜色和镜面发射强度值。</p>
+<div class="figure" id="id5">
+<img alt="../../_images/render_blender-render_bake_fullrender.jpg" src="../../_images/render_blender-render_bake_fullrender.jpg" />
+<p class="caption"><span class="caption-text">完全渲染。</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="additional-options">
+<h3>额外选项<a class="headerlink" href="#additional-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>清除</dt>
+<dd>如果选定了，在烘焙渲染前清除图像到选定的背景颜色（默认是黑色）。</dd>
+<dt>边缘</dt>
+<dd>烘焙结果被扩展了很多像素超出了每个UV“岛”的边界到柔软的纹理。</dd>
+<dt>分割</dt>
+<dd><dl class="first last docutils">
+<dt>固定</dt>
+<dd>狭缝四处可预见地  (0, 1, 2) (0, 2, 3)。</dd>
+<dt>固定地备选</dt>
+<dd>Slit quads predictably (1, 2, 3) (1, 3, 0)。</dd>
+<dt>自动的</dt>
+<dd>在烘焙的时候，分割的四分位给出最小的失真。</dd>
+</dl>
+</dd>
+<dt>选择的到活动的</dt>
+<dd><p class="first">从其他物体到被烘焙到活动物体上启动信息。</p>
+<dl class="last docutils">
+<dt>距离</dt>
+<dd>控制一个物体上的一个点可以离活动物体上的点多远。仅对*选定的到活动的*是必须的。一个典型的使用情景是制作一个细致的高多边形的物体，然后烘焙它的法线到一个低多边形数量的物体上。由此产生的法线图可以被用于制作低多边形物体看起来更细致。</dd>
+<dt>偏差</dt>
+<dd>Bias towards further away from the object (in Blender units).</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>网格必须在渲染中是可见的</p>
+<p class="last">如果一个网格在普通的渲染中是不可见的，例如因为为了在轮廓渲染而禁用它或启用了顶点复制设置，它将不能被烘焙。</p>
+</div>
+</div>
+</div>
+<div class="section" id="workflow">
+<h2>工作流程<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>In a 3D View editor, select a mesh and enter UV/Face Select mode.</li>
+<li><a class="reference internal" href="../../editors/uv_image/index.html#editors-uv-image-index"><span class="std std-ref">Unwrap the mesh object</span></a>.</li>
+<li>在一个 UV/图片 编辑器内，创建一个新的图片或打开一个已经存在的。如果你的 3D 视图是在纹理显示模式，你现在应该看到映射到你网格的图片。确保所有的面都被选择。</li>
+<li>In the Bake panel at the bottom of the <em>Render menu</em>, bake your desired type of image
+(<em>Full Render</em>, etc.).</li>
+<li>当渲染完成，Blender 将使用烘焙的图片替代这个图片。</li>
+<li>保存图像。</li>
+<li>Apply the image to the mesh as a UV texture. For displacement and normal maps,
+refer to <a class="reference internal" href="textures/properties/influence/bump_normal.html"><span class="doc">Bump and Normal Maps</span></a>.
+For full and texture bakes, refer to <a class="reference internal" href="textures/index.html"><span class="doc">Textures</span></a>.</li>
+<li>使用下面描述的过程调整图片，或者用 <a class="reference internal" href="../../sculpt_paint/painting/texture_paint/index.html#painting-texture-index"><span class="std std-ref">纹理绘制</span></a> 或外部的图片编辑器润色。</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="post_processing/index.html" class="btn btn-neutral float-right" title="Post Processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="settings/antialiasing.html" class="btn btn-neutral" title="Anti-Aliasing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

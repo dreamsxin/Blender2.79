@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Skeleton Sketching 骨架速绘 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/editing/sketching.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../index.html"/>
+        <link rel="up" title="编辑" href="index.html"/>
+        <link rel="next" title="Armature Templating 骨架模板" href="templating.html"/>
+        <link rel="prev" title="Properties 属性" href="properties.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">绑定</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">约束</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">骨架</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">骨骼</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">选择</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">编辑</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">蒙皮</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">姿态</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Lattice 晶格</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">绑定</a> &raquo;</li>
+        
+          <li><a href="../../index.html">骨架</a> &raquo;</li>
+        
+          <li><a href="../index.html">骨骼</a> &raquo;</li>
+        
+          <li><a href="index.html">编辑</a> &raquo;</li>
+        
+      <li>Skeleton Sketching 骨架速绘</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/editing/sketching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="skeleton-sketching">
+<span id="bpy-ops-sketch"></span><h1>Skeleton Sketching 骨架速绘<a class="headerlink" href="#skeleton-sketching" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_skeleton-sketching-panel.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_skeleton-sketching-panel.png" />
+<p class="caption"><span class="caption-text">骨架速绘面板。</span></p>
+</div>
+<p>如果你认为手动一个个骨骼创建整个绑定是无聊的，幸运的是Blender开发者都有同样的感觉，并创建了一个骨骼素描工具：Etch-a-ton，主要允许你一次画出整个骨骼链。</p>
+<p>骨架速绘很显然的只用于3D视图 <em>编辑模式</em> 下。你可以在 <em>变换Transform面板</em> 下的 <em>骨架速绘</em> 子项控制它，快捷键是 <code class="kbd docutils literal"><span class="pre">N</span></code>。鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 是绘画，鼠标右键 <code class="kbd docutils literal"><span class="pre">RMB</span></code> 是手势。默认是没有激活这个功能的—你必须勾选 <em>骨架速绘</em> 选项才可以开始画骨骼链（否则你还是在标准的骨骼 <em>编辑模式</em> ）.</p>
+<p>骨架速绘的的两个步骤：</p>
+<ul class="simple">
+<li><a class="reference internal" href="#drawing-chains">Drawing Chains 绘图链</a>  （称为“笔画、笔迹”）。每个笔划对应于一连串的骨骼。</li>
+<li><a class="reference internal" href="#converting-to-bones">转换为骨骼</a>，使用不同的方法。</li>
+</ul>
+<p><em>视图点</em> 是很重要的，它决定未来骨骼的旋转角度：在你画它的 &quot;父&quot;  骨骼时未来的骨骼的Z轴将和3D视图的Z轴对齐（除非你使用 <em>Template（模板）</em> 转换模式）。在当前视图平面中，通过三维游标绘制，但你也可以使用 <em>Adjust</em> 选项在不同视图的创建一些“3D”笔画。</p>
+<p>如果你激活了 <em>Quick Sketch（快捷速绘）</em> 选项，两个步骤将合并为一个步骤：一旦你完成了绘画笔画(见 <a class="reference internal" href="#drawing-chains">绘图链Drawing Chains</a>)，它将立刻转换成骨骼（使用当前激活模式）并删除。。这个选项使骨骼速绘更快，更高效，但会让你不可以编辑高级笔画选项。</p>
+<p>速绘 <strong>没有</strong> 保存到Blender文件，所以你不能够中断速绘，不然你会丢失你的工作！注意速绘（sketching）是在整个Blender过程，也就是说在Blender只有一组的笔画（一个速绘）设置，而在不是每一个骨架，甚至每个文件...</p>
+<div class="section" id="drawing-chains">
+<h2>Drawing Chains 绘图链<a class="headerlink" href="#drawing-chains" title="Permalink to this headline">¶</a></h2>
+<p>所以你绘制的从起点（最红或橙色部分）出发到末端的每一个笔画都是一个骨骼链。一个笔画是由几个两端黑点的线段组成-  一个线段表示至少一个骨骼，（除了 <em>模板（Template）</em> 转换法，见下一页  <a class="reference internal" href="templating.html"><span class="doc">next page</span></a>），所以所有的黑点代表未来的骨头的关节。有2种类型的线段，可以混合在一起：</p>
+<div class="figure" id="id2">
+<span id="fig-stroke-example"></span><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_strokes-example.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_strokes-example.png" />
+<p class="caption"><span class="caption-text">调笔画实例。</span></p>
+<div class="legend">
+<div class="line-block">
+<div class="line">从上到下:</div>
+<div class="line">由四段直线段组成的分段笔画，已选中，方向从左到右。</div>
+<div class="line">分为两段的自由笔画，未选中，方向从左到右。</div>
+<div class="line">由两段自由笔画，以及中间的直线段组成的混合笔画，方向从右到左。</div>
+</div>
+</div>
+</div>
+<div class="section" id="straight-segments">
+<h3>Straight Segments 直线<a class="headerlink" href="#straight-segments" title="Permalink to this headline">¶</a></h3>
+<p>要创建一段直线，鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 点击开始点，然后移动鼠标，不要按任何按钮—虚拟红线表示的是将要绘制的线段。再次点击鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 确认线段。每一个直线段都会产生一个并且只有一个骨，不管你使用什么转换算法（除了 <em>模板</em> 转换方法）。</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">绘制直线段的实例。</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-1.png" />
+<p class="caption"><span class="caption-text">第一段点击鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 已经开始，和鼠标移动到它的终点。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-2.png" />
+<p class="caption"><span class="caption-text">第一段通过二次点击鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 完成，这也开始了一段新线段…</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-3.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-3.png" />
+<p class="caption"><span class="caption-text">重复上述步骤，我们现在有一四段多边形的笔画。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="free-segments">
+<h3>Free Segments 自由线段<a class="headerlink" href="#free-segments" title="Permalink to this headline">¶</a></h3>
+<p>要创建一段自由线（曲线），在开始点点击并按住鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 。然后移动鼠标绘制你的线段-像其它的任何绘画软件那样——释放鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 完成线段创建-然后你将创建一个新的直线线段，所以如果你想继续绘制自由线段你必须马上按住重新鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code>。</p>
+<p>根据所使用的转换方法，自由段笔画将产生不同数量的骨骼。未来的骨骼关节点是当前的选择的模式的每一个线段的小点，仅仅对于选择的笔画。</p>
+<p>自由线段的绘画使用了像 <a class="reference internal" href="../../../../interface/grease_pencil/introduction.html"><span class="doc">蜡笔工具</span></a> ( <em>User Preferences用户设置</em>, <em>Edit Methods 编辑</em> &quot;面板”, <em>Grease Pencil蜡笔</em> 组)，曼哈顿点距（Manhattan Dist）设置来控制添加新的线段。如果你觉得你的自由段太多细节，提高这个值，如果你会发现它们变得更多的锯齿，降低这个值。</p>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text">绘制自由线的实例。</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id8">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-1.png" />
+<p class="caption"><span class="caption-text">在绘制第一自由段时，鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 单击并拖动。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-2.png" />
+<p class="caption"><span class="caption-text">完成第一段自由线的绘制，释放鼠标左键  <code class="kbd docutils literal"><span class="pre">LMB</span></code>。</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id10">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-3.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-3.png" />
+<p class="caption"><span class="caption-text">如果你现在移动鼠标而没有再次按下鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> ，你将绘制一段直线...</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-4.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-4.png" />
+<p class="caption"><span class="caption-text">但如果你立刻再次按下并拖动鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code>  ，你将是绘制一段新的自由线。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>你可以通过点击鼠标右键 <code class="kbd docutils literal"><span class="pre">RMB</span></code> 完成整个笔画的绘制。你也可以通过按 <code class="kbd docutils literal"><span class="pre">Esc</span></code> 取消笔画绘制。你可以通过按住 <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> 键吸附笔画到网格下。同样的 <em>Bone Sketching</em> 面板下的 <em>Peel Objects</em> 按钮和标题控制栏下的“monkey” 按钮做同样的事情控制 <em>体积</em> 吸附元素的选择，更多细节见 <a class="reference internal" href="../../../../editors/3dview/object/editing/transform/control/snap.html#transform-snap-element"><span class="std std-ref">snap to mesh</span></a> 。</p>
+</div>
+</div>
+<div class="section" id="selecting-strokes">
+<h2>Selecting Strokes 选择笔画<a class="headerlink" href="#selecting-strokes" title="Permalink to this headline">¶</a></h2>
+<p>A stroke can be selected (materialized by a solid red-to-white line), or not
+(shown as an orange-to-white line) -- see <a class="reference internal" href="#fig-stroke-example"><span class="std std-ref">调笔画实例。</span></a> above. As usual,
+you select a stroke by clicking <code class="kbd docutils literal"><span class="pre">RMB</span></code> on it,
+you add one to/remove one from the current selection with a <code class="kbd docutils literal"><span class="pre">Shift-RMB</span></code> click,
+and <code class="kbd docutils literal"><span class="pre">A</span></code> (de)selects all strokes...</p>
+</div>
+<div class="section" id="deleting">
+<h2>Deleting 删除<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h2>
+<p>按 <code class="kbd docutils literal"><span class="pre">X</span></code> 键或点击 <em>Delete</em> 按钮( <em>Bone Sketching</em> 面板) 删除选择的笔画（但要注意的是，在这是没有弹出警告确认窗口…).见. <a class="reference internal" href="#gestures">Gestures</a>。</p>
+</div>
+<div class="section" id="modifying-strokes">
+<h2>Modifying Strokes 修改笔画<a class="headerlink" href="#modifying-strokes" title="Permalink to this headline">¶</a></h2>
+<p>你可以通过激活 <em>骨骼速绘（Bone Sketching）</em> 面板下的 <em>覆盖速绘（Overdraw Sketching）</em> 选项修改或重新绘制你的笔画。这将会修改你的笔画绘制（即点击鼠标左键 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 或按住）：当你绘制时，你不是创建一个新的笔画，而是修改最近的一个。</p>
+<p>。旧的笔画将被新的笔画代替。这个选项不会注意到你是否选择了笔画，即所有的笔画都可以用这方法修改，而不仅仅是选择的那一个…注意即使它激活了这个功能，当你绘制时离其它已经存在的笔画太远，你将不可以修改它们，而是创建一个新的笔画，好像是 <em>覆盖速绘（Overdraw Sketching）</em> 选项没有激活一样。</p>
+<table border="1" class="docutils" id="id12">
+<caption><span class="caption-text">调整笔画实例。</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-1.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">调整笔画：灰色部分“未选中”（橙色）笔画将被替代为当前的笔画。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-2.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">笔画调整完成。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Undo/Redo  撤销/重做</p>
+<p class="last">注意这里不可以使用撤销和重做速绘功能。</p>
+</div>
+</div>
+<div class="section" id="gestures">
+<h2>Gestures 手势<a class="headerlink" href="#gestures" title="Permalink to this headline">¶</a></h2>
+<p>有关笔画编辑的很多事情只能通过手势来获得。按住 <code class="kbd docutils literal"><span class="pre">Shift-LMB</span></code> 开始手势（这时你不是在绘制笔画），是蓝色到白色的渐变线，一个手势可以一次影响几个笔画。</p>
+<p>一旦你已经开始“画”手势了，就没有直接的方法来取消一个手势。所以，最好的办法，如果你改变你的想法（或做了一个“假动作”），继续画直到你得到一些恶心的涂鸦，穿越你的笔画好几次。总之，一些手势的系统永远不会识别！</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id15">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-1.png" />
+<p class="caption"><span class="caption-text">不必要的切割笔画。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id16">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-2.png" />
+<p class="caption"><span class="caption-text">一些随机绘图。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-3.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-3.png" />
+<p class="caption"><span class="caption-text">笔画仍然是在一块。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="cut">
+<h3>Cut 切割<a class="headerlink" href="#cut" title="Permalink to this headline">¶</a></h3>
+<p>要 <em>切割</em> 一段线（即插入一个小黑点，使一段线变成两段）在你想要分割的地方 &quot;绘制&quot; 一段直线。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id18">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-1.png" />
+<p class="caption"><span class="caption-text">手势。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id19">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-2.png" />
+<p class="caption"><span class="caption-text">结果。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete">
+<h3>Delete 删除<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
+<p>要 <em>删除</em> 一个笔画，画一个穿越笔画两次 &quot;V&quot;字删除笔画。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id20">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-1.png" />
+<p class="caption"><span class="caption-text">手势。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id21">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-2.png" />
+<p class="caption"><span class="caption-text">结果。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="reverse">
+<h3>Reverse 反转<a class="headerlink" href="#reverse" title="Permalink to this headline">¶</a></h3>
+<p>要 <em>反转</em> 一个笔画（即将来骨骼链的反转），画一个 通过笔画两次的&quot;C&quot;字。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id22">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-1.png" />
+<p class="caption"><span class="caption-text">手势。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id23">
+<img alt="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-2.png" />
+<p class="caption"><span class="caption-text">结果。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="converting-to-bones">
+<h2>Converting to Bones  转换为骨骼<a class="headerlink" href="#converting-to-bones" title="Permalink to this headline">¶</a></h2>
+<p>一旦你完成了一个或更多的笔画绘制，你可以将它们转换成骨骼，使用 <em>骨架速绘（Bone Sketching）</em> 面板的 <em>转换为骨骼（Convert）</em> 按钮。或用相应的手势（见上面 <a class="reference internal" href="#gestures">手势Gestures</a> ）。每一个选择的笔画将产生一个骨骼链，方向是从其红色端到白色那端。注意转换一个笔画不会删除它。</p>
+<p>有四种不同的转换方法--三个“简单”的，和一个更先进和复杂的，<em>Template（模板）</em> ，利用从同一骨架或从另一个骨架的骨骼作为一个模板从笔画转换,在下一页（ <a class="reference internal" href="templating.html"><span class="doc">the next page</span></a> ）将有更详细的说明。无论如何，请记住，直线段总是转换为一个和只有一个骨骼（除了 <em>模板</em> 转换方法），和未来的骨骼的两端关节在选定的自由段显示为的绿色点。</p>
+<p>还需要记住的是创建的骨骼的滚动（扭转） 旋转在其 &quot;父&quot;  笔画绘制时已经设置(除了 <em>模板</em> 转换方法)-- 其Z轴在绘制时与活动的3D视图的Z轴对齐。</p>
+<div class="section" id="fixed">
+<h3>Fixed 固定<a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h3>
+<p>用这种方法，所选的每一个自由线段将均匀分为 <em>N</em> 个部分（在 <em>Numbe</em> 细分数值字段设置），即会给出 <em>N</em> 个骨骼。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id24">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-fixed-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-fixed-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-fixed-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">固定（Fixed ）的转换设置及其对选定笔画的预览。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id25">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-fixed-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-fixed-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-fixed-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">固定（Fixed ）转换结果。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="adaptive">
+<h3>Adaptive 自适应<a class="headerlink" href="#adaptive" title="Permalink to this headline">¶</a></h3>
+<p>使用这种方法，选定的的每一个自由线段将遵循它的形状足够紧密的创建尽可能多的骨骼，这个“足够接近”的参数由 <em>Threshold</em> 的限制数字字段设置；更高的值，有更多的骨骼，更紧密的跟随形状。所以，越扭曲的一个自由线段，它会产生更多的骨骼。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id26">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-adaptive-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-adaptive-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-adaptive-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">自适应（Adaptative ）转换设置和选择笔画的预览。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id27">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-adaptive-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-adaptive-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-adaptive-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">自适应（Adaptative ）转换结果。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="length">
+<h3>Length 长度<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
+<p>使用这种方法，选定的笔画每个自由段将创建尽可能多的骨头，所以，他们没有一个比Length （长度）的数字字段值长（在Blender 单位）。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id28">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-1.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">长度（ Length ）转换设置及选定笔迹的预览。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id29">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-2.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-2.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">使用较大的长度值。</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id30">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-3.png"><img alt="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-3.png" src="../../../../_images/rigging_armatures_bones_editing_sketching_convert-length-3.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">长度（ Length ）转换结果。</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="retarget">
+<h3>Retarget 重新定向目标<a class="headerlink" href="#retarget" title="Permalink to this headline">¶</a></h3>
+<p>重新定位模板骨链到笔画。</p>
+<dl class="docutils">
+<dt>Template 模板</dt>
+<dd>模板将被重定向到笔画。这是一个比较复杂的话题，在它  <a class="reference internal" href="templating.html"><span class="doc">own page</span></a> 的页面中有详细的说明。</dd>
+<dt>Retarget roll mode  重新定向翻滚模式</dt>
+<dd><dl class="first last docutils">
+<dt>None 无</dt>
+<dd>不调整roll 。</dd>
+<dt>View  视图</dt>
+<dd>翻滚骨骼面向视图。</dd>
+<dt>Joint 关节</dt>
+<dd>翻滚骨骼到原始关节点平面偏移。</dd>
+</dl>
+</dd>
+<dt>Autoname 自动命名</dt>
+<dd>Todo.</dd>
+<dt>Number 数字</dt>
+<dd>Todo.</dd>
+<dt>Side 边</dt>
+<dd>Todo.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="templating.html" class="btn btn-neutral float-right" title="Armature Templating 骨架模板" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="properties.html" class="btn btn-neutral" title="Properties 属性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

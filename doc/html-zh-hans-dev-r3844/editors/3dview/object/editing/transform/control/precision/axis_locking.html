@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>轴向锁定 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/object/editing/transform/control/precision/axis_locking.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../../../../index.html"/>
+        <link rel="up" title="Precision" href="index.html"/>
+        <link rel="next" title="变换控制器" href="../manipulators.html"/>
+        <link rel="prev" title="Numeric Input" href="numeric_input.html"/> 
+
+  
+  <script src="../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../index.html">3D视图</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../startup_scene.html">启动场景</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../modes.html">物体模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../navigate/index.html">视图浏览</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../3d_cursor.html">3D游标</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../index.html">物体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../index.html#animation">动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../index.html#image-video">图像/视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../index.html#nodes-logic">节点/逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../index.html#settings">设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../index.html#other">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../../index.html">编辑器</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">3D视图</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">物体</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">编辑</a> &raquo;</li>
+        
+          <li><a href="../../index.html">变换</a> &raquo;</li>
+        
+          <li><a href="../index.html">Transform Control</a> &raquo;</li>
+        
+          <li><a href="index.html">Precision</a> &raquo;</li>
+        
+      <li>轴向锁定</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/editors/3dview/object/editing/transform/control/precision/axis_locking.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="axis-locking">
+<h1>轴向锁定<a class="headerlink" href="#axis-locking" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id2">
+<a class="reference internal image-reference" href="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_z-axis.png"><img alt="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_z-axis.png" src="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_z-axis.png" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Axis locking.</span></p>
+</div>
+<p>This option limits the transformation to the specified axis.</p>
+<p><a class="reference internal" href="../../introduction.html"><span class="doc">Transformations (translation/scale/rotation)</span></a>
+in <em>Object Mode</em> and <em>Edit Mode</em>, as well as extrusion in <em>Edit Mode</em>)
+can be locked to a particular axis relative to the current
+<a class="reference internal" href="../orientations.html"><span class="doc">transform orientation</span></a>.
+By locking a transformation to a particular axis you are restricting transformations to a single dimension.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>A locked axis will display in a brighter color than an unlocked axis. For example in the image to the right,
+the Z axis is drawn in light blue as movement is constrained to this axis. This example, can be achieved in two ways:</p>
+<div class="section" id="hotkey">
+<h3>Hotkey<a class="headerlink" href="#hotkey" title="Permalink to this headline">¶</a></h3>
+<p>The axis of movement can be changed at any time during transformation by typing <code class="kbd docutils literal"><span class="pre">X</span></code>, <code class="kbd docutils literal"><span class="pre">Y</span></code>, <code class="kbd docutils literal"><span class="pre">Z</span></code>.</p>
+</div>
+<div class="section" id="pointing">
+<h3>Pointing<a class="headerlink" href="#pointing" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="figure" id="id3">
+<img alt="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_grab-mmb.jpg" src="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_grab-mmb.jpg" />
+<p class="caption"><span class="caption-text">Axis-Constraint in action.</span></p>
+</div>
+</div></blockquote>
+<p>Holding <code class="kbd docutils literal"><span class="pre">MMB</span></code> after starting a transformation lets you select an axis to constrain to.
+A visual option to constrain the translation will be available,
+showing the three axes in the 3D View space. A dotted white line is used as a pointer.
+The axis of choice to confirm the operation
+will depend on the highlighted axis about which the <code class="kbd docutils literal"><span class="pre">MMB</span></code> is released.</p>
+<p>When you already moved the mouse in the desired direction,
+pressing <code class="kbd docutils literal"><span class="pre">MMB</span></code> will lock to the axis which was pointed at.</p>
+</div>
+</div>
+<div class="section" id="axis-locking-types">
+<h2>Axis Locking Types<a class="headerlink" href="#axis-locking-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>轴向锁定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Object and Edit Modes (translate, rotate, scale, extrude)</div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">X</span></code>, <code class="kbd docutils literal"><span class="pre">Y</span></code>, <code class="kbd docutils literal"><span class="pre">Z</span></code> or <code class="kbd docutils literal"><span class="pre">MMB</span></code> after moving the mouse in the desired direction.</div>
+</div>
+</div>
+<p>Axis locking limits the transformation to a single axis (or forbids transformations along two axes).
+An object, face, vertex or other selectable item will only be able to move,
+scale or rotate in a single dimension.</p>
+</div>
+<div class="section" id="plane-locking">
+<span id="view3d-transform-plane-lock"></span><h3>Plane Locking<a class="headerlink" href="#plane-locking" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     Object and Edit Modes (translate, scale)</div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">Shift-X</span></code>, <code class="kbd docutils literal"><span class="pre">Shift-Y</span></code>, <code class="kbd docutils literal"><span class="pre">Shift-Z</span></code> or <code class="kbd docutils literal"><span class="pre">Shift-MMB</span></code>
+after moving the mouse in the desired direction.</div>
+</div>
+</div>
+<div class="figure align-right" id="id4">
+<a class="reference internal image-reference" href="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_plane-locking.png"><img alt="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_plane-locking.png" src="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_plane-locking.png" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Plane locking.</span></p>
+</div>
+<p>Plane locking locks the transformation to <em>two</em> axes
+(or forbids transformations along one axis),
+thus creating a plane in which the element can be moved or scaled freely.
+Plane locking only affects translation and scaling.</p>
+<p>Note that for rotation, both axis and plane locking have the same effect because a rotation is
+always constrained around one axis.
+<em>Trackball</em> type rotations <code class="kbd docutils literal"><span class="pre">R-R</span></code> cannot be locked at all.</p>
+</div>
+<div class="section" id="axis-locking-modes">
+<h3>Axis Locking Modes<a class="headerlink" href="#axis-locking-modes" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_locking-modes.png"><img alt="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_locking-modes.png" src="../../../../../../../_images/editors_3dview_object_editing_transform_control_precision_axis-locking_locking-modes.png" style="width: 340px;" /></a>
+<p class="caption"><span class="caption-text">Axis locking modes.</span></p>
+<div class="legend">
+A and B show Z axis locking in <em>Global</em> and <em>Normal</em> orientations respectively.
+C and D show the same situation with face selection,
+E and F with edge selection and G and H with vertex selection.</div>
+</div>
+<p>A single key press constrains movement to the corresponding <em>Global</em> axis. A second
+key press of the <em>same</em> key constrains movement to the current transform orientation
+selection (except if it is set to <em>Global</em>,
+in which case the <em>Local</em> orientation is used). Finally,
+a third key press of the same key removes constraints.</p>
+<p>The orientation can be set
+in the <a class="reference internal" href="../orientations.html"><span class="doc">Transform Orientation</span></a>
+selector of the 3D View header.</p>
+<p>For example, if the current transform orientation is set to <em>Normal</em>,
+pressing <code class="kbd docutils literal"><span class="pre">G</span></code> to start translation, followed by <code class="kbd docutils literal"><span class="pre">Z</span></code> will lock translation
+in the Z direction relative to the <em>Global</em> orientation, pressing <code class="kbd docutils literal"><span class="pre">Z</span></code>
+again will lock translation to the Z axis relative to the <em>Normal</em> orientation.
+Pressing <code class="kbd docutils literal"><span class="pre">Z</span></code> again will remove all constraints.
+The current mode will be displayed in the left hand side of the <em>3D View header</em>.</p>
+<p>As can be seen in the <em>Axis locking modes</em> image,
+the direction of the transform also takes into account the selection.</p>
+<p>Note that using a locked axis does not prevent you from using the keyboard to enter
+<a class="reference internal" href="numeric_input.html"><span class="doc">numeric transformation</span></a> values.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../manipulators.html" class="btn btn-neutral float-right" title="变换控制器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="numeric_input.html" class="btn btn-neutral" title="Numeric Input" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>简介 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/file_browser/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="文件浏览器" href="index.html"/>
+        <link rel="next" title="Data Previews" href="previews.html"/>
+        <link rel="prev" title="文件浏览器" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#animation">动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">图像/视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">节点/逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#other">其他</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">文件浏览器</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="previews.html">Data Previews</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../python_console.html">Python 控制台</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">编辑器</a> &raquo;</li>
+        
+          <li><a href="index.html">文件浏览器</a> &raquo;</li>
+        
+      <li>简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/file_browser/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>简介<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id2">
+<img alt="../../_images/editors_file-browser_introduction_editor.png" src="../../_images/editors_file-browser_introduction_editor.png" />
+<p class="caption"><span class="caption-text">文件浏览器。</span></p>
+</div>
+<div class="section" id="usage">
+<h2>用法<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The File Browser is used in all the file-related operations.
+It has multiple use cases, while its often used for save/load.</p>
+<p>These include:</p>
+<ul class="simple">
+<li>Opening and Saving Blend files.</li>
+<li>Import/Export other file formats.</li>
+<li>Picking new locations for existing file-paths (images, video, fonts...).</li>
+<li>Browsing inside other blend-files, when using <a class="reference internal" href="../../data_system/linked_libraries.html"><span class="doc">Linked Libraries</span></a>.</li>
+</ul>
+<p>You can also keep the File Browser open, as with any other editor type,
+to browse through the file system. In this case, confirm/cancel buttons will be absent.</p>
+<p>The main purpose of this is to be able to drag media files:</p>
+<ul class="simple">
+<li>Images into the <a class="reference internal" href="../vse/index.html#editors-sequencer-index"><span class="std std-ref">视频序列编辑器</span></a> (to set background or apply as material textures).</li>
+<li>Media files into the <a class="reference internal" href="../vse/index.html#editors-sequencer-index"><span class="std std-ref">视频序列编辑器</span></a>.</li>
+</ul>
+<p>On the other hand, if the File Browser is opened for a file action (opening, saving, importing, etc.),
+it will appear maximized and waiting for an operation to complete before returning to the former screen layout.</p>
+<div class="section" id="opening-an-image-sequence">
+<span id="file-browser-open-sequence"></span><h3>打开一组图像序列<a class="headerlink" href="#opening-an-image-sequence" title="Permalink to this headline">¶</a></h3>
+<p>The filename of the images must contain a digit, indicating the frame.
+The sequence could be opened by the selection of the images and
+by the confirmation with the <em>Open Image</em> button or <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Navigation icon buttons</dt>
+<dd><p class="first">Tools for navigation of files.</p>
+<dl class="last docutils">
+<dt>Left Arrow <code class="kbd docutils literal"><span class="pre">Backspace</span></code></dt>
+<dd>Move to previous folder.</dd>
+<dt>Right Arrow <code class="kbd docutils literal"><span class="pre">Shift-Backspace</span></code></dt>
+<dd>Move to next folder.</dd>
+<dt>Up Arrow <code class="kbd docutils literal"><span class="pre">P</span></code></dt>
+<dd>Move up to parent directory.</dd>
+<dt>Cycle Arrows <code class="kbd docutils literal"><span class="pre">R</span></code>, <code class="kbd docutils literal"><span class="pre">NumpadPeriod</span></code></dt>
+<dd>Refresh current folder.</dd>
+</dl>
+</dd>
+<dt>Create Directory</dt>
+<dd>Prompts you to enter the name of a newly created directory inside the current one <code class="kbd docutils literal"><span class="pre">I</span></code>.</dd>
+<dt>Recursion</dt>
+<dd><p class="first">The number of directory levels to show at once in a flat way.</p>
+<ul class="last simple">
+<li>None (only the current directory)</li>
+<li>Blend File (inside blend-files)</li>
+<li>One level</li>
+<li>Two Levels</li>
+<li>Three levels</li>
+</ul>
+</dd>
+<dt>Display type</dt>
+<dd><p class="first">Controls how files are displayed.</p>
+<ul class="last simple">
+<li>Short list</li>
+<li>Detailed list</li>
+<li>Thumbnails (show <a class="reference internal" href="previews.html"><span class="doc">previews</span></a>)</li>
+</ul>
+</dd>
+<dt>Display size</dt>
+<dd><p class="first">The size of thumbnails or the width of columns.</p>
+<p class="last">Tiny, small, normal, large</p>
+</dd>
+<dt>Sorting</dt>
+<dd><p class="first">Sorts files by on of the following methods:</p>
+<ul class="last simple">
+<li>Alphabetically</li>
+<li>By file type</li>
+<li>By date of last edit</li>
+<li>By file size</li>
+</ul>
+</dd>
+<dt>Show hidden</dt>
+<dd>Shows hidden files (starting with <code class="docutils literal"><span class="pre">.</span></code>) <code class="kbd docutils literal"><span class="pre">H</span></code>.</dd>
+<dt>File filtering</dt>
+<dd><dl class="first last docutils">
+<dt>File Type</dt>
+<dd><p class="first">Filters files by type.</p>
+<ul class="last simple">
+<li>Folders</li>
+<li>blend-files</li>
+<li>Backup blend-files</li>
+<li>Image files</li>
+<li>Movie files</li>
+<li>Script files</li>
+<li>Font files</li>
+<li>Sound files</li>
+<li>Text files</li>
+</ul>
+</dd>
+<dt>Data-Block Type</dt>
+<dd>Data-block type filtering inside blend-files.</dd>
+<dt>Search box</dt>
+<dd>Filter files by name.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="file-region">
+<h2>File Region<a class="headerlink" href="#file-region" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>File Path</dt>
+<dd>The text field for the current path.
+<code class="kbd docutils literal"><span class="pre">Tab</span></code> will auto-complete an existing path.
+If you type a non existing directory path, you will be prompted to create that new directory.</dd>
+<dt>File Name</dt>
+<dd>Text field to edit the file name and extension.
+If the background is red, a file with same name already exist in the folder.
+<code class="kbd docutils literal"><span class="pre">Tab</span></code> will auto-complete to existing names in the current directory.</dd>
+<dt>Increment Filename <code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code></dt>
+<dd>Adds/increase or removes/decreases a trailing number to your file name
+(use to make <em>versions</em> of a file).</dd>
+<dt>Confirm</dt>
+<dd><p class="first">The main button to Open Directory/File or Save (As) <code class="kbd docutils literal"><span class="pre">Enter</span></code> or
+double click with <code class="kbd docutils literal"><span class="pre">LMB</span></code> on the entry confirms with that file or data-block.</p>
+<ul class="last simple">
+<li><code class="kbd docutils literal"><span class="pre">Shift-LMB</span></code> -- Open the file externally (selected in <a class="reference internal" href="../../preferences/file.html"><span class="doc">文件</span></a>).</li>
+<li><code class="kbd docutils literal"><span class="pre">Alt-LMB</span></code> -- Open the directory externally (using the system's file manager).</li>
+</ul>
+</dd>
+<dt>Cancel</dt>
+<dd>Cancels the Open or Save file selection and closes the File browser <code class="kbd docutils literal"><span class="pre">Esc</span></code> or
+by using the <em>Back to Previous</em> in the Info editor header.</dd>
+</dl>
+</div>
+<div class="section" id="tool-shelf">
+<h2>Tool Shelf<a class="headerlink" href="#tool-shelf" title="Permalink to this headline">¶</a></h2>
+<p>The left region displays different ways to find files and several options.
+Clicking with <code class="kbd docutils literal"><span class="pre">LMB</span></code> on one of the entries, the File Browser will navigate to that folder.</p>
+<div class="section" id="system">
+<h3>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h3>
+<p>The system panel contains a list of drives that are available
+to navigate through to find files.</p>
+</div>
+<div class="section" id="system-bookmarks">
+<h3>System Bookmarks<a class="headerlink" href="#system-bookmarks" title="Permalink to this headline">¶</a></h3>
+<p>Bookmarks that are common for a particular operating system.</p>
+</div>
+<div class="section" id="bookmarks">
+<h3>Bookmarks<a class="headerlink" href="#bookmarks" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List View</span></a> of shortcuts to folders,
+that you want to be able to access often without having to navigate to them in the file browser.</p>
+<dl class="docutils">
+<dt>Add <code class="docutils literal"><span class="pre">+</span></code></dt>
+<dd>This button adds the current directory to the list.</dd>
+</dl>
+</div>
+<div class="section" id="recent">
+<h3>Recent<a class="headerlink" href="#recent" title="Permalink to this headline">¶</a></h3>
+<p>This is a list of recently accessed folders. You can control how many folders appear in this
+list by going to the <em>File</em> tab of the <a class="reference internal" href="../../preferences/file.html"><span class="doc">User Preferences</span></a>,
+in the <em>Recent Files</em> number button.</p>
+</div>
+<div class="section" id="operator-panel">
+<h3>Operator Panel<a class="headerlink" href="#operator-panel" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Link/Append from Library</dt>
+<dd>See <a class="reference internal" href="../../data_system/linked_libraries.html"><span class="doc">Linked libraries</span></a>.</dd>
+<dt>Open, Save, Save As Blender File</dt>
+<dd>See <a class="reference internal" href="../../data_system/files/open.html"><span class="doc">打开文件</span></a> or <a class="reference internal" href="../../data_system/files/save.html"><span class="doc">保存文件</span></a>.</dd>
+<dt>Open, Replace, Save As Image</dt>
+<dd>See <a class="reference internal" href="../../data_system/files/media/image_formats.html"><span class="doc">支持的图像格式</span></a>.</dd>
+</dl>
+<p>For the common option:</p>
+<dl class="docutils">
+<dt>Relative Path</dt>
+<dd>See <a class="reference internal" href="../../data_system/files/relative_paths.html"><span class="doc">Relative paths</span></a>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="main-region">
+<h2>Main Region<a class="headerlink" href="#main-region" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="navigation">
+<h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Entering a Directory</dt>
+<dd>A single <code class="kbd docutils literal"><span class="pre">LMB</span></code> click on a directory enters that directory.</dd>
+<dt>Parent Directory <code class="kbd docutils literal"><span class="pre">Backspace</span></code>, <code class="kbd docutils literal"><span class="pre">P</span></code></dt>
+<dd>Takes you up one level of directory.</dd>
+</dl>
+<div class="section" id="arrow-keys">
+<h4>Arrow Keys<a class="headerlink" href="#arrow-keys" title="Permalink to this headline">¶</a></h4>
+<p>Directory navigation is also possible through the arrow keys with <code class="kbd docutils literal"><span class="pre">Alt</span></code> pressed:</p>
+<ul class="simple">
+<li>Go to Parent <code class="kbd docutils literal"><span class="pre">Alt-Up</span></code></li>
+<li>Previous <code class="kbd docutils literal"><span class="pre">Alt-Left</span></code></li>
+<li>Next Directory <code class="kbd docutils literal"><span class="pre">Alt-Right</span></code></li>
+</ul>
+</div>
+<div class="section" id="file-drop">
+<h4>File Drop<a class="headerlink" href="#file-drop" title="Permalink to this headline">¶</a></h4>
+<p>You now can simply drag &amp; drop files from your local file explorer into the blender file browser.
+This will relocate the File browser to the directory of the dropped file and the file will be selected.</p>
+</div>
+</div>
+<div class="section" id="selection">
+<h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Select</dt>
+<dd>Both <code class="kbd docutils literal"><span class="pre">LMB</span></code> and <code class="kbd docutils literal"><span class="pre">RMB</span></code> works.</dd>
+<dt>(De)select All <code class="kbd docutils literal"><span class="pre">A</span></code></dt>
+<dd>Toggles selecting all files.</dd>
+<dt>Dragging</dt>
+<dd>Dragging with <code class="kbd docutils literal"><span class="pre">LMB</span></code> starts a <a class="reference internal" href="../3dview/object/selecting/tools.html#bpy-ops-view3d-select-border"><span class="std std-ref">border selection</span></a>.</dd>
+</dl>
+<div class="section" id="id1">
+<h4>Arrow Keys<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>It is also possible to select/deselect files by &quot;walking&quot; through them using the arrow keys:</p>
+<ul class="simple">
+<li>Just using an arrow key, the next file in the chosen direction will be selected and all others deselected.</li>
+<li>Holding down <code class="kbd docutils literal"><span class="pre">Shift</span></code> while doing this does not deselect anything so it extends to the selection,
+plus it allows to deselect files by navigating into a block
+of already selected ones (minimum two files in sequence).</li>
+<li>Holding down <code class="kbd docutils literal"><span class="pre">Ctrl-Shift</span></code> further selects/deselects all files in-between.</li>
+</ul>
+<p>If no file is selected, the arrow key navigation selects the first or last file in the directory,
+depending on the arrow direction.</p>
+<p>If you select a directory and hit <code class="kbd docutils literal"><span class="pre">Enter</span></code>, you will go into that directory
+(and highlighting 'parent' entry will bring you up one level).</p>
+</div>
+</div>
+<div class="section" id="file-management">
+<h3>File Management<a class="headerlink" href="#file-management" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Delete Files <code class="kbd docutils literal"><span class="pre">Delete</span></code>, <code class="kbd docutils literal"><span class="pre">X</span></code></dt>
+<dd>Delete the currently selected files.</dd>
+<dt>Rename <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code></dt>
+<dd>Can be used on a file or directory to rename it.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="previews.html" class="btn btn-neutral float-right" title="Data Previews" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="文件浏览器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RGB曲线节点 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/nodes/types/color/rgb_curves.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../../../index.html"/>
+        <link rel="up" title="Color Nodes" href="index.html"/>
+        <link rel="next" title="Converter Nodes" href="../converter/index.html"/>
+        <link rel="prev" title="混合节点" href="mix_rgb.html"/> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html">简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">材质</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../material_panel.html">材质面板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../assigning_a_material.html">指定材质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">材质属性</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../textures/index.html">纹理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../lighting/index.html">灯光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../bake.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Blender渲染引擎</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">材质</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Material Nodes</a> &raquo;</li>
+        
+          <li><a href="index.html">Color Nodes</a> &raquo;</li>
+        
+      <li>RGB曲线节点</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/render/blender_render/materials/nodes/types/color/rgb_curves.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rgb-curves-node">
+<h1>RGB曲线节点<a class="headerlink" href="#rgb-curves-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../../../../_images/compositing_types_color_rgb-curves_node.png" src="../../../../../../_images/compositing_types_color_rgb-curves_node.png" />
+<p class="caption"><span class="caption-text">RGB曲线节点。</span></p>
+</div>
+<p>The <em>RGB Curves Node</em> allows color corrections for each color channel
+and levels adjustments in the compositing context.</p>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Factor</dt>
+<dd>Controls the amount of influence the node exerts on the output image.</dd>
+<dt>Image</dt>
+<dd>Standard image input.</dd>
+<dt>Black Level</dt>
+<dd>Defines the input color that is (linear) mapped to black.</dd>
+<dt>White Level</dt>
+<dd>Defines the input color that is (linear) mapped to white.</dd>
+</dl>
+<div class="lead docutils container">
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">To define the levels, use the <a class="reference internal" href="../../../../../../interface/controls/buttons/eye_dropper.html#ui-eye-dropper"><span class="std std-ref">eye dropper</span></a> to select a color sample of a displayed image.</p>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Channel</dt>
+<dd><p class="first">Clicking on one of the channels displays the curve for each.</p>
+<p class="last">C (Combined RGB), R (Red), G (Green), B (Blue), L (Luminance)</p>
+</dd>
+<dt>Curve</dt>
+<dd>A Bézier curve that varies the input levels (x-axis) to produce an output level (y-axis).
+For the curve controls see: <a class="reference internal" href="../../../../../../interface/controls/templates/curve.html#ui-curve-widget"><span class="std std-ref">Curve widget</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Image</dt>
+<dd>Standard image output.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Here are some common curves you can use to achieve desired effects:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_example-common-use.png"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_example-common-use.png" src="../../../../../../_images/compositing_types_color_rgb-curves_example-common-use.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">From left to right: 1. Lighten 2. Negative 3. Decrease Contrast 4. Posterize.</span></p>
+</div>
+<div class="section" id="color-correction-using-curves">
+<h3>Color Correction using Curves<a class="headerlink" href="#color-correction-using-curves" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_example-rgb.jpg"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_example-rgb.jpg" src="../../../../../../_images/compositing_types_color_rgb-curves_example-rgb.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Color correction with curves.</span></p>
+</div>
+<p>In this example, the image has too much red in it,
+so we run it through an RGB node and reduce the Red channel by about half.</p>
+<p>We added a middle dot so we could make the line into a sideways exponential curve.
+This kind of curve evens out the amount of a color in an image as it reaches saturation. Also,
+read on for examples of the Darken and Contrast Enhancement curves.</p>
+</div>
+<div class="section" id="color-correction-using-black-white-levels">
+<h3>Color Correction using Black/White Levels<a class="headerlink" href="#color-correction-using-black-white-levels" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_black-white-levels.png"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_black-white-levels.png" src="../../../../../../_images/compositing_types_color_rgb-curves_black-white-levels.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Color correction with Black/White Levels.</span></p>
+</div>
+<p>Manually adjusting the RGB curves for color correction can be difficult.
+Another option for color correction is to use the Black and White Levels instead,
+which really might be their main purpose.</p>
+<p>In this example,
+the White Level is set to the color of a bright spot of the sand in the background,
+and the Black Level to the color in the center of the fish's eye.
+To do this efficiently it is best to bring up the UV/Image editor showing the original input image.
+You can then use the levels' color picker to easily choose
+the appropriate colors from the input image, zooming into pixel level if necessary.
+The result can be fine-tuned with the R, G, and B curves like in the previous example.</p>
+<p>The curve for C is used to compensate for the increased contrast that is a side-effect of
+setting Black and White Levels.</p>
+</div>
+<div class="section" id="effects">
+<h3>Effects<a class="headerlink" href="#effects" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_ex.jpg"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_ex.jpg" src="../../../../../../_images/compositing_types_color_rgb-curves_ex.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Changing colors.</span></p>
+</div>
+<p>Curves and Black/White Levels can also be used to completely change the colors of an image.</p>
+<p>Note that e.g. setting Black Level to red and White Level to blue does not simply substitute
+black with red and white with blue as the example image might suggest.
+Levels do color scaling, not substitution,
+but depending on the settings they can result in the described color substitution.</p>
+<p>(What really happens when setting Black Level to pure red and White Level to pure blue
+is that the red channel gets inverted, green gets reduced to zero and blue remains unchanged.)</p>
+<p>Because of this, the results of setting arbitrary Black/White Levels or RGB curves is hard to
+predict, but can be fun to play with.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../converter/index.html" class="btn btn-neutral float-right" title="Converter Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mix_rgb.html" class="btn btn-neutral" title="混合节点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

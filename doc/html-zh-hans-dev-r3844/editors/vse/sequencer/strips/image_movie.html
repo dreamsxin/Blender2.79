@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Movie &amp; Image Strips &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/vse/sequencer/strips/image_movie.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../index.html"/>
+        <link rel="up" title="Strips" href="index.html"/>
+        <link rel="next" title="Sound Strips" href="audio.html"/>
+        <link rel="prev" title="Clip &amp; Mask Strip" href="clip_mask.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">动画</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#image-video">图像/视频</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../uv_image/index.html">UV/图像编辑器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../movie_clip_editor/index.html">影片剪辑编辑器</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">视频序列编辑器</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">序列编辑器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../preview/index.html">预览</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nodes-logic">节点/逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#settings">设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#other">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">编辑器</a> &raquo;</li>
+        
+          <li><a href="../../index.html">视频序列编辑器</a> &raquo;</li>
+        
+          <li><a href="../index.html">序列编辑器</a> &raquo;</li>
+        
+          <li><a href="index.html">Strips</a> &raquo;</li>
+        
+      <li>Movie &amp; Image Strips</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/editors/vse/sequencer/strips/image_movie.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="movie-image-strips">
+<h1>Movie &amp; Image Strips<a class="headerlink" href="#movie-image-strips" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="movie">
+<span id="bpy-types-moviesequence"></span><h2>Movie<a class="headerlink" href="#movie" title="Permalink to this headline">¶</a></h2>
+<p>To add a movie (with or without audio) select a movie file(s) in the File Browser
+e.g. in the Audio-Video Interleaved format (<code class="docutils literal"><span class="pre">*.avi</span></code> file).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Clips can be Huge</p>
+<p class="last">A three minute quicktime <code class="docutils literal"><span class="pre">.mov</span></code> file can be 140Megs.
+Loading it, even over a high-speed LAN can take some time.
+Do not assume your computer or Blender has locked up if nothing happens for awhile.</p>
+</div>
+</div>
+<div class="section" id="image">
+<span id="bpy-types-imagesequence"></span><h2>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-image">
+<h3>Single Image<a class="headerlink" href="#single-image" title="Permalink to this headline">¶</a></h3>
+<p>When you add a single still image (<code class="docutils literal"><span class="pre">*.jpg</span></code>, <code class="docutils literal"><span class="pre">*.png</span></code>, etc.),
+Blender creates a 25 frames long strip which will show this image along the strips range.</p>
+</div>
+<div class="section" id="image-sequence">
+<h3>Image Sequence<a class="headerlink" href="#image-sequence" title="Permalink to this headline">¶</a></h3>
+<p>In the case of (numbered) image sequences
+(e.g. <code class="docutils literal"><span class="pre">*-0001.jpg</span></code>, <code class="docutils literal"><span class="pre">*-0002.jpg</span></code>, <code class="docutils literal"><span class="pre">*-0003.jpg</span></code>, etc, of any image format), you have a choice:</p>
+<dl class="docutils">
+<dt>Range</dt>
+<dd>Navigate into the directory and <code class="kbd docutils literal"><span class="pre">RMB</span></code> click and drag over a range of names to highlight multiple files.
+You can page down and continue <code class="kbd docutils literal"><span class="pre">RMB</span></code> click-dragging to add more to the selection.</dd>
+<dt>Batch</dt>
+<dd><code class="kbd docutils literal"><span class="pre">Shift-RMB</span></code> click selected non-related stills for batch processing; each image will be one frame,
+in sort order, and can be a mix of file types (<code class="docutils literal"><span class="pre">jpg</span></code>, <code class="docutils literal"><span class="pre">png</span></code>, <code class="docutils literal"><span class="pre">exr,</span></code> etc.).</dd>
+<dt>All</dt>
+<dd>Press <code class="kbd docutils literal"><span class="pre">A</span></code> to select/deselect all files in the directory.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Dealing with Different Sizes</p>
+<p class="last">Dealing with different sized images and different sized outputs is tricky.
+If you have a mis-match between the size of the input image and the render output size,
+the VSE will try to auto-scale the image to fit it entirely in the output.
+This may result in clipping. If you do not want that, use <em>Crop</em> and/or <em>Offset</em> in the Input
+panel to move and select a region of the image within the output. When you use <em>Crop</em> or <em>Offset</em>,
+the auto-scaling will be disabled and you can manually re-scale by adding the Transform effect.</p>
+</div>
+</div>
+<div class="section" id="add-image-strip">
+<h3>Add Image Strip<a class="headerlink" href="#add-image-strip" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="placeholder-images">
+<h4>Placeholder Images<a class="headerlink" href="#placeholder-images" title="Permalink to this headline">¶</a></h4>
+<p>Image sequences can use placeholder files. This works by enabling <em>Use placeholders</em> checkbox
+when adding an image strip. The option detects the frame range of opened images using
+blender's frame naming scheme (filename + frame number + .extension) and makes an image sequence with
+all files in between even if they are missing.
+This allows you to render an image sequence with a few frames missing and
+still the image strip will have the correct range to account for the missing frames displayed as black.
+When the missing frames are rendered or placed in the same folder, you can refresh the sequencer and
+get the missing frames in the strip. The option is also available when using the <em>Change Data/File</em> operator and
+allows you to add more images to the range.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="../../../../_images/editors_vse_sequencer_strips_image-movie_example.png" src="../../../../_images/editors_vse_sequencer_strips_image-movie_example.png" />
+</div>
+<p>If you scroll up the workspace, you will see an information channel
+(at vertical location channel 0) that gives you some helpful hints about the active strip.
+The example above shows a color strip from frames 1 to 25, then a <code class="docutils literal"><span class="pre">mov</span></code> file,
+and then an image strip. The info channel shows handy information about the image strip,
+whose name has been scrunched in the strip display,
+but is clearly spelled out in the information strip.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="audio.html" class="btn btn-neutral float-right" title="Sound Strips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clip_mask.html" class="btn btn-neutral" title="Clip &amp; Mask Strip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

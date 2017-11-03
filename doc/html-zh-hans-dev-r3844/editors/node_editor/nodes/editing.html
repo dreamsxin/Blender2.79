@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adding &amp; Editing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/node_editor/nodes/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="Nodes" href="index.html"/>
+        <link rel="next" title="属性" href="properties.html"/>
+        <link rel="prev" title="Selecting" href="selecting.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">图像/视频</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#nodes-logic">节点/逻辑</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../text_editor.html">文本编辑器</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">节点编辑器</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../navigate.html">Navigating</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../logic_editor.html">逻辑编辑器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">编辑器</a> &raquo;</li>
+        
+          <li><a href="../index.html">节点编辑器</a> &raquo;</li>
+        
+          <li><a href="index.html">Nodes</a> &raquo;</li>
+        
+      <li>Adding &amp; Editing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/node_editor/nodes/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-editing">
+<h1>Adding &amp; Editing<a class="headerlink" href="#adding-editing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adding">
+<h2>Adding<a class="headerlink" href="#adding" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     All Modes</div>
+<div class="line">Panel:     <span class="menuselection">Tool Shelf</span></div>
+<div class="line">Menu:     <span class="menuselection">Add</span></div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">Shift-A</span></code></div>
+</div>
+</div>
+<p>Nodes are added in two ways to the Node editor:</p>
+<ul class="simple">
+<li>By using the Tool Shelf which has buttons for adding nodes, organized with tabs.</li>
+<li>By using the <span class="menuselection">Add</span> menu <code class="kbd docutils literal"><span class="pre">Shift-A</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="transform">
+<h2>Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     All Modes</div>
+<div class="line">Menu:     <span class="menuselection">Node ‣ Translate, Rotate, Resize</span></div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">G</span></code>, <code class="kbd docutils literal"><span class="pre">R</span></code>, <code class="kbd docutils literal"><span class="pre">S</span></code></div>
+</div>
+</div>
+<p>Move a single node by click and drag it around. A node can be clicked almost anywhere to start dragging.
+Multiple nodes can be translated after pressing <code class="kbd docutils literal"><span class="pre">G</span></code>.</p>
+<p>In general it is recommended to arrange your nodes within the view such that the data flows from
+left to right, top to bottom.</p>
+<p>A node can be resized by dragging the edges on the left or right side.</p>
+</div>
+<div class="section" id="connecting-sockets">
+<h2>Connecting Sockets<a class="headerlink" href="#connecting-sockets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interactively">
+<h3>Interactively<a class="headerlink" href="#interactively" title="Permalink to this headline">¶</a></h3>
+<p><code class="kbd docutils literal"><span class="pre">LMB</span></code>-click on a socket and drag. You will see a line coming out of it: This is called a <em>link</em>.</p>
+<p>Keep dragging and connect the link to an input socket of another node, then release the <code class="kbd docutils literal"><span class="pre">LMB</span></code>.</p>
+<p>While multiple links can route out of an output socket, only a single link can be attached to an input socket.</p>
+<p>To reposition the outgoing links of a node, rather than adding a new one, hold <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> while dragging from an
+output socket. This works for single as well as for multiple outgoing links.</p>
+<p>Nodes that have no connections can be inserted on a link.
+Just move the node over the link and release when the link turns orange.</p>
+<dl class="docutils">
+<dt>Make Links <code class="kbd docutils literal"><span class="pre">F</span></code></dt>
+<dd>Select multiple nodes with open sockets, then use the Make Links to create links between them.
+Use Make Links again if there are other nodes which can be connected.</dd>
+<dt>Make and Replace Links <code class="kbd docutils literal"><span class="pre">Shift-F</span></code></dt>
+<dd>Make and Replace Links replaces similarly to Make Links, but it will replace existing links if any exist.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="disconnecting-sockets">
+<h2>Disconnecting Sockets<a class="headerlink" href="#disconnecting-sockets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Interactively<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Drag the link from an input socket and let it go keeping it unconnected.</p>
+</div>
+<div class="section" id="cut-links">
+<h3>Cut Links<a class="headerlink" href="#cut-links" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     All Modes</div>
+<div class="line">Menu:     <span class="menuselection">Node ‣ Cut Links</span></div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code></div>
+</div>
+</div>
+<p>To break a link between sockets <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code>-click in an empty area, near the link you want to disconnect, and
+drag: You will see a little cutter icon appearing at your mouse pointer. Move it over the link itself, and
+release the <code class="kbd docutils literal"><span class="pre">LMB</span></code>.</p>
+<dl class="docutils">
+<dt>Detach Links</dt>
+<dd>Use Detach Links in order to cut all links attached to selected nodes at once.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="duplicate">
+<h2>Duplicate<a class="headerlink" href="#duplicate" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     All Modes</div>
+<div class="line">Menu:     <span class="menuselection">Node ‣ Duplicate</span></div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">Shift-D</span></code></div>
+</div>
+</div>
+<p>Click <code class="kbd docutils literal"><span class="pre">LMB</span></code> or <code class="kbd docutils literal"><span class="pre">RMB</span></code> on the desired node, press <code class="kbd docutils literal"><span class="pre">Shift-D</span></code> and move the mouse away to see the
+duplicate of the selected node appearing under the mouse pointer.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When you duplicate a node, the new node will be positioned <em>exactly</em> on top of the node that was duplicated.
+If you leave it there (and it is quite easy to do so),
+you can <strong>not</strong> easily tell that there are <em>two</em> nodes there!
+When in doubt, grab a node and move it slightly to see if something's lurking underneath.</p>
+</div>
+</div>
+<div class="section" id="delete">
+<h2>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Delete <code class="kbd docutils literal"><span class="pre">X</span></code>, <code class="kbd docutils literal"><span class="pre">Delete</span></code></dt>
+<dd>Deletes the selected node(s).</dd>
+<dt>Delete with Reconnect <code class="kbd docutils literal"><span class="pre">Ctrl-X</span></code></dt>
+<dd>Delete the node(s) without loosing the connections.</dd>
+</dl>
+</div>
+<div class="section" id="mute">
+<h2>Mute<a class="headerlink" href="#mute" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<div class="last line-block">
+<div class="line">Mode:     All Modes</div>
+<div class="line">Menu:     <span class="menuselection">Node ‣ Toggle Node Mute</span></div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">M</span></code></div>
+</div>
+</div>
+<p>Muting a node removes the contribution of the node to the node tree,
+and makes all links pass through that node without change.
+Links will appear red as an indicator of passing through the muted node.</p>
+</div>
+<div class="section" id="show-hide">
+<h2>Show/Hide<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Hide</dt>
+<dd><code class="kbd docutils literal"><span class="pre">H</span></code></dd>
+<dt>Toggle Node Preview</dt>
+<dd><code class="kbd docutils literal"><span class="pre">Shift-H</span></code></dd>
+<dt>Toggle Hidden Node Sockets</dt>
+<dd><code class="kbd docutils literal"><span class="pre">Ctrl-H</span></code></dd>
+<dt>Toggle Node Options</dt>
+<dd>ToDo.</dd>
+<dt>Collaps and Hide Unused Sockets</dt>
+<dd>ToDo.</dd>
+</dl>
+</div>
+<div class="section" id="layers">
+<h2>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Read Render-Layers</dt>
+<dd><code class="kbd docutils literal"><span class="pre">Ctrl-R</span></code></dd>
+<dt>Read Full Sample Layers</dt>
+<dd><code class="kbd docutils literal"><span class="pre">Shift-R</span></code></dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selecting.html" class="btn btn-neutral" title="Selecting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

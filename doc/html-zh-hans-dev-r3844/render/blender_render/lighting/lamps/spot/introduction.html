@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/lighting/lamps/spot/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../../../index.html"/>
+        <link rel="up" title="Spot" href="index.html"/>
+        <link rel="next" title="Spot Buffered Shadow" href="buffered_shadow.html"/>
+        <link rel="prev" title="Spot" href="index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">简介</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">材质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../textures/index.html">纹理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">灯光</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lights/index.html">灯光</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shadows/index.html">阴影</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../volumetric_lights.html">Volumetric Lighting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lighting_rigs.html">Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles渲染引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender渲染引擎</a> &raquo;</li>
+        
+          <li><a href="../../index.html">灯光</a> &raquo;</li>
+        
+          <li><a href="../index.html">Lamp Types</a> &raquo;</li>
+        
+          <li><a href="index.html">Spot</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/lighting/lamps/spot/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>A <em>Spot</em> lamp emits a cone-shaped beam of light from the tip of the cone,
+in a given direction.</p>
+<p>The <em>Spot</em> light is the most complex of the light objects and indeed,
+for a long time,
+among the most used thanks to the fact that it was the only one able to cast shadows.
+Nowadays, with a ray tracer integrated into Blender's internal render engine,
+all lamps can cast shadows (except <em>Hemi</em>). Even so,
+<em>Spot</em> lamps' shadow buffers are much faster to render than ray-traced shadows,
+especially when blurred/softened,
+and spot lamps also provide other functionality such as &quot;volumetric&quot; halos.</p>
+<div class="section" id="lamp-options">
+<h2>Lamp Options<a class="headerlink" href="#lamp-options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_panel.jpg"><img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_panel.jpg" src="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_panel.jpg" style="width: 307px;" /></a>
+<p class="caption"><span class="caption-text">Common Lamp options of a Spot.</span></p>
+</div>
+<dl class="docutils">
+<dt>Distance, Energy and Color</dt>
+<dd>These settings are common to most types of lamps, and are described in
+<a class="reference internal" href="../../lights/lamp_panel.html"><span class="doc">Light Properties</span></a>.</dd>
+<dt>This Layer Only, Negative, Diffuse and Specular</dt>
+<dd>These settings control what the lamp affects, as described in
+<a class="reference internal" href="../../lights/lamp_panel.html#bi-lamp-influence"><span class="std std-ref">What Light Affects</span></a>.</dd>
+<dt>Light Falloff and Sphere</dt>
+<dd><p class="first">These settings control how the light of the <em>Spot</em> decays with distance.
+See <a class="reference internal" href="../../lights/attenuation.html"><span class="doc">Light Attenuation</span></a> for details.</p>
+<div class="last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_terms.png"><img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_terms.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_terms.png" style="width: 610px;" /></a>
+<p class="caption"><span class="caption-text">Changing the Spot options also changes the appearance of the spotlight as displayed in the 3D View.</span></p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="shadows">
+<h2>Shadows<a class="headerlink" href="#shadows" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_ray-panel.png"><img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_ray-panel.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_ray-panel.png" style="width: 306px;" /></a>
+<p class="caption"><span class="caption-text">Shadow panel set to Ray Shadow.</span></p>
+</div>
+<p>Spotlights can use either ray-traced shadows or buffered shadows.
+Either of the two can provide various extra options.
+Ray-traced shadows are generally more accurate,
+with extra capabilities such as transparent shadows, although they are quite slower to render.</p>
+<dl class="docutils">
+<dt>No Shadow</dt>
+<dd>Choose this to turn shadows off for this spot lamp.
+This can be useful to add some discreet directed light to a scene.</dd>
+<dt>Buffered Shadow</dt>
+<dd><em>Buffered Shadows</em> are also known as depth map shadows.
+Shadows are created by calculating differences in the distance from the light to scene objects.
+See <a class="reference internal" href="buffered_shadow.html"><span class="doc">Buffered Shadows</span></a>
+for full details on using this feature.
+Buffered shadows are more complex to set up and involve more faking,
+but the speed of rendering is a definite advantage.
+Nevertheless, it shares with other lamp types common shadow options
+described in <a class="reference internal" href="../../shadows/shadow_panel.html"><span class="doc">Shadow Panel</span></a>.</dd>
+<dt>Ray Shadow</dt>
+<dd>The ray-traced shadows settings of this lamp are shared with other lamps,
+and are described in <a class="reference internal" href="../../shadows/raytraced_properties.html"><span class="doc">Raytraced Properties</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="spot-shape">
+<h2>Spot Shape<a class="headerlink" href="#spot-shape" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Size</dt>
+<dd><p class="first">The size of the outer cone of a <em>Spot</em>,
+which largely controls the circular area a <em>Spot</em> light covers.
+This slider in fact controls the angle at the top of the lighting cone,
+and can be between (1.0 to 180.0).</p>
+<table border="1" class="last docutils" id="id4">
+<caption><span class="caption-text">Changing the spot <em>Size</em> option.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_size45.png"><img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_size45.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_size45.png" style="width: 320px;" /></a>
+</div>
+</td>
+<td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_size60.png"><img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_size60.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_size60.png" style="width: 320px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Blend</dt>
+<dd><p class="first">The <em>Blend</em> slider controls the inner cone of the <em>Spot</em>.
+The <em>Blend</em> value can be between (0.0 to 1.0).
+The value is proportional and represents that amount of space that the inner cone should
+occupy inside the outer cone <em>Size</em>.</p>
+<p>The inner cone boundary line indicates the point at which light from the <em>Spot</em> will start to blur/soften;
+before this point its light will mostly be full strength.
+The larger the value of <em>Blend</em> the more blurred/soft the edges of the spotlight will be,
+and the smaller the inner cone's circular area will be (as it starts to blur/soften earlier).</p>
+<p>To make the <em>Spot</em> have a sharper falloff rate and therefore less blurred/soft edges,
+decrease the value of <em>Blend</em>.
+Setting <em>Blend</em> to 0.0 results in very sharp spotlight edges, without any transition between light and shadow.</p>
+<p>The falloff rate of the <em>Spot</em> lamp light is a ratio between the <em>Blend</em> and <em>Size</em> values;
+the larger the circular gap between the two, the more gradual the light fades between <em>Blend</em> and <em>Size</em>.</p>
+<p><em>Blend</em> and <em>Size</em> only control the <em>Spot</em> light cone's aperture and softness
+(&quot;radial&quot; falloff); they do not control the shadow's softness as shown below.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_shadow-spotlight.png"><img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_shadow-spotlight.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_introduction_shadow-spotlight.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the soft edge spotlighted area and the sharp/hard object shadow.</span></p>
+</div>
+<p class="last">Notice in the picture above that the object's shadow is sharp as a result of the ray tracing,
+whereas the spotlight edges are soft.
+If you want other items to cast soft shadows within the <em>Spot</em> area, you will need to alter other shadow settings.</p>
+</dd>
+<dt>Square</dt>
+<dd>The <em>Square</em> button makes a <em>Spot</em> light cast a square light area, rather than the default circular one.</dd>
+<dt>Show Cone</dt>
+<dd>Draw a transparent cone in 3D View to visualize which objects are contained in it.</dd>
+<dt>Halo</dt>
+<dd>Adds a volumetric effect to the spot lamp.
+See <a class="reference internal" href="halo.html"><span class="doc">Spot Halos</span></a>.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="buffered_shadow.html" class="btn btn-neutral float-right" title="Spot Buffered Shadow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Spot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

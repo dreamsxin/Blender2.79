@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3D视图 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/troubleshooting/3d_view.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Blender Manual" href="../index.html"/>
+        <link rel="up" title="问题排查" href="index.html"/>
+        <link rel="next" title="Graphics Hardware" href="gpu.html"/>
+        <link rel="prev" title="启动" href="startup.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">管线</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">问题排查</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="startup.html">启动</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3D视图</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#drawing">绘制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#depth-buffer-glitches">深度缓冲区故障</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects-invisible-in-camera-view">对象在相机视图中不可见</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#performance">性能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slow-drawing">界面绘制缓慢</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slow-selection">选择很慢</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation">视图切换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lost-in-space">视图中丢失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#invisible-limit-zooming-in">不可见</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tools">工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#invalid-selection">选择无效</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gpu.html">Graphics Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crash.html">崩溃</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Python错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recover.html">恢复数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#compatibility">兼容性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">问题排查</a> &raquo;</li>
+        
+      <li>3D视图</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/troubleshooting/3d_view.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="d-view">
+<h1>3D视图<a class="headerlink" href="#d-view" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="drawing">
+<h2>绘制<a class="headerlink" href="#drawing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="depth-buffer-glitches">
+<span id="troubleshooting-depth"></span><h3>深度缓冲区故障<a class="headerlink" href="#depth-buffer-glitches" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes when setting a large <a class="reference internal" href="../editors/3dview/properties/panels.html#dview-view-clip"><span class="std std-ref">clipping range</span></a>
+will allow you to see both near and far objects,
+but reduces the depth precision resulting in artifacts.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../_images/troubleshooting_3d-view_graphics-z-fighting-none.png"><img alt="../_images/troubleshooting_3d-view_graphics-z-fighting-none.png" src="../_images/troubleshooting_3d-view_graphics-z-fighting-none.png" style="width: 180px;" /></a>
+<p class="caption"><span class="caption-text">Model with no clipping artifacts.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../_images/troubleshooting_3d-view_graphics-z-fighting-example.png"><img alt="../_images/troubleshooting_3d-view_graphics-z-fighting-example.png" src="../_images/troubleshooting_3d-view_graphics-z-fighting-example.png" style="width: 180px;" /></a>
+<p class="caption"><span class="caption-text">Model with clipping artifacts.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../_images/troubleshooting_3d-view_graphics-z-fighting-example-editmode.png"><img alt="../_images/troubleshooting_3d-view_graphics-z-fighting-example-editmode.png" src="../_images/troubleshooting_3d-view_graphics-z-fighting-example-editmode.png" style="width: 180px;" /></a>
+<p class="caption"><span class="caption-text">Mesh with artifacts in Edit Mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To avoid this:</p>
+<ul class="simple">
+<li>Increase the near clipping when working on large scenes.</li>
+<li>Decrease the far clipping when objects are not viewed at a distance.</li>
+</ul>
+<p>When perspective is disabled only the far Clip-End is used, very high values can still give artifacts.</p>
+<p>This is <strong>not</strong> specific to Blender, all OpenGL/ DirectX graphics applications have these same limitations.</p>
+</div>
+<div class="section" id="objects-invisible-in-camera-view">
+<h3>对象在相机视图中不可见<a class="headerlink" href="#objects-invisible-in-camera-view" title="Permalink to this headline">¶</a></h3>
+<p>如果你有一个大的场景，查看通过相机视图可能无法显示的所有对象在场景中。一种可能性可能是 <a class="reference internal" href="../render/blender_render/camera/object_data.html#camera-clipping"><span class="std std-ref">裁剪距离</span></a> 的相机是太低。相机只会显示剪辑范围内的对象。</p>
+</div>
+</div>
+<div class="section" id="performance">
+<h2>性能<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="slow-drawing">
+<h3>界面绘制缓慢<a class="headerlink" href="#slow-drawing" title="Permalink to this headline">¶</a></h3>
+<p>There are a couple of reasons why you may be experiencing a slow viewport.</p>
+<dl class="docutils">
+<dt>Old Hardware</dt>
+<dd>Sometimes your hardware, mainly your graphics card, may be too slow to keep up with your model.</dd>
+<dt>升级显卡驱动</dt>
+<dd>In some cases, slow selection is resolved by using updated drivers.</dd>
+</dl>
+</div>
+<div class="section" id="slow-selection">
+<h3>选择很慢<a class="headerlink" href="#slow-selection" title="Permalink to this headline">¶</a></h3>
+<p>Blender uses OpenGL drawing for selection, some graphics card drivers are slow at performing this operation.</p>
+<p>这变得稠密几何特别成问题。</p>
+<p>可能的解决方案：</p>
+<dl class="docutils">
+<dt>OpenGL 遮挡查询 (用户设置)</dt>
+<dd><p class="first">请参见: menuselection: 用户首选项--&gt; 系统--&gt; 选择'</p>
+<p class="last">此选项默认值 <em>自动</em> ，尝试将其设置为 <em>OpenGL遮挡查询</em> ，因为还有一些配置下显著的性能差异。</p>
+</dd>
+<dt>升级显卡驱动</dt>
+<dd>In some cases, slow selection is resolved by using updated drivers.
+<em>It is generally good to use recent drivers when using 3D software.</em></dd>
+<dt>选择中心</dt>
+<dd>在 <em>物体模式</em> ，按住 <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> 的同时选择使用对象中心点。虽然这可能有用，自行其有不依靠 OpenGL 选择副作用。</dd>
+<dt>修改绘制模式</dt>
+<dd>Using <em>Wireframe</em> or even <em>Bounding Box</em> draw modes can be used to more quickly select different objects.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Obviously, the workarounds listed here are not long term solutions,
+but it is handy to know if you are stuck using a system with poor OpenGL support.</p>
+<p class="last">最终，如果没有这些选项工作它可能值得升级您的硬件。</p>
+</div>
+</div>
+</div>
+<div class="section" id="navigation">
+<h2>视图切换<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lost-in-space">
+<h3>视图中丢失<a class="headerlink" href="#lost-in-space" title="Permalink to this headline">¶</a></h3>
+<p>When navigating your scene, you may accidentally navigate away from your scene
+and find yourself with a blank viewport. There are two ways to fix this:</p>
+<ul class="simple">
+<li>Select an object in the <a class="reference internal" href="../editors/outliner.html"><span class="doc">Outliner</span></a>,
+then zoom to that object with <span class="menuselection">View ‣ Show Active</span> or <code class="kbd docutils literal"><span class="pre">NumpadPeriod</span></code>.</li>
+<li>Use <code class="kbd docutils literal"><span class="pre">Home</span></code> to fit all objects into the 3D View.</li>
+</ul>
+</div>
+<div class="section" id="invisible-limit-zooming-in">
+<h3>不可见<a class="headerlink" href="#invisible-limit-zooming-in" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes when navigating you may be trying to zoom in but it seems that you have hit a limit
+to how far you can zoom.
+This is because Blender uses a central point to orbit around.</p>
+<p>In practice this is good for modeling an object which you rotate about a lot to see from all sides
+(think of a potter using a wheel).
+However, this makes it awkward to explore a scene or model an object from the 'inside', for example.</p>
+<div class="section" id="solutions">
+<h4>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Use <a class="reference internal" href="../editors/3dview/navigate/navigation.html#dview-nav-zoom-dolly"><span class="std std-ref">View Dolly</span></a></li>
+<li>Use <a class="reference internal" href="../editors/3dview/navigate/walk_fly.html#dview-walk-fly"><span class="std std-ref">Walk/Fly modes</span></a>.</li>
+<li>Use <a class="reference internal" href="../preferences/interface.html#prefs-auto-depth"><span class="std std-ref">Auto Depth</span></a> and <a class="reference internal" href="../preferences/interface.html#prefs-zoom-mouse-pos"><span class="std std-ref">Zoom to Mouse Position</span></a>.
+These tool will make sure the distance is always the value under the mouse cursor,</li>
+<li>Use <a class="reference internal" href="../editors/3dview/navigate/navigation.html#dview-nav-zoom-border"><span class="std std-ref">Border Zoom</span></a> as it also resets the center-point when zooming.</li>
+<li>Center the view around the mouse cursor <code class="kbd docutils literal"><span class="pre">Alt-F</span></code>.
+This will take the position under the cursor and make it your viewpoint center.</li>
+<li>Center the view around the 3D cursor <code class="kbd docutils literal"><span class="pre">Alt-Home</span></code>.</li>
+<li>Use a <abbr title="N-Degrees of Freedom">NDOF</abbr>, also known as a 3D mouse.
+See <a class="reference internal" href="../getting_started/installing/configuration/hardware.html"><span class="doc">configuring peripherals</span></a>
+for more information.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="tools">
+<h2>工具<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="invalid-selection">
+<span id="troubleshooting-3dview-invalid-selection"></span><h3>选择无效<a class="headerlink" href="#invalid-selection" title="Permalink to this headline">¶</a></h3>
+<p>有时候选择一些配置下的失败时，这也是经常网明显 <em>编辑模式</em> ，选择顶点和边/面在那里选择随机元素。</p>
+<p>Internally Blender uses <a class="reference internal" href="../glossary/index.html#term-opengl"><span class="xref std std-term">OpenGL</span></a> for selection,
+so the graphics card driver relies on giving correct results.</p>
+<p>可能的解决方案：</p>
+<dl class="docutils">
+<dt>Disable Anti-Aliasing <a class="reference internal" href="../glossary/index.html#term-fsaa"><span class="xref std std-term">FSAA, Multi-Sampling</span></a></dt>
+<dd><p class="first">这是迄今为止最常见的原因的选择问题。</p>
+<p>使用 FSAA/多-采样时，是知道一些显卡问题。</p>
+<p>您可以禁用此选项:</p>
+<ul class="last simple">
+<li>关闭 FSAA 多 sampling 在您的图形卡驱动程序选项。</li>
+<li>Turning <em>Multi-Sampling</em> off in the <a class="reference internal" href="../preferences/system.html#prefs-system-multi-sampling"><span class="std std-ref">system preferences</span></a>.</li>
+</ul>
+</dd>
+<dt>更改抗锯齿示例设置</dt>
+<dd><p class="first">Depending on your OpenGL configuration,
+some specific sample settings may work while others fail.</p>
+<p class="last">不幸的找到工作配置涉及审判 &amp; 错误测试。</p>
+</dd>
+<dt>升级显卡驱动</dt>
+<dd><p class="first">作为任何 OpenGL 相关的问题，使用新的驱动程序可以解决问题。</p>
+<p class="last">However, it should be noted that this is a fairly common problem and remains unresolved with many drivers.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gpu.html" class="btn btn-neutral float-right" title="Graphics Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="startup.html" class="btn btn-neutral" title="启动" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

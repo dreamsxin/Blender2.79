@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>粒子实例修改器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/simulate/particle_instance.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="修改器" href="../index.html"/>
+        <link rel="next" title="绘制与雕刻" href="../../../sculpt_paint/index.html"/>
+        <link rel="prev" title="洋面修改器" href="ocean.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">曲线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">修改器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">修改</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">形变</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#simulate">模拟</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="explode.html">爆炸修改器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ocean.html">洋面修改器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">粒子实例修改器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">修改器</a> &raquo;</li>
+        
+      <li>粒子实例修改器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/simulate/particle_instance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particle-instance-modifier">
+<span id="bpy-types-particleinstancemodifier"></span><h1>粒子实例修改器<a class="headerlink" href="#particle-instance-modifier" title="Permalink to this headline">¶</a></h1>
+<p>When a Particle Instance Modifier is added to an object, that object will be used
+as a particle shape on an object which has a particle system associated with it. This means
+that to use this modifier you must also have another object which has a particle system on it,
+otherwise the Particle Instance Modifier will appear to do nothing.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_planes.jpg"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_planes.jpg" src="../../../_images/modeling_modifiers_simulate_particle-instance_planes.jpg" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Particle system on left has no Particle Instance modified object associated with it.
+The one on the right is associated with cube shown by using a Particle Instance Modifier on the cube.</span></p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_panel.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_panel.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_panel.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-text">Particle Instance Modifier.</span></p>
+</div>
+<p>Because of the co-dependent way in which the Particle Instance Modifier is
+influenced by the underlying particle systems on other objects, some of the apparent effects
+generated by the Particle Instance Modifier can look and act vastly different,
+depending on the underlying settings of the particle systems it is associated with. This is
+worth taking account of if the Particle Instance Modifier settings do not appear to
+be giving the results expected, as it may indicate that the particle system settings may need
+altering rather than the Particle Instance Modifier settings.</p>
+<dl class="docutils">
+<dt>Object</dt>
+<dd>The <em>Object</em> field, associates this Particle Instance Modifier with another object (usually an
+object having a particle system...).
+This indicates that when the object named in this field emits particles, those
+particles will have the mesh shape of the current Particle Instance Modifier's mesh.
+If for example a sphere has a Particle Instance Modifier added to it, when the <em>Object</em> field
+of this modifier is filled in with the name of an object that emits particles, those particle will be sphere
+shaped. Even though most of the time the <em>Object</em> field will have the name of an object with a particle
+system, this is not mandatory,
+you can enter an object's name which does not have a particle system, and it will be
+accepted by the <em>Object</em> field, as there do not appear to be any checks made to make sure the object's
+name entered into this field is &quot;valid&quot;.</dd>
+<dt>Particle System</dt>
+<dd><p class="first">The <em>Particle System</em> field is used to select which particle system number to apply the
+Particle Instance Modifier to,
+when the mesh which has the particle system on it has more than one of these.
+The <em>Particle System</em> field can have a value between (1 to 10).
+It is possible to select any of the ten particle system numbers, however, a check will <strong>not</strong> be made with the
+underlying particle emitting object specified previously in the <em>Object</em> field.
+If you select a particle system number which does not exist on the particle emitting object, then the particles on
+the emitting mesh will keep their normal particle shapes. No warning will be given that the chosen particle
+system does not exist on a particular particle emitting mesh.</p>
+<p>As an example, below is a single plane mesh with two areas (the first area shown in red and the second in white),
+with different particle systems applied to each area. The left side using a Particle Instance Modifier
+which has the shape of a sphere and the right side having a Particle Instance Modifier which has the
+shape of a cube.</p>
+<div class="last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_split-plane.jpg"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_split-plane.jpg" src="../../../_images/modeling_modifiers_simulate_particle-instance_split-plane.jpg" style="width: 610px;" /></a>
+<p class="caption"><span class="caption-text">Render showing a single Plain mesh object assigned to two different vertex groups
+and each of those vertex groups is assigned a separate and independent particle system,
+with each particle system being assigned a different Particle Instance modifier.
+In the case shown the Particle Instance modifiers are a sphere and a cube.
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:Manual_-_Modifiers_-_Particle_Instance_Modifiers_-_Split_Plane.blend">Example Blend file</a>.</span></p>
+</div>
+</dd>
+</dl>
+<div class="section" id="creation">
+<h3>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Normal</dt>
+<dd>When selected, the <em>Normal</em> button tells the Particle Instance Modifier
+to draw instances of itself wherever normal particle types are
+emitted from the underlying particle system. So if the current modifier is a sphere shape,
+when normal particles are emitted they will be spheres.</dd>
+<dt>Children</dt>
+<dd>When selected, the <em>Children</em> button tells the modifier
+to draw instances of itself wherever children/child particles are
+emitted/used on the underlying particle system. So if the current modifier is a sphere shape,
+when children/child particles are emitted they will be spheres.</dd>
+<dt>Size</dt>
+<dd>Scale the instanced objects by the particle size attribute.
+When this is disabled, all the copies appear the same size as the origin.</dd>
+</dl>
+</div>
+<div class="section" id="display">
+<h3>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Unborn</dt>
+<dd>When selected, the <em>Unborn</em> button tells the modifier
+to draw instances of itself wherever unborn particles will be
+emitted/used on the underlying particle system.
+So if the current Particle Instance Modifier is a sphere shape,
+when unborn particles are present they will be spheres.</dd>
+<dt>Alive</dt>
+<dd>When selected, the <em>Alive</em> button tells the modifier
+to draw instances of itself wherever alive particles will be
+emitted/used on the underlying particle system.
+So if the current Particle Instance Modifier is a sphere shape,
+when alive particles are present they will be spheres.</dd>
+<dt>Dead</dt>
+<dd>When selected, the <em>Dead</em> button tells the modifier to draw instances of itself
+wherever dead particles will occur on the underlying particle system.
+So if the current Particle Instance Modifier is a sphere shape,
+when dead particles are present they will be spheres.</dd>
+</dl>
+</div>
+<div class="section" id="using-paths">
+<h3>Using Paths<a class="headerlink" href="#using-paths" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Create Along Paths</dt>
+<dd>This option tries to make the underlying mesh object of the modifier
+deform its mesh shape in such a way as to try and match the path traveled by
+the particles/hair strands of the system associated with it.
+For example, below is a screen shot showing the path of a single keyed
+particle as it travels its way through each of the different way points (1 to 4) (target particle systems),
+when it reaches way point 4 the particle dies and ends its journey.</dd>
+<dt>Rotation Axis</dt>
+<dd><p class="first">Specify which pole axis to use for the rotation.</p>
+<p class="last">X, Y, Z</p>
+</dd>
+<dt>Keep Shape</dt>
+<dd>Enabling this prevents the object from being deformed.
+It instead simply aligns to the end of the path at the object's center.</dd>
+<dt>Position</dt>
+<dd>Specify what percentage of the path the object fills.
+You could create a growing effect by animating this value over time.</dd>
+<dt>Random</dt>
+<dd>Scales the position value of each instance a random value.</dd>
+</dl>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example1.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example1.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Keyed particle following way points (showing one particle).
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:Manual_-_Particle_Instance_Modifier_-_Keyed_Particle_Example_1.blend">Example Blend file</a>.</span></p>
+</div>
+<p>When a Particle Instance Modifier is added to a cylinder object
+and then associated with the way point particle system,
+the particle position is copied by the cylinder and placed at the particles position.
+So the mesh object follows the location of the particle.
+The cylinder does not alter any of its other properties when following the particle,
+only the cylinders location gets altered, shape and rotation do not get altered.
+See screenshot below:</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example2.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example2.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Keyed particle following way points showing a mesh object
+(Particle Instance Modifier) in place of the original particle.
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:Manual_-_Particle_Instance_Modifier_-_Keyed_Particle_Example_2.blend">Example Blend file</a>.</span></p>
+</div>
+<p>Both of the above examples had the Particle Instance Modifier <em>Path</em> button deactivated.
+When the <em>Path</em> button is activated the effect can be seen in the screenshot below:</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example3.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example3.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example3.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Keyed particle following way points showing a mesh object (Particle Instance Modifier)
+in place of the original particle, that is also being deformed to fit the travel path of the original particle.
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:Manual_-_Particle_Instance_Modifier_-_Keyed_Particle_Example_3.blend">Example Blend file</a>.</span></p>
+</div>
+<p>Instead of the cylinder location just following the position of the particle (and not altering its shape),
+the cylinder tries to fit its mesh to the shape of the path followed by the particle.
+The mesh geometry of the object which is trying to deform can have an
+impact on how well the deformation is carried out.
+In the case of the cylinder, it has many loop cuts along its length so
+that it can bend at those points to deform along the particle path.
+For example here is the same scene with the number of loop cuts along the length of the cylinder reduced,
+showing the effect on the deformation of the cylinder along the particle path.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example4.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example4.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example4.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The cylinder has most of its edge loops so most of the path deform is very regular
+apart from at the very end of the curve.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example5.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example5.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example5.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The cylinder has some of its edge loops removed so the path of the deform starts to become less regular.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example6.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example6.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example6.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Now the deform path is very rough.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example7.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example7.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_keyed-particle-example7.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">At this point there are not any vertices to bend the cylinder to follow the path,
+and instead the cylinder just goes directly to the last way point 4.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Once all the extra edge loops around cylinder are removed so that there is only the top and bottom vertices left,
+meaning that the cylinder does not have enough geometry to bend,
+in that case it cannot follow the path of the particle,
+so it just goes from the start way point 1 to the ending way point 4.
+The Particle Instance Modifier <em>Path</em> button works for hair (strand)
+particles as well as with keyed particles.
+In this case the mesh of the Particle Instance Modifier will follow the length and profile of the hair strands paths.
+Below is a screenshot showing the effect of the <em>Path</em> button on hair:</p>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_particle-instance_strand-mesh-deform.png"><img alt="../../../_images/modeling_modifiers_simulate_particle-instance_strand-mesh-deform.png" src="../../../_images/modeling_modifiers_simulate_particle-instance_strand-mesh-deform.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Strand with a Particle Instance Modifier associated with it and deforming the cylinder along the hair profile.
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:Manual_-_Particle_Instance_Modifier_-_Strand_Mesh_Deform.blend">Example Blend file</a>.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Strands when they are generated instantly die when created so for the <em>Path</em> button
+to be of any use, you must also have the <em>Dead</em> button activated.
+Otherwise the path a mesh took will not be visible!</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="../../../physics/particles/index.html"><span class="doc">Particles</span></a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../sculpt_paint/index.html" class="btn btn-neutral float-right" title="绘制与雕刻" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ocean.html" class="btn btn-neutral" title="洋面修改器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

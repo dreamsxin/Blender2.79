@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Object Data &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/curves/properties/data.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="Properties" href="index.html"/>
+        <link rel="next" title="Geometry" href="geometry.html"/>
+        <link rel="prev" title="Introduction" href="introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">网格</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">曲线</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">基本体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting.html">选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../editing/index.html">编辑</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Properties</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Object Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry.html">Geometry</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../curve_display.html">曲线显示</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">曲面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">空物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="../index.html">曲线</a> &raquo;</li>
+        
+          <li><a href="index.html">Properties</a> &raquo;</li>
+        
+      <li>Object Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/curves/properties/data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object-data">
+<h1>Object Data<a class="headerlink" href="#object-data" title="Permalink to this headline">¶</a></h1>
+<p>The curve properties can be set from the <em>Object Data</em> tab
+in the <em>Properties Header</em> (shown below in blue).</p>
+<div class="figure">
+<img alt="../../../_images/modeling_curves_properties_data_header.png" src="../../../_images/modeling_curves_properties_data_header.png" />
+</div>
+<div class="section" id="shape">
+<h2>Shape<a class="headerlink" href="#shape" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_curves_properties_data_curves-shape-panel.png" src="../../../_images/modeling_curves_properties_data_curves-shape-panel.png" />
+<p class="caption"><span class="caption-text">Curves Shape panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Dimensions</dt>
+<dd><p class="first">By default, new curves are set to be 3D, which means that control points can be placed anywhere in 3D space.
+Curves can also be set to 2D which constrain the control points to the curve's local XY axis.</p>
+<p class="last">2D, 3D</p>
+</dd>
+</dl>
+<dl class="docutils" id="curve-resolution">
+<dt>Resolution</dt>
+<dd><p class="first">The <em>resolution</em> property defines the number of points that are computed between every pair of control points.
+Curves can be made more or less smooth by increasing and decreasing the resolution respectively.
+The <em>Preview U</em> setting determines the resolution in the 3D View while the <em>Render U</em> setting
+determines the curve's render resolution. If <em>Render U</em> is set to zero (0),
+then the <em>Preview U</em> setting is used for both the 3D View and render resolution.</p>
+<div class="last figure" id="id2">
+<img alt="../../../_images/modeling_curves_properties_data_shape-resolution.jpg" src="../../../_images/modeling_curves_properties_data_shape-resolution.jpg" />
+<p class="caption"><span class="caption-text">Curves with a resolution of 3 (left) and 12 (right).</span></p>
+</div>
+</dd>
+<dt>Twisting</dt>
+<dd><p class="first">A 3D curve has control points that are not located on the curve's local XY plane.
+This gives the curve a twist which can affect the curve normals.
+You can alter how the twist of the curve is calculated by choosing from <em>Minimum,
+Tangent</em> and <em>Z-Up</em> options from the select menu.</p>
+<div class="last figure" id="id3">
+<img alt="../../../_images/modeling_curves_properties_data_shape-twist.jpg" src="../../../_images/modeling_curves_properties_data_shape-twist.jpg" />
+<p class="caption"><span class="caption-text">Curves with a twist of minimum (left) and tangent (right).</span></p>
+</div>
+</dd>
+<dt>Fill</dt>
+<dd><p class="first">Fill determines the way a curve is displayed when it is beveled (see below for details on Beveling).
+When set to <em>Half</em> (the default) the curve is displayed as half a cylinder.</p>
+<dl class="docutils">
+<dt>Fill Deformed</dt>
+<dd>Fills the curve after applying all modification that might deform the curve (i.e. shape keys and modifiers).</dd>
+</dl>
+<div class="last figure" id="id4">
+<img alt="../../../_images/modeling_curves_properties_data_shape-fill.jpg" src="../../../_images/modeling_curves_properties_data_shape-fill.jpg" />
+<p class="caption"><span class="caption-text">Curves with a fill of half (left) and full (right).</span></p>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="curve-shape-path-curve-deform">
+<dt>Path/Curve-Deform</dt>
+<dd><p class="first">These options are primarily utilized when using a curve as a path or when using the Curve Deform Modifier.
+They control how objects use the curve and are dealt with in more detail in the appropriate links below.</p>
+<dl class="last docutils">
+<dt>Radius</dt>
+<dd>Causes the deformed object to be scaled by the set curve radius.</dd>
+<dt>Stretch</dt>
+<dd>The <em>Stretch</em> curve option allows you to let the mesh object stretch, or squeeze, over the entire curve.</dd>
+<dt>Bounds Clamp</dt>
+<dd>ToDo.</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../../../rigging/constraints/relationship/follow_path.html"><span class="doc">Follow Path Constraint 跟随路径约束</span></a></li>
+<li><a class="reference internal" href="../../modifiers/deform/curve.html"><span class="doc">曲线修改器</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="path-animation">
+<span id="curve-path-animation"></span><h2>Path Animation<a class="headerlink" href="#path-animation" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Path Animation</em> settings can be used to determine how child objects move along a certain path.</p>
+<dl class="docutils">
+<dt>Frames</dt>
+<dd>The number of frames that are needed to traverse the path,
+defining the maximum value for the <em>Evaluation Time</em> setting.</dd>
+<dt>Evaluation Time</dt>
+<dd>Parametric position along the length of the curve that object following it should be at
+(the position is evaluated by dividing by the <em>Path Length</em> value).
+By default, it is linked to the global frame number,
+but could be keyframed to give more control over the path animation.</dd>
+<dt>Follow</dt>
+<dd>Make the curve path children rotate along the curvature of the path.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Deprecated, but still available use.
+A more future-proof method is the <a class="reference internal" href="../../../rigging/constraints/relationship/follow_path.html"><span class="doc">Follow Path Constraint 跟随路径约束</span></a>.</p>
+</div>
+</div>
+<div class="section" id="active-spline">
+<h2>Active Spline<a class="headerlink" href="#active-spline" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id5">
+<img alt="../../../_images/modeling_curves_properties_data_active-spline-panel-curves.png" src="../../../_images/modeling_curves_properties_data_active-spline-panel-curves.png" />
+<p class="caption"><span class="caption-text">Curves Active Spline panel.</span></p>
+</div>
+<p>The <em>Active Spline</em> panel becomes available during <em>Edit Mode</em>.</p>
+<dl class="docutils">
+<dt>Cyclic</dt>
+<dd>Closes the curve.</dd>
+<dt>Resolution</dt>
+<dd>Alters the smoothness of each segment by changing the number of subdivisions.</dd>
+<dt>Interpolation</dt>
+<dd><dl class="first last docutils">
+<dt>Tilt</dt>
+<dd>Alters how the tilt of a segment is calculated.</dd>
+<dt>Radius</dt>
+<dd>Alters how the radius of a beveled curve is calculated.
+The effects are easier to see after Shrinking/Fattening a control point <code class="kbd docutils literal"><span class="pre">Alt-S</span></code>.</dd>
+<dt>Smooth</dt>
+<dd>Smooths the normals of the curve.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="nurbs-curves">
+<h3>NURBS Curves<a class="headerlink" href="#nurbs-curves" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id6">
+<img alt="../../../_images/modeling_curves_properties_data_active-spline-panel-nurbs.png" src="../../../_images/modeling_curves_properties_data_active-spline-panel-nurbs.png" />
+<p class="caption"><span class="caption-text">NURBS Active Spline panel.</span></p>
+</div>
+<dl class="docutils" id="modeling-curve-knot">
+<dt>Knots</dt>
+<dd><p class="first">One of the characteristics of a NURBS object is the <em>knot vector</em>. This is a sequence of
+numbers used to determine the influence of the control points on the curve.
+While you cannot edit the knot vectors directly, you can influence them through the
+<em>Endpoint</em> and <em>Bézier</em> options in the Active Spline panel. Note that the
+<em>Endpoint</em> and <em>Bézier</em> settings only apply to open NURBS curves.</p>
+<dl class="last docutils">
+<dt>Cyclic</dt>
+<dd><p class="first">Makes the NURBS curve cyclic.</p>
+<div class="last figure" id="id7">
+<img alt="../../../_images/modeling_curves_properties_data_nurbs-cyclic.png" src="../../../_images/modeling_curves_properties_data_nurbs-cyclic.png" />
+<p class="caption"><span class="caption-text">A NURBS curve with Cyclic applied.</span></p>
+</div>
+</dd>
+<dt>Bézier</dt>
+<dd>Makes the NURBS curve act like a Bézier curve.</dd>
+<dt>Endpoint</dt>
+<dd><p class="first">Makes the curve contact the end control points. Cyclic must be disabled for this option to work.</p>
+<div class="last figure" id="id8">
+<img alt="../../../_images/modeling_curves_properties_data_nurbs-endpoint.png" src="../../../_images/modeling_curves_properties_data_nurbs-endpoint.png" />
+<p class="caption"><span class="caption-text">A NURBS curve with Endpoint enabled.</span></p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="modeling-curve-order">
+<dt>Order</dt>
+<dd><p class="first">The order of the NURBS curve determines the area of influence of the control points over the curve.
+Higher order values means that a single control point has a greater
+influence over a greater relative proportion of the curve.
+The valid range of <em>Order</em> values is 2-6 depending on the number of control points present in the curve.</p>
+<div class="last figure" id="id9">
+<img alt="../../../_images/modeling_curves_properties_data_nurbs-order.png" src="../../../_images/modeling_curves_properties_data_nurbs-order.png" />
+<p class="caption"><span class="caption-text">NURBS curves with orders of 2 (left), 4 (middle) and 6 (right).</span></p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="geometry.html" class="btn btn-neutral float-right" title="Geometry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

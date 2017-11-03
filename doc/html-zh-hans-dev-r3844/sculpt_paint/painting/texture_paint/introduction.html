@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>简介--不厌不倦翻译 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/sculpt_paint/painting/texture_paint/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../../index.html"/>
+        <link rel="up" title="纹理绘制" href="index.html"/>
+        <link rel="next" title="Tools" href="tools.html"/>
+        <link rel="prev" title="纹理绘制" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">绘制与雕刻</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../brush.html">笔刷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texture_tex_mask.html">Texture &amp; Texture Mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stroke_curve.html">笔触和曲线</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#modes">模式</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Painting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#paint-modes">Paint Modes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sculpting/index.html">雕刻</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">绘制与雕刻</a> &raquo;</li>
+        
+          <li><a href="../index.html">Painting</a> &raquo;</li>
+        
+          <li><a href="index.html">纹理绘制</a> &raquo;</li>
+        
+      <li>简介--不厌不倦翻译</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/sculpt_paint/painting/texture_paint/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>简介--不厌不倦翻译<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>UV纹理是一张用于模型着色的图像（图片、图像序列或者影片），它通过一张或者多张纹理UV贴图映射到模型上的。有三种方法来建立用作UV贴图的图像：</p>
+<ul class="simple">
+<li>在UV/图像编辑器中当前选中的UV纹理上绘制平面图像，然后通过UV映射将图像中的颜色映射到模型网格表面。</li>
+<li>Paint the mesh in the 3D View, and let Blender use the currently selected UV map to update the UV Texture.
+(see <a class="reference internal" href="index.html#painting-texture-index"><span class="std std-ref">Projection Painting</span></a>).</li>
+<li>Use any image-editing (paint) program to create an image.
+In the UV/Image Editor, select the UV Texture and load the image.
+Blender will then use that texture's UV map to transfer the colors to the faces of the mesh.</li>
+</ul>
+<p>Blender features a built-in paint mode called Texture Paint which is designed specifically to
+help you edit your UV Textures and images quickly and
+easily in either the UV/Image or the 3D View Editor.
+Since a UV Texture is just a special-purpose image,
+you can also use any external paint program. For example,
+GIMP is a full-featured image manipulation program that is also open-source.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/sculpt-paint_painting_texture-paint_introduction_example.jpg"><img alt="../../../_images/sculpt-paint_painting_texture-paint_introduction_example.jpg" src="../../../_images/sculpt-paint_painting_texture-paint_introduction_example.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Texture painting in Blender.</span></p>
+</div>
+<p>由于一个模型可以有多层UV纹理，可以有多个图像的颜色会覆盖到模型上，但是UV纹理只有一张图。</p>
+<p>Texture Paint works in both a 3D View and the UV/Image Editor.
+In the 3D View in Texture Paint Mode, you paint directly on the mesh by
+<a class="reference internal" href="index.html#painting-texture-index"><span class="std std-ref">projecting onto the UVs</span></a>.</p>
+<div class="section" id="getting-started">
+<h2>入门<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Once you have unwrapped your model to a UV Map,
+you can begin the texturing process.
+You cannot paint on a mesh in Texture Paint Mode without <strong>first</strong> unwrapping your mesh,
+<strong>and</strong> doing one of the following steps. Either:</p>
+<p>See: <a class="reference internal" href="../../../editors/uv_image/uv_editing/applying_image.html"><span class="doc">Applying Image</span></a>.</p>
+<p>After you have done one of these two things,
+you can modify the image using the Texture Paint Mode:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/sculpt-paint_painting_texture-paint_introduction_paint-mode.jpg"><img alt="../../../_images/sculpt-paint_painting_texture-paint_introduction_paint-mode.jpg" src="../../../_images/sculpt-paint_painting_texture-paint_introduction_paint-mode.jpg" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-text">Enabling paint mode.</span></p>
+</div>
+<ul class="simple">
+<li>In the 3D View, select Texture Paint Mode from the mode selector in the header,
+and you can paint directly onto the mesh.</li>
+<li>In the UV/Image Editor, switch the mode from View to Paint (shown to the right).</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Square Power of Two</p>
+<p class="last">Texture paint is very fast and responsive when working in the 3D View and when your image is sized as a
+square where the side lengths are a power of two, e.g. 256×256, 512×512, 1024×1024, etc.</p>
+</div>
+<p>一旦启用了纹理绘制，鼠标就会变成笔刷；要调整UV布局（比如要移动坐标），你必须返回制图模式。</p>
+<p>As soon as you enable Texture Painting or switch to Texture Paint Mode,
+brush settings become available in the Tool Shelf.</p>
+<p>In the UV/Image Editor,
+you paint on a flat canvas that is wrapped around the mesh using UV coordinates.
+Any changes made in the UV/Image Editor show up immediately in the 3D View,
+and vice versa.</p>
+<p>A full complement of brushes and colors can be selected from
+the Properties region in the UV/Image Editor.
+Brush changes made in either panel are immediately reflected in the other panel. However,
+the modified texture will <strong>not</strong> be saved automatically;
+you must explicitly do so by <span class="menuselection">Image ‣ Save</span> in the UV/Image Editor.</p>
+<div class="section" id="missing-data">
+<h3>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Add Simple UVs</dt>
+<dd>The <em>Add Simple UVs</em> does a simple cube unwrap followed by a pack operation.
+It's still recommended to make a custom unwrap.</dd>
+<dt>Add Paint Slot</dt>
+<dd>ToDo.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="texture-preview">
+<h2>纹理预览<a class="headerlink" href="#texture-preview" title="Permalink to this headline">¶</a></h2>
+<p>If your texture is already used to color, bump map, displace, alpha-transparent, etc.,
+a surface of a model in your scene (in other technical words,
+is mapped to some aspect of a texture via a texture channel using UV as a map input),
+you can see the effects of your painting in the context of your scene as you paint.</p>
+<p>To do this, set up side-by-side areas, one area in 3D View set to <em>Texture</em> shading option,
+and in the second area the UV/Image Editor loaded with your image.
+Position the 3D View to show the object that is UV mapped to the loaded image.
+In the image to the right, the texture being painted is mapped to the &quot;Normal&quot; attribute,
+and is called &quot;bump mapping&quot;,
+where the gray-scale image is used to make the flat surface appear bumpy.
+See Texture Mapping Output for more information on bump mapping.</p>
+</div>
+<div class="section" id="saving">
+<h2>保存<a class="headerlink" href="#saving" title="Permalink to this headline">¶</a></h2>
+<p>If the header menu item Image has an asterisk next to it,
+it means that the image has been changed, but not saved.
+Use the <span class="menuselection">Image ‣ Save Image</span>
+option to save your work with a different name or overwrite the original image.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>UV纹理</p>
+<p class="last">由于用作UV纹理的图像和其他图像功能不同，你应当把它们放在单独的目录下，区别于其他图像。</p>
+</div>
+<p>The image format for saving is independent of the format for rendering.
+The format for saving a UV image is selected in the header of the File browser,
+and defaults to <code class="docutils literal"><span class="pre">PNG</span></code> (<code class="docutils literal"><span class="pre">.png</span></code>).</p>
+<p>If Packing is enabled in the File browsers header,
+or if you manually <span class="menuselection">Image ‣ Pack Image</span>,
+saving your images to a separate file is not necessary.</p>
+</div>
+<div class="section" id="using-an-external-image-editor">
+<h2>使用外部图像编辑器<a class="headerlink" href="#using-an-external-image-editor" title="Permalink to this headline">¶</a></h2>
+<p>如果你使用外部软件编辑uv纹理，你必须：</p>
+<ol class="arabic simple">
+<li>Run that paint program (GIMP, Photoshop<sup>®</sup> , etc.).</li>
+<li>Load the image or create a new one.</li>
+<li>Change the image.</li>
+<li>And re-save it within that program.</li>
+<li>Back in Blender, you reload the image in the UV/Image Editor.</li>
+</ol>
+<p>如果你的团队成员使用不同的uv纹理制作软件，或者是你想使用一些纹理绘画不具备的特效，或者是你熟悉其他绘画软件的时候，你就需要使用外部软件（来处理uv纹理）。</p>
+</div>
+<div class="section" id="known-limitations">
+<h2>已知限制<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uv-overlap">
+<h3>UV重叠<a class="headerlink" href="#uv-overlap" title="Permalink to this headline">¶</a></h3>
+<p>In general overlapping UVs are not supported (as with texture baking).</p>
+<p>However, this is only a problem when a single brush stroke paints onto multiple faces that share a texture.</p>
+</div>
+<div class="section" id="perspective-view-faces-behind-the-view">
+<h3>透视图 · 视图背面<a class="headerlink" href="#perspective-view-faces-behind-the-view" title="Permalink to this headline">¶</a></h3>
+<p>When painting onto a face which is partially behind the view (in perspective mode), the face cannot be painted on.
+To avoid, this zoom out or use an Ortho mode viewport.</p>
+</div>
+<div class="section" id="perspective-view-low-poly">
+<h3>透视图 · 低面多边体<a class="headerlink" href="#perspective-view-low-poly" title="Permalink to this headline">¶</a></h3>
+<p>When painting onto a face in perspective mode onto a low poly object with normals pointing away from the view,
+painting may fail; to workaround disable the <em>Normal</em> option in the paint panel.</p>
+<p>Typically this happens when painting onto the side of a cube
+(see <a class="reference external" href="https://developer.blender.org/T34665">Bug report T34665</a>).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tools.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="纹理绘制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

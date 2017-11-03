@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>工具 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/sculpt_paint/sculpting/tools.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="雕刻" href="index.html"/>
+        <link rel="next" title="选项" href="options.html"/>
+        <link rel="prev" title="简介" href="introduction.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">绘制与雕刻</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../brush.html">笔刷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texture_tex_mask.html">Texture &amp; Texture Mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stroke_curve.html">笔触和曲线</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#modes">模式</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../painting/index.html">Painting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">雕刻</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="options.html">选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adaptive.html">自适应雕刻</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hide_mask.html">隐藏 &amp; 遮罩</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">绘制与雕刻</a> &raquo;</li>
+        
+          <li><a href="index.html">雕刻</a> &raquo;</li>
+        
+      <li>工具</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/sculpt_paint/sculpting/tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools">
+<h1>工具<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     雕刻模式</div>
+<div class="line">面板:    <span class="menuselection">Tool Shelf ‣ Tools</span></div>
+</div>
+</div>
+<div class="section" id="brush">
+<h2>笔刷<a class="headerlink" href="#brush" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="brush-type">
+<h3>笔刷类型<a class="headerlink" href="#brush-type" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     雕刻模式</div>
+<div class="line">面板:    <span class="menuselection">Tool Shelf ‣ Tools ‣ Brush</span></div>
+<div class="line">菜单:     <span class="menuselection">Brush ‣ Sculpt Tool</span></div>
+</div>
+</div>
+<div class="figure" id="id1">
+<img alt="../../_images/sculpt-paint_sculpting_tools_brushes.png" src="../../_images/sculpt-paint_sculpting_tools_brushes.png" />
+<p class="caption"><span class="caption-text">雕刻笔刷。</span></p>
+</div>
+<dl class="docutils">
+<dt>球体</dt>
+<dd>使用通过控制设置球体边的夹捏量的球形将网格向外或向内推。</dd>
+<dt>Clay <code class="kbd docutils literal"><span class="pre">C</span></code> 粘土 <code class="kbd docutils literal"><span class="pre">C</span></code></dt>
+<dd>类似于 <em>绘画</em> 笔刷，但包括用于调整笔刷所在平面的设置。</dd>
+<dt>Clay Strips 粘土条</dt>
+<dd>类似于 <em>Clay（粘土）</em> 笔刷，但它使用立方体测试来定义笔刷区域的影响而不是球体。</dd>
+<dt>Crease <code class="kbd docutils literal"><span class="pre">Shift-C</span></code>   折痕 <code class="kbd docutils literal"><span class="pre">Shift-C</span></code></dt>
+<dd>通过推或拉动网格，同时将顶点挤压在一起，创建尖锐的凹痕或凸脊。</dd>
+<dt>Fill/Deepen 填充/深化</dt>
+<dd>像展平笔刷一样工作，但只使笔刷平面下方的顶点向上。Scrape（削刮笔刷？）的反转是 <em>Deepen</em>  是通过向下推动平面上方的顶点来产生深化凹陷。</dd>
+<dt>Flatten/Contrast <code class="kbd docutils literal"><span class="pre">Shift-T</span></code> 展平 <code class="kbd docutils literal"><span class="pre">Shift-T</span></code></dt>
+<dd><em>Flatten（展平）</em> 刷将顶点拉向 <em>雕刻平面</em>。 展平笔刷的相反笔刷是 <em>Contrast</em> 笔刷，将顶点向上或向下推离 <em>雕刻平面</em>。</dd>
+<dt>Grab <code class="kbd docutils literal"><span class="pre">G</span></code>  移动</dt>
+<dd>用于拖动一组顶点。与其它笔刷不同，<em>Grab</em> 不会在笔刷拖过模型时修改不同的顶点。相反，<em>Grab</em> 只会选择在鼠标按下上的一组顶点，它们将会跟随鼠标拉动。效果类似于使用衰减编辑功能在 <em>编辑模式</em> 中移动一组顶点，除外 <em>Grab</em> 可以使用其他雕刻模式选项（如纹理和对称性）。</dd>
+<dt>Inflate/Deflate <code class="kbd docutils literal"><span class="pre">I</span></code>  膨胀  <code class="kbd docutils literal"><span class="pre">I</span></code></dt>
+<dd>与 <em>Draw</em> 类似，除了 <em>Inflate（膨胀）</em> 模式中的顶点在自己的法线方向上移位。</dd>
+<dt>Layer <code class="kbd docutils literal"><span class="pre">L</span></code> 层次 <code class="kbd docutils literal"><span class="pre">L</span></code></dt>
+<dd><p class="first">这个笔刷类似于 <em>Draw</em>，除了位移层的高度被叠加绘制。这将产生正在绘制的实心层的外观。这个笔刷不能在自己的顶部绘制; 笔刷笔触与本身相交。释放鼠标按钮并开始新的笔触将重置深度并在上一个笔触之上绘画。</p>
+<dl class="last docutils">
+<dt>Persistent</dt>
+<dd>ToDo.</dd>
+<dt>Set Persistent Base</dt>
+<dd>ToDo.</dd>
+</dl>
+</dd>
+<dt>Mask 遮罩 <code class="kbd docutils literal"><span class="pre">M</span></code></dt>
+<dd><p class="first">让你通过绘制顶点颜色来选择不受其他画笔影响的部分网格。遮罩值显示为灰度。即一个遮罩面的区域越暗，雕刻的效果就越少。另请参阅  <a class="reference internal" href="hide_mask.html#scupt-mask-menu"><span class="std std-ref">遮罩</span></a>  菜单的选项。</p>
+<dl class="last docutils">
+<dt>遮罩工具</dt>
+<dd><p class="first">遮罩刷有两种模式：</p>
+<dl class="last docutils">
+<dt>绘画</dt>
+<dd>Mask drawing. 遮罩绘画。</dd>
+<dt>平滑 <code class="kbd docutils literal"><span class="pre">Shift</span></code></dt>
+<dd>按 <code class="kbd docutils literal"><span class="pre">Shift</span></code> 遮罩笔刷将切换到平滑模式。</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Nudge 微调</dt>
+<dd>沿着笔刷笔触的方向移动顶点。</dd>
+<dt>Pinch/Magnify <code class="kbd docutils literal"><span class="pre">P</span></code>  夹捏/放大 <code class="kbd docutils literal"><span class="pre">P</span></code></dt>
+<dd>将顶点拉向笔刷的中心。反向设置为 <em>Magnify</em>，其顶点从笔刷的中心向外推开。</dd>
+<dt>Rotate 旋转</dt>
+<dd>沿着光标移动的方向旋转画笔中的顶点。初始拖动方向是零角度，通过围绕中心旋转可以创建涡流效果。</dd>
+<dt>Scrape/Peaks  削刮</dt>
+<dd><em>削刮</em> 笔刷像展平笔刷一样，但只能将平面上方的顶点向下推。削刮的反向设置为 <em>Peak</em> 是通过将平面上方的顶点推离开平面。</dd>
+<dt>SculptDraw 绘画笔刷 <code class="kbd docutils literal"><span class="pre">X</span></code></dt>
+<dd>基于包含在绘制的笔触中的顶点的平均法线，向内或向外移动顶点。</dd>
+<dt>平滑 <code class="kbd docutils literal"><span class="pre">S</span></code></dt>
+<dd>顾名思义，通过平滑顶点的位置来消除因为笔刷影响的不规则性网格部分。</dd>
+<dt>Snake Hook 钩子笔刷 <code class="kbd docutils literal"><span class="pre">K</span></code></dt>
+<dd><p class="first">沿着笔刷的运动反向拉起顶点以创建长的，类似蛇的大形。</p>
+<dl class="last docutils">
+<dt>Pinch 夹捏</dt>
+<dd>钩子笔刷沿笔触倾向于松散的体积，夹捏&gt; 0.5可以而不会以体积松散雕刻形状</dd>
+<dt>Rake 变向</dt>
+<dd>支持按照光标旋转运动来移动网格。</dd>
+</dl>
+</dd>
+<dt>Thumb 拇指笔刷</dt>
+<dd>类似于 <em>Nudge微调</em> 笔刷，这一个笔刷使笔刷区域中的网格平整，同时沿着笔刷的笔触移动。</dd>
+<dt>Simplify</dt>
+<dd>无论 <em>折叠短边</em> 选项是否启用，此笔刷将折叠短边（由细节大小定义）。如果未启用动态拓扑，则此刷无效。可以在 <span class="menuselection">Brush ‣ Sculpt Tool</span> 中找到菜单。</dd>
+</dl>
+</div>
+<div class="section" id="common-options">
+<h3>常用选项<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Radius 半径</dt>
+<dd>此选项以像素为单位控制笔刷的半径。<code class="kbd docutils literal"><span class="pre">F</span></code> 允许你通过拖动鼠标交互式更改笔刷大小，然后按住  <code class="kbd docutils literal"><span class="pre">LMB</span></code> （画笔的纹理应该在圆圈内可见）。键入数字，然后在使用时输入 <code class="kbd docutils literal"><span class="pre">F</span></code> 允许你以数字形式输入大小。如果你使用数位板（ <a class="reference internal" href="../../getting_started/installing/configuration/hardware.html#hardware-tablet"><span class="std std-ref">Graphics Tablet</span></a>），则可以通过启用压力敏感图标来影响画笔大小。</dd>
+<dt>Strength 强度</dt>
+<dd><p class="first">控制每个笔刷如何应用对模型的影响。例如，较高的值会导致 <em>Draw</em> 笔刷更快地为模型添加深度，并使 <em>Smooth</em> 画笔更快地平滑模型。此设置不适用于 <em>Grab</em>，<em>Snake Hook</em> 或 <em>Rotate</em>。</p>
+<p>你可以通过在3D视图中按下 <code class="kbd docutils literal"><span class="pre">Shift-F</span></code> 来交互地更改笔刷强度，然后移动笔刷，然后 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 确认。你可以按住 <code class="kbd docutils literal"><span class="pre">Shift-F</span></code> 下输入数值大小。如果使用支持的平板电脑，则可以通过启用压力敏感度图标来影响笔刷强度。</p>
+<div class="last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">如果强度范围似乎不符合模型（例如，即使最低强度设置仍然使模型发生变化太大），则可以缩放模型（ <em>编辑模式</em>，而不是 <em>对象模式</em> ）。较大的尺寸将使刷子的效果更小，反之亦然。</p>
+</div>
+</dd>
+<dt>Autosmooth 自动平滑</dt>
+<dd>设置要应用于每个笔刷的平滑量。</dd>
+<dt>Normal Weight 法线权重 <code class="kbd docutils literal"><span class="pre">Ctrl</span></code></dt>
+<dd><p class="first">沿着表面法线限制笔刷运动。特别适用于 <em>Grab Brush</em>，可以通过按住 <code class="kbd docutils literal"><span class="pre">Ctrl</span></code>. 暂时启用。例如当设置 <em>法线权重</em> 时，Grab笔刷可以使用推动将凹陷（孔）推入网格。</p>
+<p class="last">适用于 <em>Grab</em> 和 <em>Snake Hook</em> 笔刷。</p>
+</dd>
+<dt>Use Original Normal (padlock icon)  使用原始法线（挂锁图标)</dt>
+<dd>ToDo.</dd>
+<dt>Sculpt Plane 雕刻的平面</dt>
+<dd><p class="first">使用此菜单设置雕刻发生的平面。</p>
+<dl class="last docutils">
+<dt>Area Plane 区域面</dt>
+<dd>平面位于笔刷区域内顶点的上方/下方的平均高度。本质上，这意味着方向取决于笔刷下方的表面。</dd>
+<dt>View Plane 视图平面</dt>
+<dd>ToDo.</dd>
+<dt>X, Y, Z Plane  X, Y, Z 平面</dt>
+<dd><p class="first">全局。</p>
+<p class="last">ToDo.</p>
+</dd>
+</dl>
+</dd>
+<dt>Plane Offset 平面偏移</dt>
+<dd>ToDo.</dd>
+<dt>Trim 裁剪</dt>
+<dd>ToDo.</dd>
+<dt>Front Faces Only 仅前面的面</dt>
+<dd>启用时，画笔只影响面向视图的顶点。</dd>
+<dt>Add/Subtract <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> 添加、相减</dt>
+<dd>Brush direction toggle. <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> pressed while sculpting. 当雕刻时按 <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> 笔刷方向切换。</dd>
+<dt>Accumulate 累积</dt>
+<dd>导致笔触在顶部彼此累积。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="symmetry-lock-panel">
+<h2>对称/锁定面板<a class="headerlink" href="#symmetry-lock-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     雕刻模式</div>
+<div class="line">面板:    <span class="menuselection">Tool Shelf ‣ Tools ‣ Symmetry/Lock</span></div>
+<div class="line">菜单:     <span class="menuselection">Sculpt ‣ Symmetry/Lock</span></div>
+</div>
+</div>
+<dl class="docutils">
+<dt>Mirror  镜像</dt>
+<dd>在所选局部轴上对笔刷笔触进行镜像。请注意，如果要更改轴指向的方向，则必须以 <em>编辑模式</em> 旋转模型，而不是 <em>对象模式</em></dd>
+<dt>Radial 径向</dt>
+<dd>这些设置允许所需轴线的径向对称。该数字确定在中心轴周围360度内重复行程的次数。</dd>
+<dt>Feather 羽化</dt>
+<dd>降低与对称平面重叠的笔触强度。</dd>
+<dt>Lock 锁定</dt>
+<dd>当你雕刻它时，这三个按钮允许你阻止模型沿着选定的局部轴的任何修改/变形。</dd>
+<dt>Tiling 平铺</dt>
+<dd>使用此选项可以让您沿给定的轴无缝地平铺你的笔画。这允许创建重复模式。</dd>
+<dt>Tile Offset 平铺偏移</dt>
+<dd>默认的平铺大小设置为 <abbr title="Blender Unit">BU</abbr>。偏移允许选项沿所有三个轴改变平铺大小。</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="options.html" class="btn btn-neutral float-right" title="选项" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

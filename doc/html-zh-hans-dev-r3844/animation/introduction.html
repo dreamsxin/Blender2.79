@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>简介 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/animation/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Blender Manual" href="../index.html"/>
+        <link rel="up" title="动画" href="index.html"/>
+        <link rel="next" title="关键帧" href="keyframes/index.html"/>
+        <link rel="prev" title="动画" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">绑定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">动画</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chapters">章节</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#animation-fundamentals">动画基础</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#animation-editors">动画编辑器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#related-sections">相关部分</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#state-colors">状态颜色</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">关键帧</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">动作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">驱动器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html">标记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">形态键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">运动路径</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">动画</a> &raquo;</li>
+        
+      <li>简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/animation/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>简介<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>动画指的是物体的位置，形状随着时间的变化而变化。使物体产生动画的方法有多种，比如：</p>
+<dl class="docutils">
+<dt>作为一个整体移动</dt>
+<dd>随时间变化，改变物体的位置,，姿态，或尺寸。</dd>
+<dt>形变动画（deforming）</dt>
+<dd>通过改变物体几何点或控制点来产生动画。</dd>
+<dt>继承类动画</dt>
+<dd>使一个物体随着另一个物体的移动而移动(例如，父物体，挂勾， 骨架，等等)。</dd>
+</dl>
+<p>本章节我们只涉及前两个动画类型，虽然基础，但对于理解后面章节的内容至关重要。</p>
+<p>动画通常是通过 <a class="reference internal" href="keyframes/introduction.html"><span class="doc">关键帧</span></a>  技术来实现的。</p>
+<div class="section" id="chapters">
+<h2>章节<a class="headerlink" href="#chapters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="animation-fundamentals">
+<h3>动画基础<a class="headerlink" href="#animation-fundamentals" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><a class="reference internal" href="actions.html"><span class="doc">动作</span></a></dt>
+<dd>动作是用来记录物体的动画及属性的。</dd>
+<dt><a class="reference internal" href="drivers/index.html"><span class="doc">驱动</span></a></dt>
+<dd>驱动器是用来控制和制作属性动画的脚本。</dd>
+<dt><a class="reference internal" href="keyframes/keying_sets.html"><span class="doc">插帧集</span></a></dt>
+<dd>插帧集是用来记录同一时间点对应的一组属性值的。</dd>
+<dt><a class="reference internal" href="markers.html"><span class="doc">标记符</span></a></dt>
+<dd>标记符用于记录一个动画内的关键点/事件。</dd>
+<dt><a class="reference internal" href="motion_paths.html"><span class="doc">运动路径</span></a></dt>
+<dd>运动路径是对动画的一种可视化表达。</dd>
+<dt><a class="reference internal" href="shape_keys/index.html"><span class="doc">形态键</span></a></dt>
+<dd>形态键使物体产生形状的变化（deform）。</dd>
+</dl>
+</div>
+<div class="section" id="animation-editors">
+<h3>动画编辑器<a class="headerlink" href="#animation-editors" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><a class="reference internal" href="../editors/timeline.html"><span class="doc">时间线</span></a></dt>
+<dd>时间线编辑器是一个用来控制和设置时间关键帧的快捷窗口，而且附带了一些动画工具。</dd>
+<dt><a class="reference internal" href="../editors/graph_editor/introduction.html"><span class="doc">图编辑器</span></a></dt>
+<dd>图编辑器最常用于编辑函数曲线，通道，和驱动。</dd>
+<dt><a class="reference internal" href="../editors/dope_sheet/introduction.html"><span class="doc">摄影表</span></a></dt>
+<dd>摄影表内包含了许多动画编辑器。</dd>
+<dt><a class="reference internal" href="../editors/nla/index.html"><span class="doc">NLA编辑器</span></a></dt>
+<dd>非线性编辑器用于编辑和融合（blend）不同的动作。</dd>
+</dl>
+</div>
+<div class="section" id="related-sections">
+<h3>相关部分<a class="headerlink" href="#related-sections" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><a class="reference internal" href="../rigging/introduction.html"><span class="doc">绑定</span></a></dt>
+<dd>绑定。</dd>
+<dt><a class="reference internal" href="../rigging/constraints/introduction.html"><span class="doc">约束</span></a></dt>
+<dd>约束用于关联物体间的运动属性（位移，旋转，缩放）。</dd>
+<dt><a class="reference internal" href="../physics/introduction.html"><span class="doc">物理仿真</span></a></dt>
+<dd>这类方法包含许多高级的Blender特效，常用来模拟真实的物理现象。例如，粒子系统，可以用来仿真头发，草，烟，纤维等。软体技术，适合模拟受重力和风力等反作用力影响而弯曲和变形的物体。 布料模拟技术，用来模拟衣服或材质。刚体模拟，用于模拟非常坚硬的动态物体。液体中有气体和液体能够被模拟，也包括烟。力场可以修改模拟体间的行为。</dd>
+<dt><a class="reference internal" href="../editors/movie_clip_editor/index.html"><span class="doc">运动追踪</span></a></dt>
+<dd>Blender中的运动追踪技术，可以实现基本的2D运动追踪，3D运动追踪，以及和摄像机相关的问题。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="state-colors">
+<span id="animation-state-colors"></span><h2>状态颜色<a class="headerlink" href="#state-colors" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../_images/animation_introduction_state-colors.png" src="../_images/animation_introduction_state-colors.png" />
+<p class="caption"><span class="caption-text">状态颜色的属性。</span></p>
+</div>
+<p>对于不同的状态，属性有不同的颜色和菜单项。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>灰色</td>
+<td>默认</td>
+</tr>
+<tr class="row-even"><td>黄色</td>
+<td>关键帧</td>
+</tr>
+<tr class="row-odd"><td>绿色</td>
+<td>动画</td>
+</tr>
+<tr class="row-even"><td>紫色</td>
+<td>驱动</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="keyframes/index.html" class="btn btn-neutral float-right" title="关键帧" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="动画" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

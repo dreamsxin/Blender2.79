@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>转化为几何物体 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/grease_pencil/convert_to_geometry.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="蜡笔" href="index.html"/>
+        <link rel="next" title="编辑器" href="../../editors/index.html"/>
+        <link rel="prev" title="动画草图" href="animating.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">启动画面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#window-system">窗口系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">界面控件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#tools">工具</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../undo_redo.html">Undo and Redo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruler_protractor.html">Ruler and Protractor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">蜡笔</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawing/index.html">绘制笔触</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stroke_edit.html">笔触编辑模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="animating.html">动画草图</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">转化为几何物体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">用户界面</a> &raquo;</li>
+        
+          <li><a href="index.html">蜡笔</a> &raquo;</li>
+        
+      <li>转化为几何物体</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/grease_pencil/convert_to_geometry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="convert-to-geometry">
+<span id="bpy-ops-gpencil-convert"></span><h1>转化为几何物体<a class="headerlink" href="#convert-to-geometry" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">模式:     所有模式</div>
+<div class="line">Panel:    <span class="menuselection">工具栏 ‣ 蜡笔 ‣ 蜡笔 ‣ 工具: Convert to Geometry...</span></div>
+<div class="line">菜单:     <span class="menuselection">蜡笔 ‣ Convert to Geometry...</span></div>
+<div class="line">快捷键:   <code class="kbd docutils literal"><span class="pre">Alt-C</span></code></div>
+</div>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/interface_grease-pencil_convert-to-geometry_options.png" src="../../_images/interface_grease-pencil_convert-to-geometry_options.png" />
+<p class="caption"><span class="caption-text">转换为曲线选项。</span></p>
+</div>
+<p>在3D视图中，可以基于当前视图设置，通过将绘制的(构成笔画的)端点变换至3D空间，将活动层中的草图转换为几何体。目前，会对所有端点进行转换，所以有必要对转换得到的几何体进行简化或细分，以做标准用途。</p>
+<p>如 <em>Convert Grease Pencil</em> 下拉菜单所提示的一样，可以将草图转换为曲线。</p>
+<div class="section" id="options">
+<h2>选项<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>类型</dt>
+<dd><p class="first">转换为的物体类型。</p>
+<dl class="docutils">
+<dt>路径</dt>
+<dd>创建2阶3位 NURBS 曲线 (亦即类似折线)。</dd>
+<dt>贝塞尔曲线</dt>
+<dd>创建贝塞尔曲线，控制柄类型为 &quot;对齐&quot;  (亦即同样类似折线)。</dd>
+<dt>多边形曲线</dt>
+<dd>直线段构成的贝塞尔曲线(自动手柄)。</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p>转换为网格</p>
+<p class="last">如果要将草图转换为网格，只需选择 <em>NURBS</em> ，然后再将得到的曲线转换为网格。</p>
+</div>
+</dd>
+<dt>将权重规格化</dt>
+<dd><p class="first">Will scale weights value so that they fit tightly into the (0.0 to 1.0) range.</p>
+<p class="last">这意味着用户可以使用压力绘图板直接控制转换后曲线的半径和权重，借之影响挤出宽度，或者通过 <em>跟踪路径</em> 约束或者 <em>曲线</em> 修改器影响物体尺寸！</p>
+</dd>
+<dt>连接笔触</dt>
+<dd>从活动蜡笔图层所有笔画，创建单根样条曲线，即曲线元素，默认启用。这在用户需要将曲线当做路径使用时尤其有用。所有笔画之间使用 &quot;零权重/笔画&quot; 线段连接。</dd>
+</dl>
+<div class="section" id="timing">
+<h3>时序<a class="headerlink" href="#timing" title="Permalink to this headline">¶</a></h3>
+<p>蜡笔保存 &quot;动态&quot; 数据，亦即笔画的绘制速度。当转换为曲线后，该数据可用于创建 <em>计算时间</em> 的F曲线(换句话说，路径动画)，可用在控制其他物体沿曲线的位置(<em>跟随路径</em> 约束，或驱动控制的 <em>曲线</em> 修改器)。这样，用户可以再现绘制动作。</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">所有&quot;时序&quot; 选项都需要启用 <em>连接笔触</em> ，否则这些都没有意义！</p>
+</div>
+<dl class="docutils">
+<dt>时序模式</dt>
+<dd><p class="first">用于选择如何使用时序数据。</p>
+<dl class="last docutils">
+<dt>无时序</dt>
+<dd>仅生成曲线，不保留动画数据(因此下面的选项将隐藏)。</dd>
+<dt>线性</dt>
+<dd>路径动画类型为线性。</dd>
+<dt>Original</dt>
+<dd>The path animation will reflect to original timing, including for the &quot;gaps&quot;
+(i.e. time between strokes drawing).</dd>
+<dt>Custom Gaps</dt>
+<dd>The path animation will reflect to original timing, but the &quot;gaps&quot; will get custom values.
+This is especially useful if you have very large pauses between some of your strokes,
+and would rather like to have &quot;reasonable&quot; ones!</dd>
+</dl>
+</dd>
+<dt>帧范围</dt>
+<dd>生成的路径动画 <em>长度</em>，单位帧。换句话说，就是 <em>解算时间</em> 最大值。</dd>
+<dt>起始帧</dt>
+<dd>路径动画的起始帧</dd>
+<dt>实时</dt>
+<dd>When enabled, the path animation will last exactly the same duration it took you do draw the strokes.</dd>
+<dt>结束帧</dt>
+<dd>当禁用 <em>实时</em> 时，用于定义路径动画的结束帧。这意味着绘制时间将缩放至匹配指定范围。</dd>
+<dt>Gap Duration</dt>
+<dd><em>Custom Gaps</em> only. The average duration (in frames) of each gap between actual strokes.
+Please note that the value entered here will only be exact if <em>Realtime</em> is enabled,
+otherwise it will be scaled, exactly as the actual strokes' timing is!</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="example">
+<h2>示例<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>下面是使用草图数据转换为曲线方法制作的简单 <em>手写</em> 视频：</p>
+<iframe src="https://www.youtube.com/embed/VwWEXrnQAFI" style="border: 0; height: 345px; width: 560px">
+</iframe><p>上例中的blend文件可以在 <a class="reference external" href="https://wiki.blender.org/index.php/file:ManGreasePencilConvertToCurveDynamicExample.blend">这里</a> 找到。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../editors/index.html" class="btn btn-neutral float-right" title="编辑器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="animating.html" class="btn btn-neutral" title="动画草图" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

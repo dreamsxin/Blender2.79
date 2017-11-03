@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/surfaces/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="曲面" href="index.html"/>
+        <link rel="next" title="属性" href="properties.html"/>
+        <link rel="prev" title="Selecting" href="selecting.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">制作模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">网格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">曲线</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">曲面</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selecting.html">Selecting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Editing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#translation-rotation-scale">Translation, Rotation, Scale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-transform-tools">高级变换工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nurbs-control-points-settings">NURBS控制点的设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-or-extruding">添加或挤出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opening-or-closing-a-surface">开放或封闭一个曲面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplication">复制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-elements">删除元素</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#joining-or-merging-surfaces">联接或合并曲面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subdivision">细分</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spin">旋绕</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch-direction">切换方向</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-specials-options">其他特殊选项</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">融球</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">文本物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">空物体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">修改器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">制作模型</a> &raquo;</li>
+        
+          <li><a href="index.html">曲面</a> &raquo;</li>
+        
+      <li>Editing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/surfaces/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing">
+<h1>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h1>
+<p>Surface editing has even fewer tools and options than its curve counterpart,
+but has many common points with it...
+So this page covers (or tries to cover) all the subjects,
+from the basics of surface editing to more advanced topics, like retopology.</p>
+<div class="section" id="translation-rotation-scale">
+<h2>Translation, Rotation, Scale<a class="headerlink" href="#translation-rotation-scale" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:曲面‣变换‣拖拽/移动,旋转,缩放,……</div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">G</span></code>, <code class="kbd docutils literal"><span class="pre">R</span></code>, <code class="kbd docutils literal"><span class="pre">S</span></code></div>
+</div>
+</div>
+<p>Once you have a selection of one or more control points,
+you can grab/move <code class="kbd docutils literal"><span class="pre">G</span></code>, rotate <code class="kbd docutils literal"><span class="pre">R</span></code> or scale <code class="kbd docutils literal"><span class="pre">S</span></code> them, like many other things in Blender,
+as described in the <a class="reference internal" href="../../editors/3dview/object/editing/transform/introduction.html"><span class="doc">Manipulation in 3D Space</span></a> section.</p>
+<p>You also have in <em>Edit Mode</em> an extra option when using these basic manipulations: the
+<a class="reference internal" href="../../editors/3dview/object/editing/transform/control/proportional_edit.html"><span class="doc">proportional editing</span></a>.</p>
+<div class="section" id="transform-panel">
+<h3>Transform Panel<a class="headerlink" href="#transform-panel" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="../curves/editing/introduction.html#modeling-curves-transform-panel"><span class="std std-ref">Transform Panel</span></a>.</p>
+</div>
+</div>
+<div class="section" id="advanced-transform-tools">
+<h2>高级变换工具<a class="headerlink" href="#advanced-transform-tools" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:曲面‣变换</div>
+</div>
+</div>
+<p>The <em>To Sphere</em>, <em>Shear</em>, <em>Warp</em> and <em>Push/Pull</em> transform tools are described in the
+<a class="reference internal" href="../meshes/editing/transform/index.html"><span class="doc">Mesh Transformation</span></a> section.
+Surfaces have no specific transform tools.</p>
+</div>
+<div class="section" id="nurbs-control-points-settings">
+<h2>NURBS控制点的设置<a class="headerlink" href="#nurbs-control-points-settings" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">Panel:     Curve Tools (Edit Mode) and Transform</div>
+</div>
+</div>
+<p>We saw in a <a class="reference internal" href="structure.html#modeling-surfaces-weight"><span class="std std-ref">previous page</span></a> that NURBS control points have a weight,
+which is the influence of this point on the surface.
+You set it either using the big <em>Set Weight</em> button in the <em>Curve Tools</em> panel
+(after having defined the weight in the number button to the right),
+or by directly typing a value in the <em>W</em> number button of the <em>Transform</em> panel.</p>
+</div>
+<div class="section" id="adding-or-extruding">
+<h2>添加或挤出<a class="headerlink" href="#adding-or-extruding" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:曲面‣挤出曲线并移动</div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">E</span></code>, <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code></div>
+</div>
+</div>
+<p>Unlike meshes or curves, you cannot generally directly add new control points to a surface
+(with <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code> clicks), as you can only extend a surface by adding a whole U- or V-row at once.
+The only exception is when working on a NURBS surface curve, i.e.
+a surface with only one control point on each U- or V-row. In this special case,
+all works exactly as with <a class="reference internal" href="../curves/editing/introduction.html#modeling-curves-extrude"><span class="std std-ref">curves</span></a>.</p>
+<p>一旦使用过E之后，挤出的行会立即处于可拖拽状态。</p>
+<p>有两点非常重要：</p>
+<ul class="simple">
+<li>Surfaces are <em>2D</em> objects. So you cannot extrude anything <em>inside</em> a surface
+(e.g. &quot;inner&quot; row); it would not make any sense!</li>
+<li>The control &quot;grid&quot; <em>must</em> remain &quot;squarish&quot;,
+which means that you can only extrude a whole row, not parts of rows here and there...</li>
+</ul>
+<p>To summarize, the <em>Extrude</em> tool will only work, when one and only one whole border
+row is selected, otherwise nothing happens.</p>
+<p>As for curves, you cannot create a new surface in your object out of nowhere,
+by just <code class="kbd docutils literal"><span class="pre">Ctrl-LMB</span></code> -- clicking with nothing selected.
+However, unlike for curves, there is no &quot;cut&quot; option allowing you to separate a surface into several parts,
+so you only can create a new surface by copying (<a class="reference internal" href="#duplication">Duplication</a>) an existing one
+<code class="kbd docutils literal"><span class="pre">Shift-D</span></code>, or adding a new one with the <em>Add</em> menu.</p>
+<div class="section" id="examples">
+<h3>例子<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Images Fig. <a class="reference internal" href="#fig-surface-edit-select-point"><span class="std std-ref">Selecting control-point.</span></a> to Fig. <a class="reference internal" href="#fig-surface-edit-extruding"><span class="std std-ref">Extruding.</span></a>
+show a typical extrusion along the side of a surface.</p>
+<p>In Fig. <a class="reference internal" href="#fig-surface-edit-select-point"><span class="std std-ref">Selecting control-point.</span></a> and <a class="reference internal" href="#fig-surface-edit-select-row"><span class="std std-ref">Shift-R</span></a>,
+a border row of control points were highlighted by selecting a single control point,
+and then using the handy row select tool <code class="kbd docutils literal"><span class="pre">Shift-R</span></code>
+to select the rest of the control points.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<span id="fig-surface-edit-select-point"></span><img alt="../../_images/modeling_surfaces_editing_selecting-point.png" src="../../_images/modeling_surfaces_editing_selecting-point.png" />
+<p class="caption"><span class="caption-text">Selecting control-point.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<span id="fig-surface-edit-select-row"></span><img alt="../../_images/modeling_surfaces_editing_selecting-row.png" src="../../_images/modeling_surfaces_editing_selecting-row.png" />
+<p class="caption"><span class="caption-text"><code class="kbd docutils literal"><span class="pre">Shift-R</span></code></span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The edge is then extruded using <code class="kbd docutils literal"><span class="pre">E</span></code> as shown in Fig. <a class="reference internal" href="#fig-surface-edit-extruding"><span class="std std-ref">Extruding.</span></a>.
+Notice how the mesh has bunched up next to the highlighted edge.
+That is because the <em>new</em> extruded surface section is bunched up there as well.</p>
+<div class="figure" id="id4">
+<span id="fig-surface-edit-extruding"></span><img alt="../../_images/modeling_surfaces_editing_extruding.png" src="../../_images/modeling_surfaces_editing_extruding.png" />
+<p class="caption"><span class="caption-text">Extruding.</span></p>
+</div>
+<p>By moving the new section away from the area, the surface begins to &quot;unbunch&quot;.</p>
+<p>You can continue this process of extruding or adding
+new surface sections until you have reached the final shape for your model.</p>
+</div>
+</div>
+<div class="section" id="opening-or-closing-a-surface">
+<h2>开放或封闭一个曲面<a class="headerlink" href="#opening-or-closing-a-surface" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:表面‣切换循环</div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">Alt-C</span></code></div>
+</div>
+</div>
+<p>As in <a class="reference internal" href="../curves/editing/introduction.html#modeling-curves-toggle-cyclic"><span class="std std-ref">curves</span></a>,
+surfaces can be closed (cyclic) or open. However, as surfaces are 2D,
+you can control this property independently along the U and V axes.</p>
+<p>To toggle the cyclic property of a surface along one axis,
+use <code class="kbd docutils literal"><span class="pre">Alt-C</span></code> and choose either <em>cyclic U</em> or <em>cyclic V</em> from the pop-up menu.
+The corresponding surface's outer edges will join together to form a &quot;closed&quot; surface.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>内面和外面</p>
+<p class="last">Surfaces have an &quot;inner&quot; and &quot;outer&quot; face, the first being black whereas the latter is correctly shaded.
+(There does not seem to be any &quot;double sided&quot; shading option for surfaces...).
+When you close a surface in one or two directions, you might get an entirely black object! In this case,
+just <a class="reference internal" href="#switch-direction">Switch Direction</a> of your surface...</p>
+</div>
+</div>
+<div class="section" id="duplication">
+<h2>复制<a class="headerlink" href="#duplication" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:面‣新增副本</div>
+<div class="line">热键:Shift-D</div>
+</div>
+</div>
+<p>Similar as with meshes and curves, this tool duplicates the selection.
+The copy is selected and placed in <em>Grab</em> mode, so you can move it to another place.</p>
+<p>However, with surfaces there are some selections that cannot be duplicated,
+in which case they will just be placed in <em>Grab</em> mode... In fact,
+only selections forming a <em>single</em> valid sub-grid are copyable; let us see this in practice:</p>
+<ul class="simple">
+<li>你可以选择一个单独的控制点，然后沿着U向挤出一条曲面曲线，然后选定这整条U向控制点沿V向挤出成一个新的实实在在的曲面（此种情况似乎只有在曲面是一条曲线时才有机会成立）。</li>
+<li>You can copy a single continuous part of a row (or a whole row, of course).
+This will give you a new <em>U-row</em>, even if you selected (part of) a V-row!</li>
+<li>你可以复制一个子栅格。</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Trying to duplicate several valid &quot;sub-grids&quot; (even being single points)
+at once will not work; you will have to do it one after the other...</p>
+</div>
+</div>
+<div class="section" id="deleting-elements">
+<h2>删除元素<a class="headerlink" href="#deleting-elements" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:面‣删除…</div>
+<div class="line">Hotkey:   <code class="kbd docutils literal"><span class="pre">X</span></code>, <code class="kbd docutils literal"><span class="pre">Delete</span></code></div>
+</div>
+</div>
+<p>曲面的删除菜单有两个选项</p>
+<dl class="docutils">
+<dt>删除顶点</dt>
+<dd><p class="first">此选项将删除选定行，却不会破坏曲面的连续性（也就是说，相邻的行将直接连在一起）。选定项必须遵守以下规则：</p>
+<ul class="simple">
+<li>必须选定整行。</li>
+<li>Only rows along the same axis must be selected (i.e. you cannot delete both U- and V-rows at the same time).</li>
+</ul>
+<p class="last">还要记得的是，在给定某个向上（U或V），NURBS曲线的除数不能高于控制点的数量，所以当你删除某行控制点时，可能会造成曲线降阶。当然了，当曲面仅剩一行时，他就变成了曲面曲线（既没有可见的面），当所有的控制点都被选定，然后被删除时，曲面本身也就被删除了。</p>
+</dd>
+<dt>删除全部</dt>
+<dd>类似于网格和曲线，这将删除物体的全部元素。（译注：这里与我的版本又有不同，如果您也和我一样，请不要奇怪。）</dd>
+</dl>
+<div class="section" id="example">
+<h3>例子<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<img alt="../../_images/modeling_surfaces_editing_deleting.png" src="../../_images/modeling_surfaces_editing_deleting.png" />
+<p class="caption"><span class="caption-text">Before and after.</span></p>
+</div>
+<p>In Fig. <em>Before and after (left)</em> a row of control points has been selected by initially
+selecting the one control point and using <code class="kbd docutils literal"><span class="pre">Shift-R</span></code> to select the remaining
+control points. Then, using the <em>Delete Menu</em> <code class="kbd docutils literal"><span class="pre">X</span></code>,
+the <em>selected</em> row of control points is erased, resulting in Fig. <em>Before and after (right)</em>.</p>
+</div>
+</div>
+<div class="section" id="joining-or-merging-surfaces">
+<h2>联接或合并曲面<a class="headerlink" href="#joining-or-merging-surfaces" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:面‣创建段</div>
+<div class="line">热键:F</div>
+</div>
+</div>
+<p>Just like <a class="reference internal" href="../curves/editing/introduction.html#modeling-curves-make-segment"><span class="std std-ref">curves</span></a>,
+merging two surfaces requires that a single edge, a border row of control points,
+from two separate surfaces is selected. This means that the surfaces must be part of the same object. For example,
+you cannot join two surfaces while in <em>Object Mode</em> -- but you can of course, as with any objects of the same type,
+join two or more <em>Surface</em> objects
+into one object <code class="kbd docutils literal"><span class="pre">Ctrl-J</span></code> -- they just will not be &quot;linked&quot; or merged in a single one...
+Yes, it's a bit confusing!</p>
+<p>This tool is equivalent to creating edges or faces for meshes
+(hence its shortcut), and so it only works in <em>Edit Mode</em>.
+The selection must contains only border rows of the same resolution
+(with the same number of control points),
+else Blender will try to do its best to guess what to merge with what, or the merge will fail
+(either silently, or stating that <code class="docutils literal"><span class="pre">Resolution</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">match</span></code> if rows with
+different number of points are selected, or that there is <code class="docutils literal"><span class="pre">Too</span> <span class="pre">few</span> <span class="pre">selections</span> <span class="pre">to</span> <span class="pre">merge</span></code>
+if you only selected points in one surface...).
+To select control points of different surfaces,
+in the same object, you must use either border select or circle select.
+Holding down <code class="kbd docutils literal"><span class="pre">Ctrl</span></code> while <code class="kbd docutils literal"><span class="pre">LMB</span></code> will not work.</p>
+<p>所以为了避免问题，你应该选择拥有相同控制点数的边缘行，还有一点，U行可以和V行合并，只要它们分辨率相同，blender会自动转换两个轴向以使他们正确匹配。</p>
+<p>NURBS surface curves are often used to create objects like hulls,
+as they define cross sections all along the object,
+and you just have to &quot;skin&quot; them as described above to get a nice, smooth and harmonious shape.</p>
+<div class="section" id="id1">
+<h3>例子<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Fig. Joining ready is an example of two NURBS surface curves, <strong>not</strong> NURBS curves,
+in <em>Edit Mode</em>, ready to be joined.
+Fig. Joining complete is the result of joining the two curves.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<span id="fig-surface-edit-join-ready"></span><img alt="../../_images/modeling_surfaces_editing_joining-ready.png" src="../../_images/modeling_surfaces_editing_joining-ready.png" />
+<p class="caption"><span class="caption-text">Joining ready.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<span id="fig-surface-edit-join-complete"></span><img alt="../../_images/modeling_surfaces_editing_joining-complete.png" src="../../_images/modeling_surfaces_editing_joining-complete.png" />
+<p class="caption"><span class="caption-text">Joining complete.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="subdivision">
+<h2>细分<a class="headerlink" href="#subdivision" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">Panel:    Curve Tools</div>
+<div class="line">Menu:     <span class="menuselection">Surface tools ‣ Modeling ‣ Subdivide</span>, <span class="menuselection">Specials ‣ Subdivide</span></div>
+</div>
+</div>
+<p>Surface subdivision is most simple:
+using either the <em>Subdivide</em> entry in the <em>Specials</em> menu
+<code class="kbd docutils literal"><span class="pre">W</span></code>, or the <em>Subdivide</em> button of the <em>Curve Tools1</em> panel,
+you will subdivide once all <em>completely</em> selected grids by subdividing each &quot;quad&quot; into four
+smaller ones.</p>
+<p>If you apply it to a 1D surface (a &quot;surface curve&quot;),
+this tool works exactly as with <a class="reference internal" href="../curves/editing/introduction.html#modeling-curves-subdivision"><span class="std std-ref">curves</span></a>.</p>
+</div>
+<div class="section" id="spin">
+<h2>旋绕<a class="headerlink" href="#spin" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">Panel:    Curve Tools</div>
+</div>
+</div>
+<p>This tool is a bit similar to its <a class="reference internal" href="../meshes/editing/duplicating/spin.html"><span class="doc">mesh counterpart</span></a>
+but with less control and options (in fact, there is none!).</p>
+<p>只有当曲面是一条U向曲线（而不是V向）时，此命令才有效。他通过把U向行当成一个截面来旋转，并且自动调节权重最后得到一个完美的圆形挤出物体，对于管子和圆环也是一样的原理。</p>
+</div>
+<div class="section" id="switch-direction">
+<h2>切换方向<a class="headerlink" href="#switch-direction" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">菜单:面‣段数‣切换方向</div>
+</div>
+</div>
+<p>This tool will &quot;reverse&quot; the direction of any curve with at least one selected element
+(i.e. the start point will become the end one, and <em>vice versa</em>).
+Mainly useful when using a curve as path, or the bevel and taper options...</p>
+</div>
+<div class="section" id="other-specials-options">
+<h2>其他特殊选项<a class="headerlink" href="#other-specials-options" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">参考</p>
+<div class="last line-block">
+<div class="line">Mode:     Edit Mode</div>
+<div class="line">Menu:     Specials</div>
+<div class="line">热键:W</div>
+</div>
+</div>
+<p>The <em>Specials</em> menu contains exactly the same additional options as for
+curves, except for <em>Set Radius</em> and <em>Smooth Radius</em>.</p>
+<div class="section" id="conversion">
+<h3>转换<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h3>
+<p>NURBS曲面不能转换内面和外面。</p>
+<p>However, there is an &quot;external&quot; conversion available, from surface to mesh,
+that only works in <em>Object Mode</em>.
+It transforms a <em>Surface</em> object into a <em>Mesh</em> one,
+using the surface resolutions in both directions to create faces, edges and vertices.</p>
+</div>
+<div class="section" id="misc-editing">
+<h3>杂项<a class="headerlink" href="#misc-editing" title="Permalink to this headline">¶</a></h3>
+<p>You have some of the same options as with meshes, or in <em>Object Mode</em>.
+You can <a class="reference internal" href="../meshes/editing/misc.html#object-separate"><span class="std std-ref">separate</span></a> a given surface <code class="kbd docutils literal"><span class="pre">P</span></code>,
+make other selected objects <a class="reference internal" href="../../editors/3dview/object/properties/relations/parents.html#object-parenting"><span class="std std-ref">children</span></a>
+of one or three control points
+<code class="kbd docutils literal"><span class="pre">Ctrl-P</span></code>,
+or <a class="reference internal" href="../modifiers/deform/hooks.html"><span class="doc">add hooks</span></a> to control some points with other objects.</p>
+<p>The <em>Mirror</em> tool is also available, behaving exactly as with
+<a class="reference internal" href="../meshes/editing/transform/mirror.html"><span class="doc">mesh objects</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selecting.html" class="btn btn-neutral" title="Selecting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

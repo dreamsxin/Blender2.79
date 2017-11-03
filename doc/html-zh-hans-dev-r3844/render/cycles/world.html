@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>世界 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/cycles/world.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Blender Manual" href="../../index.html"/>
+        <link rel="up" title="Cycles渲染引擎" href="index.html"/>
+        <link rel="next" title="节点" href="nodes/index.html"/>
+        <link rel="prev" title="灯光" href="lamps.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">物理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">渲染</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender渲染引擎</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Cycles渲染引擎</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials/index.html">材质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lamps.html">灯光</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">世界</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#surface">Surface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#volume">Volume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ambient-occlusion">环境光遮蔽</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mist-pass">Mist Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ray-visibility">射线可见性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tricks">技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nodes/index.html">节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera.html">摄像机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="features.html">渲染功能特性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpu_rendering.html">GPU渲染</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking.html">渲染烘焙</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">渲染输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">后期处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">音频渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">渲染</a> &raquo;</li>
+        
+          <li><a href="index.html">Cycles渲染引擎</a> &raquo;</li>
+        
+      <li>世界</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/cycles/world.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="world">
+<span id="bpy-types-cyclesworldsettings"></span><h1>世界<a class="headerlink" href="#world" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id3">
+<img alt="../../_images/render_cycles_world_environment-lighting.jpg" src="../../_images/render_cycles_world_environment-lighting.jpg" />
+<p class="caption"><span class="caption-text">Lighting with an HDR image.</span></p>
+</div>
+<p>世界环境可以提供光照，可以是单一色彩、或是天空模型，也可以是各种贴图。</p>
+<div class="section" id="surface">
+<h2>Surface<a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h2>
+<p>表面着色器定义了从环境照射到场景中的光照。环境表面的渲染似乎是在场景内容十分遥远的地方，而且这意味着在场景物体与环境背景之间不会产生双向作用，只是光照可以进入而已。唯一支持的着色器就是具有输入接口的Background（背景）结点，以及决定光线密度的强度因数。</p>
+<div class="section" id="image-based-lighting">
+<h3>基于图像照明<a class="headerlink" href="#image-based-lighting" title="Permalink to this headline">¶</a></h3>
+<p>For image based lighting,
+use the Environment Texture node rather than the Image Texture node for correct mapping.
+This supports <em>Equirectangular</em> (also known as Lat/Long) for environment maps,
+and <em>Mirror Ball</em> mapping for converting photos of mirror balls to environment maps.</p>
+</div>
+</div>
+<div class="section" id="volume">
+<h2>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<p>体着色器可以在整个世界中应用，它会填满整个空间。</p>
+<p>Currently this is most useful for night time or other dark scenes,
+as the world surface shader or sun lamps will have no effect if a volume shader is used.
+This is because the world background is assumed to be infinitely far away,
+which is accurate enough for the sun for example.
+However, for modeling effects such as fog or atmospheric scattering,
+it is not a good assumption that the volume fills the entire space,
+as most of the distance between the sun and the earth is empty space.
+For such effects it is be better to create a volume object surrounding the scene.
+The size of this object will determine how much light is scattered or absorbed.</p>
+</div>
+<div class="section" id="ambient-occlusion">
+<h2>环境光遮蔽<a class="headerlink" href="#ambient-occlusion" title="Permalink to this headline">¶</a></h2>
+<p>Ambient occlusion（以下简称&quot;AO&quot;）是一种照明方式，表示的是某表面上点被周围表面所遮蔽的程度，这并不是一种物理精确的手段，但却有助于突出表面的阴影效果，或者是作为作为生成一种类似于间接照明的快捷方法。</p>
+<dl class="docutils">
+<dt>因数</dt>
+<dd>此值为AO的强度，值为1.0时，代表是个全白的世界着色器。</dd>
+<dt>距离</dt>
+<dd>Distance from shading point to trace rays.
+A shorter distance emphasizes nearby features,
+while longer distances make it also take objects farther away into account.</dd>
+</dl>
+<p>AO照明方式仅适用于漫反射类BSDF、光泽或透射类BSDF将不受影响。表明的透明度将会一并计算，例如，一个透明度减半的表面，其遮蔽效果强度将会相应减半。</p>
+<p>An alternative method of using Ambient Occlusion on a per-shader basis is to use the
+<a class="reference internal" href="nodes/types/shaders/ao.html"><span class="doc">Ambient Occlusion</span></a> shader.</p>
+</div>
+<div class="section" id="mist-pass">
+<span id="render-cycles-integrator-world-mist"></span><h2>Mist Pass<a class="headerlink" href="#mist-pass" title="Permalink to this headline">¶</a></h2>
+<p>Shown when the Mist pass is enabled. Mist values will range from 0.0-1.0 and are available from the
+RenderLayers node.</p>
+<dl class="docutils">
+<dt>Start</dt>
+<dd>Defines the beginning of the mist range from the camera.</dd>
+<dt>Depth</dt>
+<dd>Defines the length over which mist values will be provided.</dd>
+<dt>Falloff</dt>
+<dd><p class="first">The curve function that determines the mist values within its depth.</p>
+<dl class="last docutils">
+<dt>Quadratic</dt>
+<dd>Uses the same calculation as light falloff (<span class="math">\(1\over{x^2}\)</span>) and provides the smoothest
+transition from transparent (0.0) to opaque (1.0).</dd>
+<dt>Linear</dt>
+<dd>Has a steeper start than quadratic (<span class="math">\(1\over{x}\)</span>).</dd>
+<dt>Inverse Quadratic</dt>
+<dd>Has the steepest start (<span class="math">\(1\over{\sqrt{x}}\)</span>) and approaches 1.0 faster than the other two
+functions.</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">A visualization can be activated in the <span class="menuselection">Camera ‣ Display</span> panel.</p>
+</div>
+</div>
+<div class="section" id="settings">
+<span id="render-cycles-integrator-world-settings"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Surface<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>多重重要性采样</dt>
+<dd><p class="first">Enabling this will sample the background texture such that lighter parts are favored,
+creating an importance map. It will producing less noise in the render in trade of artifacts (fireflies).
+It is almost always a good idea to enable this when
+using an image texture to light the scene, otherwise noise can take a very long time to converge.</p>
+<p>Below is a comparison between <em>Multiple Importance Sample</em> off and on.
+Both images are rendered for 25 seconds (Off: 1500 samples, On: 1000 samples).</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<img alt="../../_images/render_cycles_world_mis-off.jpg" src="../../_images/render_cycles_world_mis-off.jpg" />
+<p class="caption"><span class="caption-text">Multiple Importance Sample Off.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../_images/render_cycles_world_mis-on.jpg" src="../../_images/render_cycles_world_mis-on.jpg" />
+<p class="caption"><span class="caption-text">Multiple Importance Sample On.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>贴图精度</dt>
+<dd>Sets the resolution of the importance map.
+A higher resolution will better detect small features in the map and give more accurate sampling.
+but conversely will take up more memory and render slightly slower.
+Higher values also may produce less noise when using high-res images.</dd>
+<dt>Max Bounces</dt>
+<dd>Maximal number of bounces the background light will contribute to the render.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">See <a class="reference internal" href="optimizations/reducing_noise.html"><span class="doc">Reducing Noise</span></a>
+for more information on how to reduce noise.</p>
+</div>
+</div>
+<div class="section" id="render-cycles-integrator-world-settings-volume">
+<span id="id2"></span><h3>Volume<a class="headerlink" href="#render-cycles-integrator-world-settings-volume" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Sampling Method</dt>
+<dd><dl class="first last docutils">
+<dt>距离</dt>
+<dd>If you have got a pretty dense volume that is lit from far away
+then <em>Distance</em> sampling is usually more efficient.</dd>
+<dt>Equiangular</dt>
+<dd>If you have got a light inside or near the volume then <em>equiangular</em> sampling is better.</dd>
+<dt>Multiple Importance</dt>
+<dd>If you have a combination of both, then the multiple importance sampling will be better.</dd>
+</dl>
+</dd>
+<dt>Interpolation</dt>
+<dd><p class="first">Interpolation method to use for the volume.</p>
+<dl class="last docutils">
+<dt>Linear</dt>
+<dd>Good smoothness and speed.</dd>
+<dt>Cubic</dt>
+<dd>Smoothed high quality interpolation, but slower.</dd>
+</dl>
+</dd>
+<dt>Homogeneous Volume</dt>
+<dd>Assume volume has the same density everywhere (not using any textures), for faster rendering.
+For example absorption in a glass object would typically not have any textures,
+and by knowing this we can avoid taking small steps to sample the volume shader.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="ray-visibility">
+<h2>射线可见性<a class="headerlink" href="#ray-visibility" title="Permalink to this headline">¶</a></h2>
+<p>和其他物体一样，<em>射线可见性</em> 允许你控制哪些着色器会在环境中被 &quot;看见&quot; 。</p>
+</div>
+<div class="section" id="tricks">
+<h2>技巧<a class="headerlink" href="#tricks" title="Permalink to this headline">¶</a></h2>
+<p>有些时候，除了为物体提供间接光照的背景外，也会需要另一个直接可见的背景。一种简单的方法就是添加一个Mix（混合）结点，并将Blend Factor（混合因数）设为Is Camera Ray（摄像机光线），第一个输入接口颜色是预期的间接光颜色，而第二个输入接口决定的是直接可见的颜色。只要是使用高分辨率的图像作为背景，并使用低分辨率的图像作为照明的时候，这是非常管用的。</p>
+<p>同样的，添加 Is Camera Ray（摄像机光线）和 <em>Is Glossy</em> （反射光线）意味着高分辨率图像会在反射的时候存在影响。</p>
+<div class="figure" id="id6">
+<img alt="../../_images/render_cycles_world_tricks.png" src="../../_images/render_cycles_world_tricks.png" />
+<p class="caption"><span class="caption-text">Nodes for the trick above.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nodes/index.html" class="btn btn-neutral float-right" title="节点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lamps.html" class="btn btn-neutral" title="灯光" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

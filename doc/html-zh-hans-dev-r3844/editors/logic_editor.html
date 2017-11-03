@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-hans" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-hans" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>逻辑编辑器 &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/logic_editor.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual" href="../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Blender Manual" href="../index.html"/>
+        <link rel="up" title="编辑器" href="index.html"/>
+        <link rel="next" title="属性编辑器" href="properties_editor.html"/>
+        <link rel="prev" title="Reroute Node" href="node_editor/nodes/reroute.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Blender入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">编辑器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#animation">动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#image-video">图像/视频</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#nodes-logic">节点/逻辑</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="text_editor.html">文本编辑器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="node_editor/index.html">节点编辑器</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">逻辑编辑器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-view">Main View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property-region">属性区</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#settings">设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#other">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">制作模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">绘制与雕刻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">游戏引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">用户设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">高级应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">管线</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">词汇表</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于本手册</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">编辑器</a> &raquo;</li>
+        
+      <li>逻辑编辑器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/editors/logic_editor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logic-editor">
+<span id="bpy-types-spacelogiceditor"></span><h1>逻辑编辑器<a class="headerlink" href="#logic-editor" title="Permalink to this headline">¶</a></h1>
+<p>逻辑编辑器提供了为构成游戏的各种角色（即物体）设置和编辑游戏逻辑的主要方法。在相关3D视图中当前选择的物体的逻辑显示为逻辑块，分别显示为具有三列的表，分别显示促动器，控制器和触发器。连接逻辑块的链接传导传感器控制器和控制器执行器之间的脉冲。</p>
+<p>为了更好地了解逻辑编辑器，下图显示了主要组件标记的典型编辑器内容。我们将分别来看每一个。</p>
+<div class="figure" id="id1">
+<img alt="../_images/editors_logic-editor_expanded-menus.png" src="../_images/editors_logic-editor_expanded-menus.png" />
+<p class="caption"><span class="caption-text">逻辑编辑器的不同部分。</span></p>
+<div class="legend">
+1）属性区域，2）物体名称，3a）连接线，3b）连接槽，4）促进器列，5）控制器列，6）触发器列。</div>
+</div>
+<div class="section" id="main-view">
+<h2>Main View<a class="headerlink" href="#main-view" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>物体名称</dt>
+<dd>该框显示了拥有以下逻辑块的物体的名称。</dd>
+<dt>连接线</dt>
+<dd><p class="first">连接线（3A）表示物体之间逻辑流的方向。通过 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 从一个连接槽（3B）拖动到另一个连接槽座来绘制连接线。连接线只能从促进器到控制器，或从控制器到触发器。您不能将促进器直接连接到触发器; 同样，执行器不能与促进器连接（但是，特殊促进的执行器和促进器可用于提供这些连接线）。</p>
+<p>发送节点（促进器和控制器右侧的黑圈）可以发送到多个接收节点（控制器和触发器左侧的白色圆圈）。接收节点同样可以接收多个连接。</p>
+<p class="last">可以在属于不同物体的逻辑块之间创建连接先。要删除两个节点 <code class="kbd docutils literal"><span class="pre">LMB</span></code> 之间的连接线，请在两个节点之间拖动。</p>
+</dd>
+</dl>
+<div class="section" id="sensor-column">
+<h3>促动器<a class="headerlink" href="#sensor-column" title="Permalink to this headline">¶</a></h3>
+<p>此列包含活动物体（和任何其他选定物体）拥有所有促进器的列表。使用“添加促进器”按钮创建活动物体的新促进器。要进一步深入了解此领域的内容，布局和可用操作，请参阅 <a class="reference internal" href="../game_engine/logic/sensors/introduction.html"><span class="doc">促进器</span></a>.</p>
+</div>
+<div class="section" id="controller-column">
+<h3>控制器<a class="headerlink" href="#controller-column" title="Permalink to this headline">¶</a></h3>
+<p>此列包含活动物体（和任何其他选定物体）拥有的所有控制器的列表。使用“添加控制器”按钮创建活动物体的新控制器，以及创建活动物体的状态。有关这一领域的内容，布局和可用操作的更深入的了解，请参阅 <a class="reference internal" href="../game_engine/logic/controllers/introduction.html"><span class="doc">控制器</span></a>.</p>
+</div>
+<div class="section" id="actuator-column">
+<h3>触发器<a class="headerlink" href="#actuator-column" title="Permalink to this headline">¶</a></h3>
+<p>此列包含活动物体（和任何其他选定物体）拥有的所有触发器的列表。使用“添加触发器”按钮创建活动物体的新触发器。要更深入地了解此领域的内容，布局和可用操作，请参阅 <a class="reference internal" href="../game_engine/logic/actuators/introduction.html"><span class="doc">触发器</span></a>.</p>
+</div>
+</div>
+<div class="section" id="property-region">
+<h2>属性区<a class="headerlink" href="#property-region" title="Permalink to this headline">¶</a></h2>
+<p>游戏属性就像其他编程语言中的变量。它们用于保存和访问与物体相关联的数据。有几种类型的属性可用。通过单击此区域中的添加游戏属性按钮声明属性。要更深入地了解该区域的内容，布局和可用操作，请参阅 <a class="reference internal" href="../game_engine/logic/properties.html"><span class="doc">属性区</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties_editor.html" class="btn btn-neutral float-right" title="属性编辑器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="node_editor/nodes/reroute.html" class="btn btn-neutral" title="Reroute Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions" aria-hidden="true">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 zh-hans 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'zh-hans',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
